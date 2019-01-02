@@ -1,0 +1,33 @@
+server:
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///vancl?serverTimezone=UTC
+    username: root
+    password: 123
+  mvc:
+    static-path-pattern: /**
+
+    resources:
+        static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  thymeleaf:
+      encoding: UTF-8
+      prefix: classpath:/templates/
+      cache: false
+
+
+mybatis:
+  type-aliases-package: com.van.pojo
+  configuration:
+    auto-mapping-behavior: FULL
+    use-generated-keys: true
+
+pagehelper:
+      helperDialect: mysql
+      reasonable: true
+      page-size-zero: true
+
