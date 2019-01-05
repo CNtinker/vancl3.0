@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van.dao.GglbMapper">
+    <select id="findImgByPrantClass" resultType="img">
+        SELECT img_path from van_img WHERE prant_class=#{prantClassId}
+    </select>
+</mapper>

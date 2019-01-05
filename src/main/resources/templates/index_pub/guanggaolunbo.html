@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div  th:fragment="gglb">
+    <div style="width: 100%; height: 2px;"></div>
+    <div class="vanclFocus " >
+        <div class="foucsTab">
+            <!--广告轮播大图-->
+            <ul id="slider" class="rslides rslides1" >
+                <li th:each="gglb:${session.gglblist}" data-focusflag="other1"
+                    style=    "background: url(&quot;http://i5.vanclimg.com/cms/20181226/1200-535.jpg&quot;) center 0px no-repeat scroll; display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out 0s;"
+                    th:style="'background: url(&quot;'+${gglb}+'&quot;) center 0px no-repeat scroll; display: list-item; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out 0s;'"
+                    id="rslides1_s0" class="rslides1_on">
+
+                    <a title="双旦" href="http://catalog.vancl.com/sdzjhd.html"  class="track" name="hp-hp-focus-1_1-v:n" target="_blank"></a>
+                </li>
+                <!--<li data-focusflag="other1"
+                    style="background: url(&quot;http://i5.vanclimg.com/cms/20190103/1200x535.jpg&quot;) center 0px no-repeat scroll; display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out 0s;"
+                    id="rslides1_s1" class=""><a title="T恤猪年大吉" href="http://catalog.vancl.com/zndjzt.html"
+                                                 class="track" name="hp-hp-focus-1_2-v:n" target="_blank"></a></li>
+                <li data-focusflag="other1"
+                    style="background: url(&quot;http://i4.vanclimg.com/cms/20190102/5351.jpg&quot;) center 0px no-repeat scroll; display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out 0s;"
+                    id="rslides1_s2" class=""><a title="羽绒服" href="http://downcoat.vancl.com" class="track"
+                                                 name="hp-hp-focus-1_3-v:n" target="_blank"></a></li>
+                <li data-focusflag="other1"
+                    style="background: url(&quot;http://i5.vanclimg.com/cms/20181227/535.jpg&quot;) center 0px no-repeat scroll; display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out 0s;"
+                    id="rslides1_s3" class=""><a title="全棉打底T恤" href="http://catalog.vancl.com/qmvt.html" class="track"
+                                                 name="hp-hp-focus-1_4-v:n" target="_blank"></a></li>
+                <li data-focusflag="other1"
+                    style="background: url(&quot;http://i5.vanclimg.com/cms/20181221/4.jpg&quot;) center 0px no-repeat scroll; display: list-item; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out 0s;"
+                    id="rslides1_s4" class="rslides1_on"><a title="衬衫4.0"
+                                                            href="http://catalog.vancl.com/csz4.html#ref=hp-hp-focus-1_5-v:n@ref=hp-hp-focus-1_5-v:n"
+                                                            class="track" name="hp-hp-focus-1_5-v:n"
+                                                            target="_blank"></a></li>
+                <li data-focusflag="other1"
+                    style="background: url(&quot;http://i5.vanclimg.com/cms/20181221/535.jpg&quot;) center 0px no-repeat scroll; display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out 0s;"
+                    id="rslides1_s5" class=""><a title="帆布鞋" href="http://catalog.vancl.com/fbxzt.html" class="track"
+                                                 name="hp-hp-focus-1_6-v:n" target="_blank"></a></li>-->
+            </ul>
+            <a href="javascript:void(0);" class="rslides_nav rslides1_nav prev">Previous</a>
+            <a href="javascript:void(0);" class="rslides_nav rslides1_nav next">Next</a>
+            <ul class="rslides_tabs rslides1_tabs">
+                <li class="rslides1_s1"><a href="javascript:void(0);" class="rslides1_s1">1</a></li>
+                <li class="rslides1_s2 "><a href="javascript:void(0);" class="rslides1_s2">2</a></li>
+                <li class="rslides1_s3 rslides_here"><a href="javascript:void(0);" class="rslides1_s3">3</a></li>
+                <li class="rslides1_s4"><a href="javascript:void(0);" class="rslides1_s4">4</a></li>
+                <li class="rslides1_s5"><a href="javascript:void(0);" class="rslides1_s5">5</a></li>
+                <li class="rslides1_s6"><a href="javascript:void(0);" class="rslides1_s6">6</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

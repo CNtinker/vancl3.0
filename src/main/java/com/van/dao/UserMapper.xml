@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van.dao.UserMapper">
+
+    <insert id="addUser" keyColumn="uid" keyProperty="uid">
+          insert into van_user(login_name,pwd,tell_phone)values (#{login_name},#{pwd},#{tell_phone})
+    </insert>
+
+    <select id="findLoginPwdUser" resultType="user">
+        select * from van_user where login_name=#{login_name} and pwd=#{pwd}
+    </select>
+
+    <select id="findAllUser" resultType="user">
+        select * from van_user
+    </select>
+
+    <select id="findByIdUser" resultType="user">
+        select * from van_user where uid=#{uid}
+    </select>
+
+    <update id="updateUserById" keyColumn="uid" keyProperty="uid" parameterType="int">
+        update van_user set login_name=#{login_name},pwd=#{pwd},real_Name=#{real_name},
+         sex=#{sex},date_birth=#{date_birth},email=#{email}, tell_phone=#{tell_phone},
+         land_phone=#{land_phone},head_picture=#{head_picture},state=#{state}
+        where uid=#{uid}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from van_user where uid=#{uid}
+    </delete>
+    <select id="findLoginUser" resultType="user">
+        select *from van_user where login_name=#{login_name}
+    </select>
+</mapper>

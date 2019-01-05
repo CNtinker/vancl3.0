@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0021)http://www.vancl.com/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="index_pub/other/push.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <title>凡客VANCL</title>
+    <link rel="shortcut icon" href="http://i.vanclimg.com/common/favicon/favicon.ico" type="image/x-icon">
+    <meta name="keywords"
+          content="vancl">
+    <meta name="description"
+          content="凡客VANCL">
+    <link href="index_pub/css/css.css" type="text/css" rel="stylesheet" charset="utf-8">
+
+    <script src="index_pub/other/websourceurl.aspx"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="index_pub/js/js2.js"></script>
+    <!--<script type="text/javascript">
+        $(function(){
+            $("#mainNavBox ul li:gt(1)").mouseover(function(){
+                $(this).childen(".subNav").slideDown("slow")
+            });
+        });
+    </script>-->
+</head>
+<body class="full">
+<!--引用头部templates\index_pub\top.html-->
+<div class="top_top" th:replace="index_pub/top::top_top"/>
+<div class="blank0"></div>
+<div class="blank0" style="height:32px;"></div>
+<!--引用广告轮播-->
+<div class="top_top" th:replace="index_pub/guanggaolunbo::gglb"/>
+<!--引用尾部templates\index_pub\footer.html-->
+<div class="footer_top" th:replace="index_pub/footer::footer_top"/>
+<div class="footer_down" th:replace="index_pub/footer::footer_down"/>
+<!--引用右边固定定位框templates\index_pub\rightWindows.html-->
+<div class="right_wind" th:replace="index_pub/rightWindows::right_wind"/>
+
+
+<div id="overlay" style="display: none;">
+    <div style="background:#000;filter:alpha(opacity=40);opacity:0.4;-moz-opacity:0.4;width:100%;height:100%; position:fixed; _position:absolute;left:0px;top:0px; z-index:999998;"></div>
+
+    <div class="screenAdPop">
+        <p class="screenAdPopfull"><a href="http://catalog.vancl.com/zndjzt.html" name="hp-hp-billboard-0-v:n"
+                                      class="track" target="_blank"><img width="1200px" height="600px"
+                                                                         src="index_pub/img/1200-600.jpg"
+                                                                         alt="双旦直降"></a></p>
+        <p class="screenAdPopnarrow"><a href="http://catalog.vancl.com/zndjzt.html" name="hp-hp-billboard-0-v:n"
+                                        class="track" target="_blank"><img width="980px" height="660px"
+                                                                           src="index_pub/img/980x660.jpg"
+                                                                           alt="双旦直降"></a></p>
+        <span class="screenAdClose"></span>
+    </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        //遮罩层
+        var tipOverlay = $("#overlay");
+        if (tipOverlay.length > 0) {
+            $("span.screenAdClose", tipOverlay).click(function () {
+                closeTipOverlay();
+            });
+            window.setTimeout(function () {
+                closeTipOverlay();
+            }, 10000);
+        }
+
+        var setting = {closeTipOverlay: false};
+        var closeTipOverlay = function () {
+            tipOverlay.fadeOut();
+            //-------vjia浮窗
+            if (setting.closeTipOverlay == false && VANCL.www.VjiaFloatad != undefined) {
+                setting.closeTipOverlay = true;
+                VANCL.www.VjiaFloatad.init();
+            }
+        }
+    });
+</script>
+
+<style type="text/css">
+    .ipad_pop {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        border: 2px solid #bdbdbd;
+        width: 290px;
+        height: 98px;
+        z-index: 9999;
+        display: none;
+    }
+
+    .ipad_pop .ipad_close {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        background-image: url(http://i1.vanclimg.com/Others/ipad_close.jpg);
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .ipad_pop .ipad_down {
+        width: 97px;
+        height: 30px;
+        position: absolute;
+        left: 150px;
+        top: 60px;
+        display: inline-block
+    }
+</style>
+<div class="ipad_pop" id="ipad_pop">
+    <img src="index_pub/img/ipad_pop.jpg" width="290" height="98">
+    <span class="ipad_close" id="ipad_close"></span>
+    <a href="https://itunes.apple.com/app/fan-ke-cheng-pin-hd-hu-lian/id442666468?mt=8?source=vancl_android_003"
+       target="_blank" class="ipad_down"></a>
+</div>
+
+
+</body>
+</html>

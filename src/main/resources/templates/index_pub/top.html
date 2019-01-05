@@ -1,0 +1,108 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="top_top" th:fragment="top_top">
+    <!--以下为头部公共部分-->
+    <div id="Head" class="vanclHead">
+        <!--顶部通栏-->
+        <div id="headerTopArea" class="headerTopAreaBox">
+            <div class="headerTopArea">
+                <div class="headerTop">
+                    <div class="headerTopRight" style="width: 126px;">
+                        <div class="active notice" id="vanclCustomer"><a class="mapDropTitle"
+                                                                         href="http://catalog.vancl.com/zhuanti/tg_20100510.html"
+                                                                         target="_blank">网站公告</a></div>
+                        <div class="payattention"><em></em><a href="javascript:void(0);" class="vweixinbox"><span
+                                class="vweixin"
+                                style="background: url(index_pub/img/w1.jpg) no-repeat left 3px;"></span><b
+                                class="vweixinTip"></b></a><a href="http://e.weibo.com/vancl" class="track vanclweibo"
+                                                              name="hp-hp-head-weibo-v:n" target="_blank"
+                                                              style="background: url(index_pub/img/w2.jpg) no-repeat left 3px;"></a>
+                        </div>
+                    </div>
+                    <div class="headerTopLeft">
+                        <div id="welcome" class="top loginArea"> 您好,<span class="top">欢迎光临凡客诚品！&nbsp;</span><span><a
+                                href="javascript:location.href=&#39;https://login.vancl.com/login/login.aspx?&#39;+encodeURIComponent(location.href)"
+                                name="hp-hp-head-signin-v:n" class="top track">登录</a>&nbsp;|&nbsp;<a
+                                href="javascript:location.href=&#39;https://login.vancl.com/login/reg.aspx?&#39;+encodeURIComponent(location.href)"
+                                name="hp-hp-head-register-v:n" class="track">注册</a></span></div>
+                        <div class="recommendArea"><a href="http://my.vancl.com/Order/" rel="nofollow" class="track"
+                                                      name="hp-hp-head-order-v:n"> 我的订单</a></div>
+                    </div>
+                    <span class="blank0"></span></div>
+            </div>
+        </div>
+        <!--搜索通栏-->
+        <div id="logoArea" class="vanclLogoSearch">
+            <div class="vanclSearch fr">
+                <div class="searchTab">
+                    <div class="search fl"><input type="text" class="searchText ac_input textBox Enter fl" name="k"
+                                                  id="skey" value="搜“麻衬衫”，体验与众不同" defaultkey="麻衬衫"
+                                                  autocomplete="off"><input
+                            type="button" class="searchBtn sousuoBtn btn" id="btnHeaderSearch" onfocus="this.blur()">
+                    </div>
+                    <div class="active" id="shoppingCarNone"><p><a id="shoppingcar_link" rel="nofollow"
+                                                                   href="http://shopping.vancl.com/mycart"
+                                                                   name="hp-hp-head-cart-v:n:t"
+                                                                   class="shopborder track cartab">购物车(<span
+                            car_product_total="shoppingCar_product_totalcount">0</span>)</a><s></s></p>
+                        <div class="bottomlines"></div>
+                        <div class="BuycarTab shopDropList">
+                            <div class="shopnopru">
+                                <div class="SCtotalpageno">您的购物车中没有任何商品</div>
+                                <div class="SCtotalpageBottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotWord"><p> 热门搜索：<a name="hp-hp-classhotsearch-1_1-v:n" class="track"
+                                                 href="http://s.vancl.com/search?k=%E5%85%8D%E7%83%AB%E8%A1%AC%E8%A1%AB&amp;orig=3"
+                                                 target="_blank">免烫衬衫</a><a name="hp-hp-classhotsearch-1_2-v:n"
+                                                                            class="track"
+                                                                            href="http://s.vancl.com/search?k=%E7%BE%BD%E7%BB%92%E6%9C%8D&amp;orig=3"
+                                                                            target="_blank">羽绒服</a><a
+                        name="hp-hp-classhotsearch-1_3-v:n" class="track"
+                        href="http://s.vancl.com/s2.html?k=%E5%A4%96%E5%A5%97#ref=s_order_0_2|s_order_0_5|s_order_0_1|s_order_0_2|s_order_0_10|s_order_0_1"
+                        target="_blank">外套</a><a name="hp-hp-classhotsearch-1_4-v:n" class="track"
+                                                 href="http://s.vancl.com/search?k=%E7%86%8A%E6%9C%AC%E7%86%8A&amp;orig=3"
+                                                 target="_blank">熊本熊</a><a name="hp-hp-classhotsearch-1_5-v:n"
+                                                                           class="track"
+                                                                           href="http://s.vancl.com/search?k=%E8%BF%90%E5%8A%A8%E6%88%B7%E5%A4%96&amp;orig=3"
+                                                                           target="_blank">运动户外</a><a
+                        name="hp-hp-classhotsearch-1_6-v:n" class="track"
+                        href="http://s.vancl.com/search?k=%E5%B8%86%E5%B8%83%E9%9E%8B&amp;orig=3"
+                        target="_blank">帆布鞋</a><a
+                        name="hp-hp-classhotsearch-1_7-v:n" class="track"
+                        href="http://s.vancl.com/search?k=%E6%B0%B4%E6%9F%94%E6%A3%89&amp;orig=3"
+                        target="_blank">水柔棉</a>
+                </p></div>
+            </div>
+        </div>
+        <!--分页通栏-->
+        <div class="navlist clear" id="mainNavBox" style="z-index:300!important;">
+            <ul>
+                <li class="vancllogo_Con" style="text-align: left;"><a href="http://www.vancl.com/"></a></li>
+                <li><a href="http://www.vancl.com/">首页</a><span class="NavLine"></span></li>
+                <span th:each="it:${session.list}" id="index_category_list">
+                    <li><a  th:href="@{fenlei(categoryLevel1=${it.getCc_id()})}" class="track"
+                            name="hp-hp-head-nav_1-v:n" target="_blank"><span th:text="${it.getCc_name()}">衬衫</span><!--<em
+						style="display: block; width: 25px; height: 13px; background: url(http://i3.vanclimg.com/cms/20170329/icon_hot.png) no-repeat scroll; position: absolute; left: 67px; top: -5px;"></em>--></a><span
+                            class="NavLine"></span>
+					<div class="subNav"
+                         style="display: none; *postion: relative; *z-index: 300;">
+						<span></span>
+						<ul th:each="cl:${it.getChile()}">
+							<li><a
+                                    th:href="@{fenlei(categoryLevel2=${cl.getCc_id()})}"
+                                    class="track" name="hp-hp-head-nav_1-1-v:n" target="_blank" th:text="${cl.getCc_name()}">免烫</a></li>
+							<li>
+						</ul>
+					</div></li>
+                </span>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
