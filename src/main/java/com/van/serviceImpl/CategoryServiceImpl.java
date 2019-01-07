@@ -3,6 +3,7 @@ package com.van.serviceImpl;
 import com.van.dao.CategoryMapper;
 import com.van.dao.ProductMapper;
 import com.van.pojo.Category;
+import com.van.pojo.Img;
 import com.van.pojo.Product;
 import com.van.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Product> findAllById(Map<String, Object> map) {
 
         return productMapper.findAllById(map);
+    }
+
+    @Override
+    public List<Img> findImgByPrant_class(String PrantClass) {
+        return productMapper.findImgByPrant_class(PrantClass);
     }
 }

@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.van.pojo.Category;
+import com.van.pojo.Img;
 import com.van.pojo.Product;
 import com.van.service.CategoryService;
 import com.van.service.IndexService;
@@ -62,6 +63,10 @@ public class CategoryController {
         Page<Object> pg=PageHelper.startPage(Integer.parseInt(pageIndex),5/*,"p_id desc"*/);
 
         List<Product> pds= cs.findAllById(map);
+        for (Product pd:pds) {
+            loadPicture(pd);
+        }
+
         mod.addAttribute("pg",pg);
         mod.addAttribute("pds",pds);
         if(categoryLevel1!=null){
@@ -69,5 +74,16 @@ public class CategoryController {
         }
         return "search";
 
+    }
+
+    /*加载分类页面的图片附属方法*/
+    private void loadPicture(Product pd){
+        /*网址所属的类*/
+        String PrantClass="product/"+pd.getP_img();
+        List<Img> imgList=cs.findImgByPrant_class(PrantClass);
+        for (Img img:imgList) {
+            String img_path=img.getImg_path();
+            pd.setPicturesmain("http://pkr49wiq4.bkt.clouddn.com/"+img_path);
+        }
     }
 }

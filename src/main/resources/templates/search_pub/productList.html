@@ -12,7 +12,7 @@
                         class="productPhoto"
                         original="http://p2.vanclimg.com/300/300/product/6/3/8/6383118/mid/6383118-1j201811101057285071.jpg"
                         alt="卫衣 复合双层绒 连帽 男款 深花灰/黑色" th:alt="${it.getP_name()}" width="230" height="230"
-                        src="img/6383118-1j201811101057285071.jpg" th:src="'ProductList/'+${categoryLevel1}+'/'+${categoryLevel2}+'/'+${it.p_img}+'.jpg'"
+                        src="img/6383118-1j201811101057285071.jpg" th:src="${it.getPicturesmain()}"
                         style="display: block;"></a>
                 <div class="teshui" th:text="${it.getP_discount_price()}">258</div>
                 <div class="newview"></div>

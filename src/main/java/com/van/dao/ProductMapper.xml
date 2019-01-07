@@ -20,4 +20,9 @@
         </where>
     </sql>
 
+    <select id="findImgByPrant_class" resultType="img">
+        SELECT * from van_img
+        where prant_class=#{PrantClass}
+    </select>
+
 </mapper>

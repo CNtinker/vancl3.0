@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by dzw on 2018/12/21.
@@ -25,7 +26,6 @@ public class Product {
     private Date Release;
     private String fileName;
     private Integer isDelete;
-    /*用于记录文件图片数量*/
-    private Integer fenleinum;
-    private Integer jieshaonum;
+    /*记录主图片路径*/
+    private String Picturesmain;
 }

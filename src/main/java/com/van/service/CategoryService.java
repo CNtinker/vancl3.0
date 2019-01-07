@@ -1,6 +1,7 @@
 package com.van.service;
 
 import com.van.pojo.Category;
+import com.van.pojo.Img;
 import com.van.pojo.Product;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,6 +14,10 @@ import java.util.Map;
 public interface CategoryService {
     //查询所有的商品
     List<Product> findAllById(Map<String, Object> map);
+
+    //查询所有商品的图片
+    List<Img> findImgByPrant_class(String PrantClass);
+
 }
 
 
