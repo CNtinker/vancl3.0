@@ -25,8 +25,6 @@ $(function(){
             .css({"float": "none", "position": "absolute", "opacity": "0", "z-index": "1"})
     });
     /*自动播放*/
-
-
         timer=setInterval(function () {
             num++;
             if(num>parseFloat(list)-1){
@@ -45,30 +43,11 @@ $(function(){
             }
     },2000);
 
+    /*搜索功能*/
+    $('#btnHeaderSearch').click(function () {
+        $('#skey')
+    });
 });
 
 
-/*
-$(function () {
-    $("#addOption").click(function () {
-        $("#voteoptions").append("<P><INPUT name=\"options\" class=\"input-text\" type=\"text\"></P>");
-    });
 
-    $("input[name='options']").live("blur",function () {
-        var $options =  $("input[name='options']");
-        for(var i=0;i<$options.length;i++){
-            for(var j=0;j<$options.length;j++){
-                if(i!=j){
-                    if($options.eq(i).val()==$options.eq(j).val()){
-                        $options.eq(i).css("border-color","red");
-                        $options.eq(i).siblings().css("border-color","#79a4cf");
-                        $options.eq(j).css("border-color","red");
-                        break;
-                    }else{
-                        $options.eq(i).css("border-color","#79a4cf");
-                    }
-                }
-            }
-        }
-    });
-});*/

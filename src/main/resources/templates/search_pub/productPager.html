@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!--分页-->
+    <div class="searchPage20111226" id="pager" th:fragment="productPager">
+    <input type="button" class="pageGGsub20111226" value=""
+           onclick="var pageIndex=parseInt($('#bottompageindex').val()); if(pageIndex > 0 && pageIndex !== 1){setBottomPageindex('s1.html', 1, pageIndex);}"/>
+    <strong>页</strong><input type="text" id="bottompageindex" class="pageGGshuru20111226" value="1"><strong>到第</strong>
+    <em class="allpagesNumber20111226">共<span th:text="${pg.pages}">17</span>页</em>
+    <span class="jquery_pager_nextpage20111226"
+          onmouseover="$(this).css('background-position', '46px -1976px');"
+          onmouseout="$(this).css('background-position', '46px -1954px');"><a href="s1-p2.html"
+                                                                              class="track"
+                                                                              name="s_nextpage" th:href="@{fenlei(pageIndex=${pg.PageNum+1},categoryLevel2=${categoryLevel2})}">下一页</a></span>
+    <ul th:each="nav:${pg.toPageInfo().navigatepageNums}">
+        <li class="currentpage20111226"  th:text="${pg.PageNum}" th:if="${nav==pg.PageNum}">1</li>
+        <li><a href="s1-p2.html" class="track" name="s_page_2" th:href="@{fenlei(pageIndex=${nav},categoryLevel2=${categoryLevel2})}" th:text="${nav}" th:if="${nav!=pg.PageNum}">2</a></li>
+    </ul>
+    <span class="jquery_pager_prevpage20111226"
+          onmouseover="$(this).css('background-position', '3px -2018px');"
+          onmouseout="$(this).css('background-position', '3px -1996px');"><a th:href="@{fenlei(pageIndex=${pg.PageNum-1},categoryLevel2=${categoryLevel2})}">上一页</a></span>
+</div>
+</body>
+</html>

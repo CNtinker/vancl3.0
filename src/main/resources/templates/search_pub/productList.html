@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--分页页面商品显示-->
+<div class="pruarea pruarea0124" id="vanclproducts" counts="61" th:fragment="productList">
+    <ul th:each="it:${pds}">
+        <li class="scListArea borCdbd7d6 productwrapper border">
+            <div pop="6383118" class="pic" time="20181211232417">
+                <a href="http://item.vancl.com/6383118.html" th:href="@{gotoProduct(p_id=${it.getP_id()})}" class="track"
+                   name="s-s-k_rs__5403bb4c98314d448a611b4c928d0413_3c767989232662ff-1_1-6383118_Sort01_qb_000-v"
+                   title="卫衣 复合双层绒 连帽 男款 深花灰/黑色" target="_blank" th:title="${it.getP_name()}"> <img
+                        class="productPhoto"
+                        original="http://p2.vanclimg.com/300/300/product/6/3/8/6383118/mid/6383118-1j201811101057285071.jpg"
+                        alt="卫衣 复合双层绒 连帽 男款 深花灰/黑色" th:alt="${it.getP_name()}" width="230" height="230"
+                        src="img/6383118-1j201811101057285071.jpg" th:src="'ProductList/'+${categoryLevel1}+'/'+${categoryLevel2}+'/'+${it.p_img}+'.jpg'"
+                        style="display: block;"></a>
+                <div class="teshui" th:text="${it.getP_discount_price()}">258</div>
+                <div class="newview"></div>
+
+                <div class="vancllist_logo"></div>
+            </div>
+            <p>
+                <a href="http://item.vancl.com/6383118.html" class="track"
+                   name="s-s-k_rs__5403bb4c98314d448a611b4c928d0413_3c767989232662ff-1_1-6383118_Sort01_qb_000-v"
+                   title="卫衣 复合双层绒 连帽 男款 深花灰/黑色" th:title="${it.getP_name()}" target="_blank"
+                   th:text="${it.getP_name()}">卫衣 复合双层绒 连帽
+                    男款 深花灰/黑色</a>
+            </p>
+            <div class="Mpricediv0124">
+								<span class="Sprice">售价￥ <strong th:text="${it.getP_price()}">398</strong>
+								</span>
+            </div>
+
+        </li>
+    </ul>
+</div>
+</body>
+</html>
