@@ -24,5 +24,21 @@
         SELECT * from van_img
         where prant_class=#{PrantClass}
     </select>
+    
+    <select id="findP_Pk_childrensByP_id" resultType="p_pk_children">
+        SELECT * from p_pk_children
+        where P_id=#{arg0} AND biao_id=#{arg1}
+    </select>
 
+    <select id="findColorByColorId" resultType="string">
+    SELECT color_name FROM van_color
+    where color_id=#{color_id}
+
+    </select>
+    
+    <select id="findSizeByColorId" resultType="string">
+        SELECT size_name from size_id
+        WHERE size_id=#{Size_id}
+
+    </select>
 </mapper>

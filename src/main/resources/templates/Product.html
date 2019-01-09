@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <!-- saved from url=(0149)http://item.vancl.com/6382340.html#ref=s-s-k_rs__83abe76376654054a649056cc49810a7_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="Product_pub/other/push.js.下载"></script><style class="vjs-styles-defaults">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="Product_pub/other/push.js.下载"></script>
+    <style class="vjs-styles-defaults">
       .video-js {
         width: 300px;
         height: 150px;
@@ -11,10 +15,8 @@
       }
     </style><meta http-equiv="Content-Type" content="text/html; charset=uft-8">
     
-<title>
-        凡客衬衫 吉国武 免烫 温莎领 4.0 黑色 - 男装 长袖衬衫 衬衫 - VANCL 凡客诚品
-    </title>
-<meta name="keywords" content="凡客衬衫 吉国武 免烫 温莎领 4.0 ，男装 衬衫 长袖衬衫，黑色，，VANCL凡客诚品">
+    <title>凡客衬衫 吉国武 免烫 温莎领 4.0 黑色 - 男装 长袖衬衫 衬衫 - VANCL 凡客诚品</title>
+    <meta name="keywords" content="凡客衬衫 吉国武 免烫 温莎领 4.0 ，男装 衬衫 长袖衬衫，黑色，，VANCL凡客诚品">
 <meta name="description" content="空，VANCL凡客诚品网上购物、送货上门、货到付款，无条件退换货。">
 <link rel="shortcut icon" href="http://i.vanclimg.com/common/favicon/favicon.ico" type="image/x-icon">
     <link href="Product_pub/css/css.css" type="text/css" rel="stylesheet">
@@ -22,23 +24,97 @@
 
     <link href="Product_pub/css/css(1).css" type="text/css" rel="stylesheet">
     <script src="Product_pub/other/websource.aspx"></script><script type="text/javascript" src="Product_pub/js/js(1).js"></script>
-<title>
+    <script src="js/jquery-1.8.3.min.js"></script>
 
-</title></head>
+    <script src="Product_pub/js/fangdajinjs.js"></script>
+    <script src="Product_pub/js/colorandsize.js"></script>
+</head>
+<script>
+    $(function(){
+        /*
+         show  //正常状态的框
+         bigshow   // 放大的框的盒子
+         smallshow  //缩小版的框
+         mask   //放大的区域（黑色遮罩）
+         bigitem  //放大的框
+         */
+        var obj = new mag('.show', '.bigshow','.smallshow','.mask','.bigitem');
+        obj.init();
+    });
+</script>
+<style>
+    ul,li{list-style: none;margin:0;padding:0;}
+    .bg{width:920px;height: 540px;margin:0 auto;padding:20px;border:1px solid #E8E8E8;overflow: hidden;min-width: 900px;box-sizing: border-box;background: #fff;}
+    .bg_left{width: 430px;height:auto;float: left}
+    .bg_right{float: left}
+    .show{width: 430px;height: 430px;margin-bottom: 10px;position: relative;border:1px solid #E8E8E8;cursor:move}
+    .show img{width: 430px;height: 430px;}
+    .mask{width: 215px;height: 215px;background: #000;filter: Alpha(opacity=50);opacity:0.5;position: absolute;top: 0;left: 0;display: none;}
+    .bigshow{width: 430px;height: 430px;overflow: hidden;margin-left: 10px;display: none;border:1px solid #E8E8E8;position:absolute;margin-left: 435px;z-index: 2}
+    .bigshow img{width: 860px;height: 860px;margin-right: 10px;}
+    .smallshow{width: 100%;height: 70px;position: relative}
+    .smallshow img{width:100%;border:1px solid #e8e8e8;box-sizing: border-box;transition: all 0.5s}
+    .smallshow>.middle_box{margin-left: 30px;margin-right: 30px;width:370px;overflow: hidden;height: 70px;}
+    .smallshow .middle{overflow: hidden;transition: all 0.5s;height: 70px;}
+    .smallshow .middle>li{width: 64px;height: 64px;float: left;cursor:pointer;padding:0 5px;}
+    .smallshow>p{position: absolute;top:50%;width: 22px;height: 32px;margin-top: -16px;}
+    .smallshow>.prev{left: 0;background: url(img/hover-prev.png) no-repeat;transition: all 0.5s}
+    .smallshow>.next{right: 0;background: url(img/hover-next.png) no-repeat;transition: all 0.5s}
+    .smallshow>.prev.prevnone{left: 0;background: url(img/prev.png) no-repeat;cursor: not-allowed}
+    .smallshow>.next.nextnone{right: 0;background: url(img/next.png) no-repeat;cursor: not-allowed}
+
+    /*购物车按钮*/
+    .btn-numbox {
+        overflow: hidden;
+    }
+    .btn-numbox li {
+        float: left;
+    }
+    .btn-numbox li .number,
+    .kucun {
+        display: inline-block;
+        font-size: 12px;
+        color: #808080;
+        vertical-align: sub;
+    }
+    .btn-numbox .count {
+        overflow: hidden;
+        margin: 0 16px 0 -20px;
+    }
+    .btn-numbox .count .num-jian,
+    .input-num,
+    .num-jia {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        font-size: 18px;
+        color: #999;
+        cursor: pointer;
+        border: 1px solid #e6e6e6;
+    }
+    .btn-numbox .count .input-num {
+        width: 58px;
+        height: 26px;
+        color: #333;
+        border-left: 0;
+        border-right: 0;
+    }
+
+</style>
+
 <body id="main" class="cols_manage full">
     
     
     
     <div id="ProductTitleHide" class="danpinTitleTab newclear hideAddtoCar" style="display: none;">
-        
 
 
+        <h2 th:title="${session.product.getP_name()}">
 
-<h2 title="凡客衬衫 吉国武 免烫 温莎领 4.0 黑色">
-        
-        
-        
-        凡客衬衫 吉国武 免烫 温莎领 4.0 黑色</h2>
+<span th:text="${session.product.getP_name()}">
+            凡客卫衣 暖绒连帽 熊本熊 S6 浅花灰1</span></h2>
 <div class="AddtoCar fr">
     
     
@@ -88,12 +164,11 @@
 <div id="productTitle">
     <div class="brandNumArea">
         <span id="productcode">商品编号：6382340</span></div>
-    
-    <h2 title="凡客衬衫 吉国武 免烫 温莎领 4.0 黑色">
-        
-        
-        
-        凡客衬衫 吉国武 免烫 温莎领 4.0 黑色</h2>
+
+    <h2 th:title="${session.product.getP_name()}">
+
+
+        <span th:text="${session.product.getP_name()}">凡客卫衣 暖绒连帽 熊本熊 S6 浅花灰1</span></h2>
     
     <ul class="ProductSubnav fr" id="ItemTag">
         
@@ -107,40 +182,60 @@
             <div class="blank0">
             </div>
             <div class="danpin_colLef">
-                
-<div class="danpinLeft">
-    <div class="smallImg">
-        <div class="smallImgUp upper" style="visibility: hidden">
-        </div>
-        <ul id="imageMenu">
-            
-            <li id="onlickImg" name="item-item-img-1" class="track">
-                <span class="SpriteSmallImgs" name="http://p3.vanclimg.com/product/6/3/8/6382340/small/6382340-1j201811021045315483.jpg" style="background-image: url(//i.vanclimg.com/joinimages.ashx?d=/product/&amp;href=6/3/8/6382340/small/6382340-1j201811021045315483.jpg,6/3/8/6382340/small/6382340-2201811021045315483.jpg);
-                    background-position: 0px -0px">&nbsp;</span> </li>
-            
-            <li name="item-item-img-2" class="track">
-                <span class="SpriteSmallImgs" name="http://p3.vanclimg.com/product/6/3/8/6382340/small/6382340-2201811021045315483.jpg" style="background-image: url(//i.vanclimg.com/joinimages.ashx?d=/product/&amp;href=6/3/8/6382340/small/6382340-1j201811021045315483.jpg,6/3/8/6382340/small/6382340-2201811021045315483.jpg);
-                    background-position: 0px -68px">&nbsp;</span> </li>
-            
-        </ul>
-        <div class="smallImgDown downer" style="visibility: hidden">
-        </div>
-    </div>
-</div>
 
-<div class="danpinColCenter">
-    <div class="bigImg" id="vertical">
-        
-        <img id="midimg" src="Product_pub/img/6382340-1j201811021045315483.jpg" title="凡客衬衫 吉国武 免烫 温莎领 4.0">
-        <div id="winSelector" style="left: 0px; top: 200px; display: none;">
-        </div>
-        
-    </div>
-    
-</div>
+                <div class="show">
+                    <img src="img/img1.png" th:src="${session.product.getDetailimg().get(0)}" alt="">
+                    <div class="mask"></div>
+                </div>
+                <div class="smallshow">
+                    <p class="prev prevnone"></p>
+                    <div class="middle_box">
+                        <ul class="middle">
+                            <li th:each="img:${session.product.getDetailimg()}"><img src="img/img1.png" th:src="${img}" alt=""></li>
 
-     
+                        </ul>
+                    </div>
+                    <p class="next "></p>
+                </div>
+
+                <!--
+                                <div class="danpinLeft">
+                                    <div class="smallImg">
+                                        <div class="smallImgUp upper" style="visibility: hidden">
+                                        </div>
+                                        <ul id="imageMenu">
+
+                                            <li id="onlickImg" name="item-item-img-1" class="track" th:each="img:${session.product.getDetailimg()}">
+                                                <span class="SpriteSmallImgs" th:name="${img}"
+                                                      th:style="'background-image: url('+${img}+');background-size:100%'">&nbsp;</span></li>
+
+                                        </ul>
+                                        <div class="smallImgDown downer" style="visibility: hidden">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danpinColCenter">
+                                    <div class="bigImg" id="vertical">
+
+                                        <img id="midimg" src="Product_pub/img/6382340-1j201811021045315483.jpg" title="凡客衬衫 吉国武 免烫 温莎领 4.0">
+                                        <div id="winSelector" style="left: 0px; top: 200px; display: none;">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                -->
+
+
             </div>
+
+            <div class="bigshow">
+                <div class="bigitem">
+                    <img src="img/img1.png" th:src="${session.product.getDetailimg().get(0)}" alt="">
+                </div>
+            </div>
+
             <div id="danpinRight" class="danpinRight" style="top: 0px; display: block;">
                 <div class="danpinfixedtitle">
                     <h4 class="fl">
@@ -238,166 +333,30 @@
             颜色：</p>
     </div>
     <div class="selColor">
-        <ul>
+        <ul >
             
-            <li name="6382340" title="黑色" class="" id="onlickColor">
-                
+            <!--<li name="6382340"  th:title="${color}" th:each="color:${session.product.getColors()}"class=""  id="onlickColor">
+
                 <div class="colorBlock" name="True">
                     <a class="track" name="item-item-select-color_1" href="http://item.vancl.com/6382340.html?ref=item_color_6382340#ref=item-item-select-color_1|s-s-k_rs__83abe76376654054a649056cc49810a7_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n">
                         <span class="SpriteColors" style="background-position: 0px -0px">&nbsp;</span>
-                        <p>
+                        <p th:text="${color}">
                             黑色</p>
                         </a>
                 </div>
-                
-                
-                
-            <span class="colorHoverok"></span></li>
-            
-            <li name="6379500" title="白色" class="">
-                
+
+
+
+            <span class="colorHoverok"></span></li>-->
+
+            <li name="6379500" th:title="${color}" th:each="color:${session.product.getColors()}" class="">
+
                 <div class="colorBlock" name="False">
-                    <a class="track" name="item-item-select-color_2" href="http://item.vancl.com/6379500.html?ref=item_color_6379500#ref=item-item-select-color_2|s-s-k_rs__83abe76376654054a649056cc49810a7_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n">
-                        <span class="SpriteColors" style="background-position: 0px -36px">&nbsp;</span>
-                        <p>
-                            白色</p>
-                        </a>
+                    <p th:text="${color}" style="text-align:center;">白色</p>
                 </div>
-                
+
             </li>
-            
-            <li name="6379501" title="蓝色" class="">
-                
-                <div class="colorBlock" name="False">
-                    <a class="track" name="item-item-select-color_3" href="http://item.vancl.com/6379501.html?ref=item_color_6379501#ref=item-item-select-color_3|s-s-k_rs__83abe76376654054a649056cc49810a7_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n">
-                        <span class="SpriteColors" style="background-position: 0px -72px">&nbsp;</span>
-                        <p>
-                            蓝色</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379502" title="浅紫" class="">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_4" href="http://item.vancl.com/6379502.html?ref=item_color_6379502#ref=item-item-select-color_4|s-s-k_rs__83abe76376654054a649056cc49810a7_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n">
-                        <span class="SpriteColors" style="background-position: 0px -108px">&nbsp;</span>
-                        <p>
-                            浅紫</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379503" title="深蓝">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_5" href="http://item.vancl.com/6379503.html?ref=item_color_6379503">
-                        <span class="SpriteColors" style="background-position: 0px -144px">&nbsp;</span>
-                        <p>
-                            深蓝</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379504" title="灰色" class="">
-                
-                <div class="colorBlock" name="False">
-                    <a class="track" name="item-item-select-color_6" href="http://item.vancl.com/6379504.html?ref=item_color_6379504">
-                        <span class="SpriteColors" style="background-position: 0px -180px">&nbsp;</span>
-                        <p>
-                            灰色</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379505" title="蓝色方格" class="">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_7" href="http://item.vancl.com/6379505.html?ref=item_color_6379505">
-                        <span class="SpriteColors" style="background-position: 0px -216px">&nbsp;</span>
-                        <p>
-                            蓝色方格</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379506" title="紫色方格" class="">
-                
-                <div class="colorBlock" name="False">
-                    <a class="track" name="item-item-select-color_8" href="http://item.vancl.com/6379506.html?ref=item_color_6379506">
-                        <span class="SpriteColors" style="background-position: 0px -252px">&nbsp;</span>
-                        <p>
-                            紫色方格</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6382339" class="colorBlocksouqing" title="浅蓝 已售罄">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_9" href="http://item.vancl.com/6382339.html?ref=item_color_6382339_isoff">
-                        <span class="SpriteColors" style="background-position: 0px -288px">&nbsp;</span>
-                        <p>
-                            浅蓝</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379507" class="colorBlocksouqing" title="蓝底白条纹 已售罄">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_10" href="http://item.vancl.com/6379507.html?ref=item_color_6379507_isoff">
-                        <span class="SpriteColors" style="background-position: 0px -324px">&nbsp;</span>
-                        <p>
-                            蓝底白条纹</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379508" class="colorBlocksouqing" title="灰底白条纹 已售罄">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_11" href="http://item.vancl.com/6379508.html?ref=item_color_6379508_isoff">
-                        <span class="SpriteColors" style="background-position: 0px -360px">&nbsp;</span>
-                        <p>
-                            灰底白条纹</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379509" class="colorBlocksouqing" title="蓝底细白条纹 已售罄">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_12" href="http://item.vancl.com/6379509.html?ref=item_color_6379509_isoff">
-                        <span class="SpriteColors" style="background-position: 0px -396px">&nbsp;</span>
-                        <p>
-                            蓝底细白条纹</p>
-                        </a>
-                </div>
-                
-            </li>
-            
-            <li name="6379510" class="colorBlocksouqing" title="藏蓝底细白条纹 已售罄">
-                
-                <div class="colorBlock" name="True">
-                    <a class="track" name="item-item-select-color_13" href="http://item.vancl.com/6379510.html?ref=item_color_6379510_isoff">
-                        <span class="SpriteColors" style="background-position: 0px -432px">&nbsp;</span>
-                        <p>
-                            藏蓝底细白..</p>
-                        </a>
-                </div>
-                
-            </li>
-            
+
         </ul>
     </div>
 </div>
@@ -410,23 +369,24 @@
         尺码：</p>
 </div>
 <div class="selSize">
-    <ul>
+    <ul >
         
-        <li onclick="ChooseThisSize(this,&#39;15795171&#39;,10)" name="15795171">
-            <p>
+        <li onclick="ChooseThisSize(this,&#39;15795171&#39;,10)" name="15795171" th:each="size:${session.product.getSizes()}">
+            <p th:text="${size}">
                 S</p>
             </li>
-        
-        <li onclick="ChooseThisSize(this,&#39;15795170&#39;,10)" name="15795170">
+    <!--
+        <li onclick="ChooseThisSize(this,&#39;15795170&#39;,10)" name="15795170" id="onlickSelSize">
             <p>
                 M</p>
+           <span></span>
             </li>
         
         <li onclick="ChooseThisSize(this,&#39;15795169&#39;,1)" name="15795169">
             <p>
                 L</p>
             </li>
-        
+        -->
     </ul>
 </div>
 
@@ -447,12 +407,16 @@
             数量：</p>
     </div>
     <div class="danpinnumSelect">
-        <select id="selectedAmount">
-            
-            <option value="1">
-                1</option>
-            
-        </select>
+        <ul class="btn-numbox">
+            <li style="margin-left: 22px;">
+                <ul class="count">
+                    <li><span id="num-jian" class="num-jian">-</span></li>
+                    <li><input type="text" class="input-num" id="input-num" value="1" /></li>
+                    <li><span id="num-jia" class="num-jia">+</span></li>
+                </ul>
+            </li>
+            <li><span class="kucun">（库存:54）</span></li>
+        </ul>
         <span id="comeon" class="LastNum" style="display: inline;">余量有限</span> <span class="blank15"></span>
     </div>
 </div>
@@ -944,7 +908,7 @@
                 
             </div>
         </div>
-        <script type="text/JavaScript" src="Product_pub/js/js(2).js"></script>
+        <!--<script type="text/JavaScript" src="Product_pub/js/js(2).js"></script>-->
         
         <div id="reshouMainH">
             
@@ -954,9 +918,8 @@
         <span class="blank20"></span>
         
     </div>
-    
-<div id="bigView" style="z-index: 10; width: 440px; height: 400px; top: 271.5px; left: 631.5px; display: none;">
-    <img src="Product_pub/img/6382340-1j201811021045315483(1).jpg" style="width: 800px; left: 0px; top: -400px;"></div>
+
+
 <div style="left: 74.5px; top: 108px; height: 260px; width: 634px; display: none;" id="loading"><img src="Product_pub/img/loading.gif" alt="loading"></div>
 <div class="collectbox" id="collectbox" style="display: none">
     <div class="cltboxcon">

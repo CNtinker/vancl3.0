@@ -26,6 +26,13 @@ public class Product {
     private Date Release;
     private String fileName;
     private Integer isDelete;
-    /*记录主图片路径*/
+
+    /*记录图片路径*/
     private String Picturesmain;
+    private List<String> detailimg;
+
+    /*商品有的颜色表*/
+    private List<String> colors;
+    private List<String> sizes;
+
 }

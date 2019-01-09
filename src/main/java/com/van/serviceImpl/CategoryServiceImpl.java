@@ -21,7 +21,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private ProductMapper productMapper;
 
-
     @Override
     public List<Product> findAllById(Map<String, Object> map) {
 
@@ -32,4 +31,6 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Img> findImgByPrant_class(String PrantClass) {
         return productMapper.findImgByPrant_class(PrantClass);
     }
+
+
 }
