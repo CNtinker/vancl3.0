@@ -28,6 +28,7 @@
 
     <script src="Product_pub/js/fangdajinjs.js"></script>
     <script src="Product_pub/js/colorandsize.js"></script>
+    <script src="Product_pub/js/addToShoppingCar.js"></script>
 </head>
 <script>
     $(function(){
@@ -96,7 +97,7 @@
     }
     .btn-numbox .count .input-num {
         width: 58px;
-        height: 26px;
+        height: 28px;
         color: #333;
         border-left: 0;
         border-right: 0;
@@ -412,7 +413,7 @@
                 <ul class="count">
                     <li><span id="num-jian" class="num-jian">-</span></li>
                     <li><input type="text" class="input-num" id="input-num" value="1" /></li>
-                    <li><span id="num-jia" class="num-jia">+</span></li>
+                    <li><span id="num-jia" class="num-jia" style="line-height: 28px;">+</span></li>
                 </ul>
             </li>
             <li><span class="kucun">（库存:54）</span></li>
@@ -481,7 +482,12 @@
 </style>
 
 <div class="shoppingNews">
-    <a id="nowbuy" name="item-item-select-shopping" href="http://item.vancl.com/6382340.html#" class="btnnowbuy track"><span>立即购买</span></a><a id="addToShoppingCar" name="item-item-select-shopping" href="http://item.vancl.com/6382340.html#" class="btnaddtocart track"></a>
+    <botten id="nowbuy" name="item-item-select-shopping"  class="btnnowbuy track">
+        <span>立即购买</span>
+    </botten>
+    <botten id="addToShoppingCar" name="item-item-select-shopping"  class="btnaddtocart track">
+
+    </botten>
 </div>
 
     

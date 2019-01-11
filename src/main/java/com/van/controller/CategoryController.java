@@ -86,4 +86,6 @@ public class CategoryController {
             pd.setPicturesmain("http://pkr49wiq4.bkt.clouddn.com/"+img_path);
         }
     }
+
+
 }

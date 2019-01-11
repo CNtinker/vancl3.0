@@ -16,8 +16,8 @@ public class Product {
     private String p_name;
     private String p_img;
     private String p_description;
-    private Integer p_price;
-    private Integer p_discount_price;
+    private double p_price;
+    private double p_discount_price;
     private Integer sales_volume;
     private Integer p_stock;
     private Integer categoryLevel1;
