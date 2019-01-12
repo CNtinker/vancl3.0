@@ -9,7 +9,7 @@
     <title>购物车 - VANCL 凡客诚品</title>
     <link rel="shortcut icon" type="image/x-icon" href="http://shopping.vancl.com/favicon.ico">
     <link rel="Stylesheet" type="text/css" charset="utf-8" href="Shopping_pub/css/css.css">
-    <script type="text/javascript" charset="utf-8" src="Shopping_pub/js/js(1).js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="Shopping_pub/js/js(1).js"></script>-->
     <!--[if IE 6]>
     <script type="text/javascript">document.execCommand("BackgroundImageCache", false, true);</script>
     <![endif]-->
@@ -21,6 +21,9 @@
     <link rel="stylesheet" type="text/css" charset="utf-8" href="Shopping_pub/css/css(1).css">
 
     <link href="Shopping_pub/css/popupdialog.css" type="text/css" rel="stylesheet" id="popuplogincss">
+    <script src="js/jquery-1.8.3.min.js"></script>
+   <!-- 购物车（增加数量）或（减少数量）和（删除商品）脚本-->
+    <script type="text/javascript" src="Shopping_pub/js/addreduce.js"></script>
 
 
 </head>
@@ -187,9 +190,9 @@
                                 ￥297.00
                             </td>
                             <td class="qty">
-                                    <botten class="track decrease" name="sp_cart_mycart_decrease">减少</botten>
+                                <botten class="track decrease"  name="sp_cart_mycart_decrease"><span hidden th:value="${list}"></span>减少</botten>
                                     <input name="qty" type="text" class="modify-product-qty"  th:value="${list.getNumber()}" maxlength="3">
-                                    <botten class="increase track" name="sp_cart_mycart_increase">增加</botten>
+                                    <botten class="increase track"  name="sp_cart_mycart_increase">增加</botten>
                             </td>
                             <td>
                                 -
@@ -235,7 +238,7 @@
                                    class="track all-products-ckb ckb" data-del-tip=""><label for="all-ckb-bt">全选</label>
                             <a href="javascript:;" class="batch-del-cart track" name="sp_cart_mycar_batch_clear">
                                 删除</a>
-                            <span>数量总计：<em>0</em>件</span>
+                            <span>数量总计：<em th:text="${session.Carnum}">0</em>件</span>
                             <span>
                         <em>
                         </em>
@@ -243,7 +246,7 @@
                         </div>
                         <div class="summary">
 
-                            产品金额总计(不含运费)：<span class="amount">￥<em>0.00</em></span>
+                            产品金额总计(不含运费)：<span class="amount">￥<em th:text="${session.sumMoney}">0.00</em></span>
 
                         </div>
                         <div class="btn-panel">

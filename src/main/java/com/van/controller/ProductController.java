@@ -130,9 +130,9 @@ public class ProductController {
             //循环遍历购物车与传进来的商品相匹配
             for (Shopcar shopcar:listcar) {
                 //遍历购物车，查看是否有相同的商品
-                if (shopcar.getProduct().getP_id()==product.getP_id()
-                        &&shopcar.getColor()==color
-                        &&shopcar.getSize()==size){
+                if (shopcar.getProduct().getP_id().equals(product.getP_id())
+                        &&shopcar.getColor().equals(sc.getColor())
+                        &&shopcar.getSize().equals(sc.getSize())){
                     //1.数量增加（原先+新增的）
                     shopcar.setNumber(shopcar.getNumber()+sc.getNumber());
                     //总金额=原先的+新增的小计
@@ -154,11 +154,7 @@ public class ProductController {
 
 
         }
-        return "redirect:/shoppings";
-    }
-    @RequestMapping("/shoppings")
-    public String shopping(){
-        return "shopping";
+        return "/shopping";
     }
 
 }
