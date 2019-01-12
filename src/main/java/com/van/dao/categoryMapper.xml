@@ -10,4 +10,20 @@
         SELECT * FROM van_commodity_category where cc_parent_id=#{P_id}
     </select>
 
+
+    <!--根据分类id查询所属父类id -->
+    <select id="findPid" parameterType="int">
+        SELECT cc_parent_id FROM van_commodity_category WHERE cc_id=#{cc_id}
+    </select>
+
+    <!--添加分类 -->
+    <insert id="addCate" keyColumn="cc_id" keyProperty="cc_id" parameterType="category">
+        insert into van_commodity_category(cc_name,cc_parent_id)values (#{cc_name},#{cc_parent_id})
+    </insert>
+
+    <!--删除分类 -->
+    <delete id="delCate" parameterType="int" >
+        delete  from van_commodity_category where cc_id=#{cc_id}
+    </delete>
+
 </mapper>

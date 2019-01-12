@@ -10,11 +10,20 @@
     </select>
     <sql id="showMap">
         <where>
+            <if test="p_id!=null and p_id!=0">
+                p_id=#{p_id}
+            </if>
+            <if test="p_name!=null and p_name!=''">
+                and p_name like concat("%",#{p_name},"%")
+            </if>
             <if test="categoryLevel1!=null and categoryLevel1!=0">
                 categoryLevel1=#{categoryLevel1}
             </if>
             <if test="categoryLevel2!=null and categoryLevel2!=0">
                 and categoryLevel2=#{categoryLevel2}
+            </if>
+            <if test="release!=null and release!=''">
+                and release=#{release}
             </if>
 
         </where>
@@ -39,6 +48,5 @@
     <select id="findSizeByColorId" resultType="string">
         SELECT size_name from size_id
         WHERE size_id=#{Size_id}
-
     </select>
 </mapper>

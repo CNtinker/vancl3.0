@@ -18,6 +18,17 @@ public interface CategoryService {
     //查询所有商品的图片
     List<Img> findImgByPrant_class(String PrantClass);
 
+
+    //根据分类id查询所属父类id
+    int findPid(Integer cc_id);
+
+    //添加分类
+    int addCate(Category ctg);
+
+    //根据cc_id删除分类
+    int delCate(Integer cc_id);
+
+
 }
 
 

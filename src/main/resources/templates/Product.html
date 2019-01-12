@@ -164,7 +164,7 @@
 </style>
 <div id="productTitle">
     <div class="brandNumArea">
-        <span id="productcode">商品编号：6382340</span></div>
+        <span id="productcode" class="p_id" th:text="${session.product.getP_id()}">商品编号：6382340</span></div>
 
     <h2 th:title="${session.product.getP_name()}">
 

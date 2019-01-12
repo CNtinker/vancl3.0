@@ -108,6 +108,14 @@
         <artifactId>javase</artifactId>
         <version>2.1</version>
     </dependency>
+
+    <!--⑦牛云 -->
+    <dependency>
+        <groupId>com.qiniu</groupId>
+        <artifactId>qiniu-java-sdk</artifactId>
+        <version>[7.2.0, 7.2.99]</version>
+    </dependency>
+
 </dependencies>
 
 

@@ -154,6 +154,10 @@ public class ProductController {
 
 
         }
+        return "redirect:/shoppings";
+    }
+    @RequestMapping("/shoppings")
+    public String shopping(){
         return "shopping";
     }
 

@@ -3,34 +3,70 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.van.dao.UserMapper">
-
+    <!--添加用户-->
     <insert id="addUser" keyColumn="uid" keyProperty="uid">
           insert into van_user(login_name,pwd,tell_phone)values (#{login_name},#{pwd},#{tell_phone})
     </insert>
-
+    <!--根据用户名和密码查询用户-->
     <select id="findLoginPwdUser" resultType="user">
         select * from van_user where login_name=#{login_name} and pwd=#{pwd}
     </select>
 
-    <select id="findAllUser" resultType="user">
-        select * from van_user
-    </select>
-
-    <select id="findByIdUser" resultType="user">
-        select * from van_user where uid=#{uid}
-    </select>
-
+    <!--根据id修改用户 -->
     <update id="updateUserById" keyColumn="uid" keyProperty="uid" parameterType="int">
         update van_user set login_name=#{login_name},pwd=#{pwd},real_Name=#{real_name},
          sex=#{sex},date_birth=#{date_birth},email=#{email}, tell_phone=#{tell_phone},
          land_phone=#{land_phone},head_picture=#{head_picture},state=#{state}
         where uid=#{uid}
     </update>
-
+    <!--根据id删除用户 -->
     <delete id="deleteUserById" parameterType="int">
         delete from van_user where uid=#{uid}
     </delete>
+    <!--根据用户名查询用户 -->
     <select id="findLoginUser" resultType="user">
         select *from van_user where login_name=#{login_name}
     </select>
+
+    <!--查询所有的用户 -->
+    <resultMap type="User" id="user">
+        <id column="uid" property="uid"></id>
+        <result column="login_name" property="login_name"/>
+        <result column="email" property="email"/>
+        <result column="tell_phone" property="tell_phone"/>
+        <result column="reg_date" property="reg_date"/>
+        <result column="sex" property="sex"/>
+        <result column="state" property="state"/>
+        <result column="type_name" property="type_name"/>
+    </resultMap>
+
+
+    <select id="findAllUsers" resultMap="user">
+        SELECT * FROM van_user
+        <include refid="showMap"/>
+    </select>
+    <sql id="showMap">
+        <where>
+            <if test="uid!=null and uid!=0">
+                uid=#{uid}
+            </if>
+            <if test="login_name!=null and login_name!=''">
+                and login_name=#{login_name}
+            </if>
+            <if test="reg_date!=null and reg_date!=''">
+                and reg_date=#{reg_date}
+            </if>
+        </where>
+    </sql>
+
+    <!--根据id查询用户-->
+    <select id="findUserById" resultType="user">
+        select * from van_user where uid=#{uid};
+    </select>
+
+    <!--根据用户id修改用户状态-->
+    <update id="updateUserState" >
+        UPDATE  van_user SET state=#{arg0} where uid=#{arg1}
+    </update>
+
 </mapper>

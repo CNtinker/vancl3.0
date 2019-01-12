@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van.dao.OrderMapper">
+
+   <resultMap id="order" type="Order">
+       <id column="o_uid" property="o_uid"/>
+       <result column="address" property="address"/>
+       <result column="cost" property="cost"></result>
+       <result column="create_time" property="create_time"/>
+       <result column="o_status" property="o_status"/>
+       <result column="pay_type" property="pay_type"/>
+       <result column="pay_state" property="pay_state"/>
+       <result column="pay_time" property="pay_time"/>
+       <association property="user" javaType="User">
+           <id column="uid" property="uid"></id>
+           <result column="login_name" property="login_name"/>
+       </association>
+       <association property="addr" javaType="Addr">
+           <id column="address" property="address"></id>
+           <result column="region" property="region"/>
+           <result column="detailed_address" property="detailed_address"/>
+       </association>
+   </resultMap>
+
+
+
+    <select id="findAllOrder" resultMap="order">
+        SELECT o_uid,u.uid uid,u.login_name login_name,a.address address,
+        a.region region,a.detailed_address detailed_address,cost,create_time, o_status,pay_type,pay_state,pay_time
+        FROM van_order o
+        LEFT JOIN van_user u
+        ON o.uid=u.uid
+        LEFT JOIN van_addr a
+        ON o.address=a.address
+        <include refid="showMap"/>
+    </select>
+
+    <sql id="showMap">
+        <where>
+        <if test="o_uid!=null and o_uid!=0">
+            and o_uid=#{o_uid}
+        </if>
+        <if test="login_name!=null and login_name!=''">
+            and login_name=#{login_name}
+        </if>
+       </where>
+    </sql>
+
+
+    <!--根据订单id修改订单状态-->
+    <update id="updateOrderState" >
+        UPDATE  van_order SET o_status=#{o_status} where o_uid=#{o_uid}
+    </update>
+
+
+    <!--根据用户id修改订单信息-->
+    <update id="updateOrder">
+        UPDATE  van_order SET
+        o_uid=#{o_uid},uid=#{uid},
+    </update>
+</mapper>
