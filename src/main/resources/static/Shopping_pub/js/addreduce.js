@@ -60,6 +60,25 @@ $(function () {
         },"json")
 
     });
+    /*删除购物车单个商品的方法*/
+    $(".del").click(function () {
+        var pid=$(this).children("span:eq(0)").attr("value")
+        var color=$(this).children("span:eq(1)").attr("value")
+        var size=$(this).children("span:eq(2)").attr("value")
+
+        var is= $(this).parent().parent()
+        $.post("/ShopController/ShopDelProductNum",{"pid":pid,"color":color,"size":size},function (json) {
+            for(var i=0;i<json.length;i++){
+                $(is).html("");
+                if(i==0){
+                    $("#listcarnum").html(json[i])
+                }else if(i==1){
+                    $("#listcarsumMoney").html(json[i])
+                }
+            }
+        },"json")
+
+    })
 
 
 

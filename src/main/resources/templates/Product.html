@@ -106,7 +106,7 @@
 </style>
 
 <body id="main" class="cols_manage full">
-    
+    <div class="top_top" th:replace="index_pub/top::top_top"/>
     
     
     <div id="ProductTitleHide" class="danpinTitleTab newclear hideAddtoCar" style="display: none;">
@@ -922,7 +922,11 @@
         <input id="hdCategoryCode" type="hidden" value="1333">
         
         <span class="blank20"></span>
-        
+
+        <!--引用尾部templates\index_pub\footer.html-->
+        <div class="footer_top" th:replace="index_pub/footer::footer_top"/>
+        <div class="footer_down" th:replace="index_pub/footer::footer_down"/>
+
     </div>
 
 
