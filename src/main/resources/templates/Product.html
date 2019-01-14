@@ -416,7 +416,7 @@
                     <li><span id="num-jia" class="num-jia" style="line-height: 28px;">+</span></li>
                 </ul>
             </li>
-            <li><span class="kucun">（库存:54）</span></li>
+            <li><span class="kucun" th:text="'（库存:'+${session.product.getP_stock()}+'）'">（库存:54）</span></li>
         </ul>
         <span id="comeon" class="LastNum" style="display: inline;">余量有限</span> <span class="blank15"></span>
     </div>

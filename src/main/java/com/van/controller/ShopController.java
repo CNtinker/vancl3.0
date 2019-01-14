@@ -22,9 +22,9 @@ import java.util.Map;
 public class ShopController {
 
 
-    @RequestMapping("/ShopAddProductNum")
+    @RequestMapping("/ShopReduceProductNum")
     @ResponseBody
-    public String ShopAddProductNum(String pid,String color,String size, HttpSession session){
+    public String ShopReduceProductNum(String pid,String color,String size, HttpSession session){
         System.out.println(pid);
         System.out.println(color);
         System.out.println(size);
@@ -68,4 +68,35 @@ public class ShopController {
 
     }
 
+    @RequestMapping("/ShopAddProductNum")
+    @ResponseBody
+    public String ShopAddProductNum(String pid,String color,String size, HttpSession session){
+        System.out.println(pid);
+        System.out.println(color);
+        System.out.println(size);
+
+        List<String> json=new ArrayList<String>();
+        //取到session中的购物车集合
+        List<Shopcar> listcar=(List<Shopcar>)session.getAttribute("listcar");
+        //取出session中的金额总和
+        double sumMoney=(double)session.getAttribute("sumMoney");
+        for (Shopcar sc:listcar) {
+            if (String.valueOf(sc.getProduct().getP_id()).equals(pid)
+                    &&sc.getColor().equals(color)
+                    &&sc.getSize().equals(size)
+                ){
+                sumMoney=sumMoney+sc.getProduct().getP_discount_price();
+                sc.setNumber(sc.getNumber()+1);
+                if(sc.getNumber()>sc.getProduct().getP_stock()){
+                    break;
+                }
+                json.add(String.valueOf(sc.getNumber()));
+                json.add(String.valueOf(sc.getXiaoji()));
+            }
+        }
+        json.add(String.valueOf(sumMoney));
+        session.setAttribute("sumMoney",sumMoney);
+        session.setAttribute("listcar",listcar);
+        return  JSONArray.toJSONString(json);
+    }
 }

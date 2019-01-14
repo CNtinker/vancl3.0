@@ -192,7 +192,7 @@
                             <td class="qty">
                                 <botten class="track decrease"  name="sp_cart_mycart_decrease"><span hidden th:value="${list.product.getP_id()}"></span><span hidden th:value="${list.color}"></span><span hidden th:value="${list.size}"></span>减少</botten>
                                     <input name="qty" type="text" class="modify-product-qty"  th:value="${list.getNumber()}" maxlength="3">
-                                    <botten class="increase track"  name="sp_cart_mycart_increase">增加</botten>
+                                    <botten class="increase track"  name="sp_cart_mycart_increase"><span hidden th:value="${list.product.getP_id()}"></span><span hidden th:value="${list.color}"></span><span hidden th:value="${list.size}"></span>增加</botten>
                             </td>
                             <td>
                                 -
