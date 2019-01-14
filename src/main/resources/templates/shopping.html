@@ -190,7 +190,7 @@
                                 ￥297.00
                             </td>
                             <td class="qty">
-                                <botten class="track decrease"  name="sp_cart_mycart_decrease"><span hidden th:value="${list}"></span>减少</botten>
+                                <botten class="track decrease"  name="sp_cart_mycart_decrease"><span hidden th:value="${list.product.getP_id()}"></span><span hidden th:value="${list.color}"></span><span hidden th:value="${list.size}"></span>减少</botten>
                                     <input name="qty" type="text" class="modify-product-qty"  th:value="${list.getNumber()}" maxlength="3">
                                     <botten class="increase track"  name="sp_cart_mycart_increase">增加</botten>
                             </td>
@@ -238,7 +238,7 @@
                                    class="track all-products-ckb ckb" data-del-tip=""><label for="all-ckb-bt">全选</label>
                             <a href="javascript:;" class="batch-del-cart track" name="sp_cart_mycar_batch_clear">
                                 删除</a>
-                            <span>数量总计：<em th:text="${session.Carnum}">0</em>件</span>
+                            <span>数量总计：<em th:text="${session.Carnum}" id="listcarnum">0</em>件</span>
                             <span>
                         <em>
                         </em>
@@ -246,7 +246,7 @@
                         </div>
                         <div class="summary">
 
-                            产品金额总计(不含运费)：<span class="amount">￥<em th:text="${session.sumMoney}">0.00</em></span>
+                            产品金额总计(不含运费)：<span class="amount">￥<em th:text="${session.sumMoney}" id="listcarsumMoney">0.00</em></span>
 
                         </div>
                         <div class="btn-panel">

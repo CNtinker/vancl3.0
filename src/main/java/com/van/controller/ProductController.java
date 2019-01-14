@@ -88,7 +88,6 @@ public class ProductController {
 
     @RequestMapping("/addToShoppingCar")
     public String addToShoppingCar(@RequestParam String color,String size,String Pronum,HttpSession session){
-        System.out.println("color:"+color+"size:"+size+"num:"+Pronum);
         //从session中提取出商品（product）
         Product product=(Product)session.getAttribute("product");
         //从session中提取出购物车集合
@@ -154,7 +153,11 @@ public class ProductController {
 
 
         }
-        return "/shopping";
+        return "redirect:/shoppings";
+    }
+    @RequestMapping("/shoppings")
+    public String shopping(){
+        return "shopping";
     }
 
 }

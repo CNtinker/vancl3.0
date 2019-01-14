@@ -3,15 +3,33 @@
  */
 $(function () {
     $(".decrease").click(function () {
-        var pid=$(this).children("span").attr("value")
-        alert(pid);
+        var pid=$(this).children("span:eq(0)").attr("value")
+        var color=$(this).children("span:eq(1)").attr("value")
+        var size=$(this).children("span:eq(2)").attr("value")
         var is= $(this).parent()
-        $.post("/ShopController/ShopAddProductNum",{"pid":pid},function () {
-            $(is).html("")
-            $(is).html("<botten class=\"track decrease\"  name=\"sp_cart_mycart_decrease\"><span hidden th:value=\"${list}\"></span>减少</botten>\n<input name=\"qty\" type=\"text\" class=\"modify-product-qty\"  th:value=\"${list.getNumber()}\" maxlength=\"3\">\n<botten class=\"increase track\"  name=\"sp_cart_mycart_increase\">增加</botten>")
+        $.post("/ShopController/ShopAddProductNum",{"pid":pid,"color":color,"size":size},function (json) {
+            alert(json)
+            for(var i=0;i<json.length;i++){
+                alert(json[i])
+            }
+            },"json")
+                /*function  districtChange(){
+                    var did=$("#district>option:selected").val();
+                    $.post("./StreetServlet",{"did":did},function(data){
+                        for(var i=0;i<data.length;i++){
+                            if(data[i].sid=="${map['sid']}"){
+                                html+="<option value='"+data[i].sid+"'selected>"+data[i].sname+"</option>";
+                            }else{
+                                html+="<option value='"+data[i].sid+"'>"+data[i].sname+"</option>";
+                            }
+                        }
+                        $("#street").html(html);
+                    },"json");
+                }*/
+
+
+
+
 
         });
-    })
-
-
-});
+    });
