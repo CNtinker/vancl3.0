@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///vancl?serverTimezone=UTC
     username: root
-    password: 1234
+    password: 123
   mvc:
     static-path-pattern: /**
 

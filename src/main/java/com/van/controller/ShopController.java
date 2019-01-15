@@ -150,21 +150,27 @@ public class ShopController {
         }
     }
 
-    @RequestMapping("/ShopjiesuanProduct")
-    public String ShopjiesuanProduct(String pid,String color,String size, HttpSession session){
-
+    @RequestMapping("/CheckoutProduct")
+    public String CheckoutProduct(HttpSession session){
         /*判断用户是否登录*/
         logstatus(session);
 
         if((Boolean) session.getAttribute("logstatus")||1==1){
-            String jieguo=jiesuan(session);
-            System.out.println(jieguo);
-            return  "redirect:/index2";
+
+            return "checkout";
         }else{
             /*跳转到登录页面*/
             return "redirect:/login";
         }
 
+    }
+
+
+    @RequestMapping("/ShopjiesuanProduct")
+    public String ShopjiesuanProduct( HttpSession session){
+        String jieguo=jiesuan(session);
+        System.out.println(jieguo);
+        return  "redirect:/index2";
     }
 
 //判断用户是否登录的小方法
