@@ -26,5 +26,12 @@ public interface ProductMapper {
     String findColorByColorId(Integer color_id);
     /*根据尺寸查询尺寸表尺寸名*/
     String findSizeByColorId(Integer Size_id);
+    /*根据颜色名查询颜色id*/
+    Integer findColorIdByColor(String color_name);
+    /*根据尺寸名查询尺寸id*/
+    Integer findSizeIdBySize(String size_name);
+
+
+
 
 }

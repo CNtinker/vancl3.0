@@ -49,4 +49,15 @@
         SELECT size_name from size_id
         WHERE size_id=#{Size_id}
     </select>
+    
+    <select id="findColorIdByColor" resultType="integer">
+        SELECT color_id FROM van_color
+        where color_name=#{color_name}
+    </select>
+
+    <select id="findSizeIdBySize" resultType="integer">
+        SELECT size_id FROM size_id
+        where size_name=#{size_name}
+    </select>
+    
 </mapper>

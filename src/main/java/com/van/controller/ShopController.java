@@ -2,8 +2,13 @@ package com.van.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.van.pojo.Order;
+import com.van.pojo.Order_Detail;
 import com.van.pojo.Shopcar;
 import com.van.pojo.User;
+import com.van.service.OrderService;
+import com.van.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,6 +28,10 @@ import java.util.Map;
 @RequestMapping(path = "/ShopController")
 public class ShopController {
 
+    @Autowired
+    ProductService productService;
+    @Autowired
+    OrderService orderService;
 
     @RequestMapping("/ShopReduceProductNum")
     @ResponseBody
@@ -146,8 +155,10 @@ public class ShopController {
 
         /*判断用户是否登录*/
         logstatus(session);
-        if((Boolean) session.getAttribute("logstatus")){
 
+        if((Boolean) session.getAttribute("logstatus")||1==1){
+            String jieguo=jiesuan(session);
+            System.out.println(jieguo);
             return  "redirect:/index2";
         }else{
             /*跳转到登录页面*/
@@ -169,61 +180,68 @@ public class ShopController {
     }
 
     //结算方法
-    private void jiesuan(HttpServletRequest request, HttpServletResponse response) {
+    private String jiesuan(HttpSession session) {
         //启动本方法要用的业务逻辑层方法
-        OrderService os = new OrderService();
+
         System.out.println("订单生成...");
         //从session中取出购物车
-        List<shopcar> sc=(List<shopcar>)request.getSession().getAttribute("shopping");
-        //从session中取出总价格
-        double sumMoney=(Double)request.getSession().getAttribute("sumMoney");
+        List<Shopcar> sc=(List<Shopcar>)session.getAttribute("listcar");
+        //取出session中的金额总和
+        double sumMoney=(double)session.getAttribute("sumMoney");
         //从session中取出user
-        vip_user user=(vip_user)request.getSession().getAttribute("user");
+        User user=(User)session.getAttribute("user");
         //1.创建一个订单对象
         Order o=new Order();
         //创建一个随机数作为订单表的id
         int num=(int)Math.floor(Math.random()*1000);
         String salNo="SL"+System.currentTimeMillis()+num;
-        o.setO_id(salNo);
-        o.setUserId(user.getId());
-        o.setLoginName(user.getUserName());
-        o.setUserAddress(user.getAddress());
-        //设置用户对象
-        o.setUser(user);
+        o.setO_uid(salNo);
+
+
+        /*user.setUid(1);
+        o.setUid(user.getUid());*/
+
+
+        /*根据用户地址或传进来的地址
+        去查地址表id*/
+        /*o.setUserAddress(user.getAddress());*/
+
         //设置下单时间
 
         //设置总金额
         o.setCost(sumMoney);
         //设置订单状态(假)
-        o.setStatus(1);
+        o.setO_status(1);
         //设置支付类型(假)
-        o.setType(1);
+        o.setPay_type(1);
         //设置支付状态
         o.setPay_state(1);
         //创建一个装商品详情表的List集合
         List<Order_Detail> list=new ArrayList<Order_Detail>();
         //循环从购物车里取出具体的订单，并向订单详情对象中传值
-        for(shopcar shop:sc){
+        for(Shopcar shop:sc){
             //创建订单详情对象
             Order_Detail od=new Order_Detail();
-            od.setO_id(o.getO_id());
-            od.setGoods_id(shop.getGood().getId());
-            od.setGood(shop.getGood());
-            od.setQuantity(shop.getNumber());
-            od.setCost(shop.getXiaoji());
+            od.setO_uid(o.getO_uid());
+            od.setP_id(shop.getProduct().getP_id());
+            od.setOd_number(shop.getNumber());
+            /*!!根据商品sizeid与colorid查询对应的表id*/
+            od.setSize_id(productService.findSizeIdBySize(shop.getSize()));
+            od.setColor_id(productService.findColorIdByColor(shop.getColor()));
+            od.setOd_money(shop.getXiaoji());
             list.add(od);
         }
 
         //将订单详情加入集合设置中去
         o.setOrderLitems(list);
         //调用业务逻辑层方法
-        boolean falg=os.creatOrder(o);
+        boolean falg=orderService.creatOrder(o);
         //是否结算成功
         if(falg){
             //结算成功，清空购物车
-            request.getSession().setAttribute("shopping", null);
-            request.getSession().setAttribute("sumMoney", 0);
-            request.getSession().setAttribute("num", num);
+            session.setAttribute("listcar", null);
+            session.setAttribute("sumMoney", 0);
+            session.setAttribute("Carnum", 0);
             //修改库存数据
             //for (Order_Detail eod : list) {
             //调用商品的业务逻辑层的方法
@@ -231,10 +249,10 @@ public class ShopController {
             //xxx(eod.getEp(),eod.getEod_quantity());
             //}
             //成功转发到主页。。(临时)
-            request.getRequestDispatcher("qian/testpub.jsp").forward(request, response);
+            return "结算成功";
         }else{
             //失败转发到shop
-            response.sendRedirect("qian/shop.jsp");
+            return "结算失败";
         }
     }
 

@@ -18,9 +18,7 @@ public class ProductServiceImpl implements ProductService{
     ProductMapper productMapper;
 
     @Override
-    public List<P_pk_children> findP_Pk_childrensByP_id(Integer P_id,Integer biao_id) {
-        return productMapper.findP_Pk_childrensByP_id(P_id,biao_id);
-    }
+    public List<P_pk_children> findP_Pk_childrensByP_id(Integer P_id,Integer biao_id) { return productMapper.findP_Pk_childrensByP_id(P_id,biao_id); }
 
     @Override
     public String findColorByColorId(Integer color_id) {
@@ -31,4 +29,10 @@ public class ProductServiceImpl implements ProductService{
     public String findSizeByColorId(Integer Size_id) {
         return productMapper.findSizeByColorId(Size_id);
     }
+
+    @Override
+    public Integer findColorIdByColor(String Color){ return productMapper.findColorIdByColor(Color);}
+
+    @Override
+    public Integer findSizeIdBySize(String Size){return productMapper.findSizeIdBySize(Size);}
 }

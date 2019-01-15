@@ -13,6 +13,10 @@ public interface ProductService {
 
     String findColorByColorId(Integer color_id);
 
-
     String findSizeByColorId(Integer Size_id);
+
+    Integer findColorIdByColor(String Color);
+
+    Integer findSizeIdBySize(String Size);
+
 }
