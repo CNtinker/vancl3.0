@@ -58,4 +58,19 @@
     </update>
 
 
+    <!--根据用户id修改订单信息-->
+    <update id="updateOrder">
+        UPDATE  van_order SET
+        o_uid=#{o_uid},uid=#{uid},
+    </update>
+
+    <insert id="creatOrderDetail" parameterType="Order_Detail">
+        INSERT into van_order_detail(o_uid,p_id,od_number,size_id,color_id,od_money)
+            VALUES (#{o_uid},#{p_id},#{od_number},#{size_id},#{color_id},#{od_money})
+    </insert>
+
+    <insert id="creatOrder" parameterType="Order">
+        INSERT into van_order(o_uid,uid,address,cost,create_time,o_status,pay_type,pay_state)
+            VALUES (#{o_uid},#{uid},#{address},#{cost},NOW(),#{o_status},#{pay_type},#{pay_state})
+    </insert>
 </mapper>

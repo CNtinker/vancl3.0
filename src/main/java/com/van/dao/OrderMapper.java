@@ -2,6 +2,7 @@ package com.van.dao;
 
 
 import com.van.pojo.Order;
+import com.van.pojo.Order_Detail;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +20,10 @@ public interface OrderMapper {
 
    //根据用户id修改订单信息
     int updateOrder(Integer uid);
+
+    /*根据订单详情实体类创建订单详情*/
+    int creatOrderDetail(Order_Detail order_detail);
+
+    //根据订单实体类创建订单
+    int creatOrder(Order order);
 }

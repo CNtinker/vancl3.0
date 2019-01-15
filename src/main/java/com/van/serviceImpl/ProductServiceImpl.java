@@ -2,7 +2,6 @@ package com.van.serviceImpl;
 
 import com.van.dao.ProductMapper;
 import com.van.pojo.P_pk_children;
-import com.van.pojo.Product;
 import com.van.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +18,7 @@ public class ProductServiceImpl implements ProductService{
     ProductMapper productMapper;
 
     @Override
-    public List<P_pk_children> findP_Pk_childrensByP_id(Integer P_id,Integer biao_id) {
-        return productMapper.findP_Pk_childrensByP_id(P_id,biao_id);
-    }
+    public List<P_pk_children> findP_Pk_childrensByP_id(Integer P_id,Integer biao_id) { return productMapper.findP_Pk_childrensByP_id(P_id,biao_id); }
 
     @Override
     public String findColorByColorId(Integer color_id) {
@@ -56,4 +53,10 @@ public class ProductServiceImpl implements ProductService{
     public int deleteProductById(Integer p_id) {
         return productMapper.deleteProductById(p_id);
     }
+
+    @Override
+    public Integer findColorIdByColor(String Color){ return productMapper.findColorIdByColor(Color);}
+
+    @Override
+    public Integer findSizeIdBySize(String Size){return productMapper.findSizeIdBySize(Size);}
 }

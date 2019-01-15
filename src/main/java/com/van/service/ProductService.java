@@ -1,7 +1,6 @@
 package com.van.service;
 
 import com.van.pojo.P_pk_children;
-import com.van.pojo.Product;
 
 import java.util.List;
 
@@ -29,5 +28,10 @@ public interface ProductService {
     //根据商品id删除商品
     int deleteProductById(Integer p_id);
 
+
+
+    Integer findColorIdByColor(String Color);
+
+    Integer findSizeIdBySize(String Size);
 
 }

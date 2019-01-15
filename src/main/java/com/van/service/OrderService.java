@@ -16,4 +16,8 @@ public interface OrderService {
 
     //根据用户id修改订单信息
     int updateOrder(Integer uid);
+
+    //创建订单方法
+    boolean creatOrder(Order order);
+
 }
