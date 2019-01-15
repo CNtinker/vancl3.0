@@ -40,8 +40,8 @@
     </select>
 
     <select id="findColorByColorId" resultType="string">
-    SELECT color_name FROM van_color
-    where color_id=#{color_id}
+         SELECT color_name FROM van_color
+         where color_id=#{color_id}
 
     </select>
     
@@ -49,4 +49,39 @@
         SELECT size_name from size_id
         WHERE size_id=#{Size_id}
     </select>
+
+
+    <!--添加商品-->
+    <insert id="addProduct" keyColumn="p_id" keyProperty="p_id">
+       insert into van_product(p_name,p_img,p_description,p_price,p_discount_price,sales_volume
+       ,p_stock,categoryLevel1,categoryLevel2,release,fileName)values (
+       #{p_name},#{p_img},#{p_description},#{p_price},#{p_discount_price},
+       #{sales_volume},#{p_stock},#{categoryLevel1},#{categoryLevel2},#{release},#{fileName})
+   </insert>
+
+
+
+    <!-- 根据商品id查询商品信息-->
+    <select id="findProductById" resultType="product">
+        select * from van_product where p_id=#{p_id}
+    </select>
+
+
+
+    <!--根据商品id修改商品信息-->
+    <update id="updateProductById" >
+        update van_product SET p_name=#{arg0},p_img=#{arg1},p_description=#{arg2}
+        p_price=#{arg3},p_discount_price=#{arg4},p_stock=#{arg5},categoryLevel1=#{arg6}
+        categoryLevel2=#{arg7},p_new=#{arg8} where p_id=#{p_id}
+    </update>
+
+
+
+    <!-- 根据商品id删除商品-->
+    <delete id="deleteProductById" parameterType="int">
+        delete from van_product where p_id=#{p_id}
+    </delete>
+
+
+
 </mapper>

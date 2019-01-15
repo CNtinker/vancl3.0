@@ -15,10 +15,10 @@
     <div class="navbar">
         <ul class="clearfix">
             <li><a th:href="@{shou}">首页</a></li>
-            <li><a th:href="@{users}">用户</a></li>
-            <li class="current"><a th:href="@{product}">商品</a></li>
+            <li class="current"><a th:href="@{users}">用户</a></li>
+            <li><a th:href="product">商品</a></li>
             <li><a th:href="@{order}">订单</a></li>
-            <li><a href="news.html">留言</a></li>
+            <li><a href="#">留言</a></li>
         </ul>
     </div>
 </div>
@@ -41,14 +41,12 @@
                 <dd><em>
                     <a th:href="@{addProudctClass}">新增</a>
                 </em><a th:href="@{productClass}">分类管理</a></dd>
-                <dd><em><a th:href="@{productAdd}">新增</a></em>
+                <dd><em><a th:href="@{addProduct}">新增</a></em>
                     <a th:href="@{product}">商品管理</a></dd>
                 <dt>订单管理</dt>
                 <dd><a th:href="@{order}">订单管理</a></dd>
                 <dt>留言管理</dt>
                 <dd><a href="">留言管理</a></dd>
-                <dt>新闻管理</dt>
-                <dd><em><a href="">新增</a></em><a href="">新闻管理</a></dd>
             </dl>
         </div>
     </div>
@@ -72,7 +70,7 @@
                     <td class="first w4 c" ><span th:text="${pd.getP_id()}"></span></td>
                     <td class="thumb"><img th:src="${pd.getP_img()}" /><a  th:text="${pd.getP_name()}" target="_blank"></a></td>
                     <td th:text="${#dates.format(pd.getRelease(),'yyyy-MM-dd')}" style="text-align: center">2088-11-02</td>
-                    <td class="w1 c"><a href="product-modify.html">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+                    <td class="w1 c"><a th:href="@{modifProduct(p_id=${pd.getP_id()})}">修改</a> <a href="javascript:Delete(1);">删除</a></td>
                 </tr>
             </table>
         </div>

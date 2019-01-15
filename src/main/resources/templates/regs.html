@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link type="text/css" rel="stylesheet"  href="qian/css/zhuce.css"/>
+    <script th:src="@{js/jquery-1.8.3.min.js}"></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="#">
+            <img src="qian/images/fankelogo.png" />
+        </a>
+        <hr>
+    </div>
+</header>
+<section>
+    <div class="zhuce1">
+        <img src="qian/images/fankezhuce.png" width="400px" height="288px"/>
+    </div>
+    <div class="zhuce2">
+        <p>注册新用户</p>
+        <p>我已经注册,现在就<a href="">登录</a> </p>
+        <form method="post" action="regs" id="zhucebiao">
+            <div class="yanzhengma">
+                <input class="p1" id="sj" type="text" name="login_name" placeholder="请输入手机号" required pattern="^1[3578]\d{9}$" style="width:200px;height:30px">
+                <div class="suiji"><a>获取短信验证</a></div>
+            </div>
+            <div><input class="yanz" type="text" name="yzm" placeholder="填写手机验证码" style="width:342px;height:30px"></div>
+            <div><input class="pwd" type="password" name="pwd" placeholder="请输入密码" required pattern="[a-zA-Z0-9]{6,12}" style="width:342px;height:30px"></div>
+            <div><input class="repwd" type="password" name="repwd" placeholder="再次确认密码" style="width:342px;height:30px"></div>
+            <div id="baocuo" style="font-weight: bolder"></div>
+            <p class="p2" style="width: 100%; float: none;">
+                <input id="chk_agreen" type="checkbox">
+                请阅读<a href="#">《VANCL凡客诚品服务条款》</a></p>
+            <input class="sub" type="submit" value="立即注册" style="width:350px;height:35px;background:#9A9A9A;color: #FFFFFF"/>
+        </form>
+    </div>
+</section>
+<footer>
+    <center><p>Copyright 2007 - 2016 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11010102000579号 出版物经营许可证新出发京批字第直110138号</p></center>
+    <a href="#">
+        <img src="qian/images/footlogo.png" />
+    </a>
+</footer>
+<script type="text/javascript" rel="stylesheet">
+    $(function () {
+        $("#sj").blur(function () {
+            var login_name=$("#sj").val();
+            if(login_name==""||login_name==null){
+                $("#baocuo").html("手机号码不能为空");
+            }else {
+                $.ajax({
+                    type: "POST",
+                    url: "hello",
+                    data: {"login_name": login_name},
+                    dataType: "text",
+                    success: function (rs){
+                        if(rs=="true"){
+                            $("#baocuo").html("手机号码已存在");
+                        }else{
+                            $("#baocuo").html("");
+                        }
+                    }
+                })
+            }
+
+        });
+      /*  $(".sub").click(function () {
+            var pwd=document.getElementsByClassName("pwd");
+            var bc=$("#baocuo").val();
+            if(pwd.validity.valueMissing==true){
+                pwd.setCustomValidity("密码不能为空");
+            }else if(pwd.validity.patternMismatch==true){
+                pwd.setCustomValidity("密码必须是6-16位英文或数字");
+            }else{
+                pwd.setCustomValidity("");
+            }
+        });
+*/
+
+        $(".repwd").blur(function () {
+            var repwd=$(".repwd").val();
+            var pwd=$(".pwd").val();
+            if(repwd!=pwd){
+                $("#baocuo").html("输入的两次密码不一致");
+            }else {
+                $("#baocuo").html("");
+            }
+        })
+
+        $(".suiji").click(function () {
+            var mobile=$(".p1").val();
+            alert(mobile);
+            $.ajax({
+                type: "POST",
+                url: "dx",
+                data:{"mobile":mobile}
+            })
+            var i=120;
+            var ds=setInterval(function () {
+                if(i>1){
+                    $(".suiji").text("("+(i)+"秒)重发");
+                }else{
+                    $(".suiji").text("获取验证码");
+                    clearInterval(ds);   //清楚定时函数
+                }
+                i--;
+            },1000);
+        })
+
+
+
+    })
+
+</script>
+</body>
+</html>

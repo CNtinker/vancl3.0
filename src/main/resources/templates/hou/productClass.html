@@ -45,7 +45,7 @@
                 <dd><em><a th:href="@{addProduct}">新增</a></em>
                     <a th:href="@{product}">商品管理</a></dd>
                 <dt>订单管理</dt>
-                <dd><a href="">订单管理</a></dd>
+                <dd><a th:href="@{order}">订单管理</a></dd>
                 <dt>留言管理</dt>
                 <dd><a href="">留言管理</a></dd>
             </dl>
@@ -66,7 +66,7 @@
                         <td th:text="${ca.getCc_name()}"></td>
                         <td class="w1 c">
                              <span th:if="${ca.getChile().size()==0}">
-                                <a th:href="@{delProductClass(cc_id=${ca.getCc_id()})}">删除</a>
+                                <a class="del" th:href="@{delProductClass(cc_id=${ca.getCc_id()})}">删除</a>
                             </span>
                         </td>
                     </tr>
@@ -75,12 +75,13 @@
                             <td class="first w4 c">二级分类</td>
                             <td class="childClass" th:text="${cas.getCc_name()}"></td>
                             <td class="w1 c">
-                                <a th:href="@{delProductClass(cc_id=${cas.getCc_id()})}">删除</a></td>
-
+                                <a class="dl" th:href="@{delProductClass(cc_id=${cas.getCc_id()})}">删除</a>
+                           </td>
                         </tr>
                         </span>
                     </span>
             </table>
+
         </div>
     </div>
     <div class="clear"></div>
@@ -88,4 +89,15 @@
 <div id="footer">Copyright 2007 - 2018 vancl.com All Rights Reserved 京ICP证100557号
     京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号</div>
 </body>
+<script type="text/javascript" rel="stylesheet">
+    $(function () {
+        $(".dl").click(function () {
+            confirm("确定要删除吗？");
+        })
+
+        $(".del").click(function () {
+            confirm("确定要删除吗？");
+        })
+    })
+</script>
 </html>

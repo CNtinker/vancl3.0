@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet"  href="qian/css/log.css"/>
+    <script th:src="@{js/jquery-1.8.3.min.js}"></script>
+</head>
+<body>
+<!--头部-->
+<header>
+    <div class="logo">
+        <a href="#">
+            <img src="qian/images/fankelogo.png" />
+        </a>
+        <span><a href="#">帮助</a></span>
+        <hr>
+    </div>
+</header>
+<section>
+    <div class="login1">
+        <img src="qian/images/fankezhuce.png" width="400px" height="288px"/>
+    </div>
+    <div class="login2">
+        <h3>凡客 vancl 登录</h3>
+        <div class="zc">没有账户免费<a href="#">注册</a></div>
+        <form method="post" action="login" id="putong">
+            <div class="biao1" id="biao1">
+            <p class="ptlogin">普通登陆</p>
+            <p class="kslogin">快速登陆</p>
+            <div class="name"><input class="login" type="text" name="login_name" onblur="chekName()"  placeholder="请输入用户名" style="width:290px;height:30px"></div>
+            <div class="tishi" style="font-weight: bolder"></div>
+            <div class="pwd"><input class="pwds" type="password" name="pwd" placeholder="请输入密码" style="width:290px;height:30px"></div>
+            <div class="tishi2" id="th" style="font-weight: bolder"></div>
+            <div class="zhaohui"><a href="">找回密码</a></div>
+            <div class="send"> <input type="submit" value="登陆" style="width:290px;height:40px;background:#B42025;color:white"></div>
+            </div>
+            <div class="biao2" id="biao2" style="display: none">
+                <p class="ptlogin">普通登陆</p>
+                <p class="kslogin">快速登陆</p>
+                <div class="tishi3"></div>
+                <div class="phone"><input type="text" name="login_name"  placeholder="请输入手机号" style="width:210px;height:30px"></div>
+                <div class="duanxing"> <a href="">获取短信验证码</a></div>
+                <div class="yanzhengma"><input type="password"  placeholder="请输入验证码" style="width:140px;height:30px"></div>
+                <div class="suiji"><img class="codePic" src="validateCode"></div>
+                <div class="huan">
+                   <a id="chek">看不清换一张</a>
+                </div>
+                <div class="phoneyzm"><input type="text" placeholder="请输入手机验证码" style="width:290px;height:30px"></div>
+                <div class="send2"> <input type="submit" value="登陆" style="width:295px;height:35px;background:#B42025;color:white"></div>
+            </div>
+        </form>
+        <div class="disanfang">
+            <p>使用合作网站账号登陆凡客</p>
+            <ul class="u1">
+                <li><a href="#"><img src="qian/images/wei.png" height="20px" width="22px"></a></li>
+                <li><a href="#"><img src="qian/images/xiaomi.png" height="20px" width="22px"></a></li>
+                <li><a href="#"><img src="qian/images/zhifubao.png" height="20px" width="22px"></a></li>
+                <li><a href="#"><img src="qian/images/qq.png" height="20px" width="22px"></a></li>
+                <li><a href="#"><img src="qian/images/360.png" height="20px" width="22px"></a></li>
+                <li><a href="#"><img src="qian/images/weibo.png" height="20px" width="22px"></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</section>
+<footer>
+    <!--<a href="">
+                <img src="images/disanfang.png"/>
+            </a>-->
+    <div class="foot">
+        <center><p>Copyright 2007 - 2016 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11010102000579号 出版物经营许可证新出发京批字第直110138号</p></center>
+        <a href="#">
+            <img src="images/footlogo.png" />
+        </a>
+    </div>
+</footer>
+<script type="text/javascript" rel="stylesheet">
+    $(function(){
+         $(".login").blur(function () {
+             var login_name = $(".login").val();
+             if(login_name==null||login_name==""){
+                 $(".tishi").html("用户名不能为空");
+             }else{
+                 $.ajax({
+                     type: "POST",
+                     url: "ajax",
+                     data: {"login_name": login_name},
+                     dataType: "text",
+                     success: function (result) {
+                         if (result =="true") {
+                             $(".tishi").html("用户名不存在");
+                         } else {
+                             $(".tishi").html("");
+                         }
+                     }
+                 })
+             }
+         });
+         $(".pwds").blur(function () {
+             var pwd=$(".pwds").val();
+             if(pwd==""||pwd==null){
+                 $("#th").html("密码不能为空");
+             }else{
+                 $("#th").html("");
+             }
+         });
+        $(".tell").blur(function () {
+            var login_name=$(".tell").val();
+            if(login_name==null||login_name==""){
+                $(".tishi3").html("手机号码不能为空");
+            }else{
+                $.ajax({
+                    type: "POST",
+                    url: "sj",
+                    data: {"login_name":login_name},
+                    dataType: "text",
+                    success: function (rs) {
+                        if(rs=="true"){
+                            $(".tishi3").html("手机号码不正确,请重新输入");
+                        }else{
+                            $(".tishi3").html("");
+                        }
+                    }
+                })
+            }
+        });
+        $(".tpyzm").blur(function () {
+            var tpyzm=$(".tpyzm").val();
+            if(tpyzm==null||tpyzm==""){
+                $(".tishi3").html("图片验证码不能为空");
+            }else{
+                $(".tishi3").html("");
+            }
+        });
+        $(".sjyzm").blur(function () {
+            var sjyzm=$(".sjyzm").val();
+            if(sjyzm==null||sjyzm==""){
+                $(".tishi3").html("手机验证码不能为空");
+            }else{
+                $(".tishi3").html("");
+            }
+        });
+
+        $("#chek").click(function () {
+            $.ajax({
+                type: "post",
+                url: "validateCode",
+                success: function () {
+                    $(".codePic").attr("src","validateCode")
+                }
+
+            })
+        })
+
+        $(".ptlogin").click(function () {
+            $(".biao1").show();
+            $(".ptlogin").css({"color":"white","font-weight":"bold","background-color":"#B42025"});
+            $(".kslogin").css({"color":"black","background-color":"white"});
+            $(".biao2").hide();
+        })
+        $(".kslogin").click(function () {
+            $(".biao2").show();
+            $(".biao1").hide();
+            $(".ptlogin").css({"color":"black","background-color":"white"});
+            $(".kslogin").css({"color":"white","font-weight":"bold","background-color":"#B42025"})
+        })
+    });
+</script>
+
+</body>
+</html>

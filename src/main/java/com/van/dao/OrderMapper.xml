@@ -21,6 +21,8 @@
            <id column="address" property="address"></id>
            <result column="region" property="region"/>
            <result column="detailed_address" property="detailed_address"/>
+           <result column="consignee" property="consignee"/>
+           <result column="mobile" property="mobile"/>
        </association>
    </resultMap>
 
@@ -28,7 +30,8 @@
 
     <select id="findAllOrder" resultMap="order">
         SELECT o_uid,u.uid uid,u.login_name login_name,a.address address,
-        a.region region,a.detailed_address detailed_address,cost,create_time, o_status,pay_type,pay_state,pay_time
+        a.region region,a.detailed_address detailed_address,cost,create_time, o_status,pay_type,pay_state,pay_time,
+         a.consignee consignee,a.mobile mobile
         FROM van_order o
         LEFT JOIN van_user u
         ON o.uid=u.uid
@@ -55,9 +58,4 @@
     </update>
 
 
-    <!--根据用户id修改订单信息-->
-    <update id="updateOrder">
-        UPDATE  van_order SET
-        o_uid=#{o_uid},uid=#{uid},
-    </update>
 </mapper>

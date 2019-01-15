@@ -2,15 +2,11 @@
 
 
 
-function Delete()
+function Delete(cc_id)
 {
         confirm("确定要删除吗？")
-       $(".del").click(function () {
-           var id=$("#cc_id").html();
-           alert(id);
-       })
-
-        $.ajax({
+         alert(cc_id);
+       /* $.ajax({
             type: "POST",
             url: "delProductClass",
             data: {"cc_id": id},
@@ -22,7 +18,7 @@ function Delete()
                     alert("删除失败");
                 }
             }
-        })
+        })*/
     location.href="/productClass"
 }
 

@@ -17,11 +17,11 @@
     </div>
     <div class="navbar">
         <ul class="clearfix">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="user.html">用户</a></li>
-            <li class="current"><a th:href="@{order}">订单</a></li>
-            <li><a href="guestbook.html">留言</a></li>
-            <li><a href="news.html">新闻</a></li>
+            <li><a th:href="@{shou}">首页</a></li>
+            <li class="current"><a th:href="@{users}">用户</a></li>
+            <li><a th:href="product">商品</a></li>
+            <li><a >订单</a></li>
+            <li><a href="#">留言</a></li>
         </ul>
     </div>
 </div>
@@ -40,16 +40,14 @@
                     <a th:href="@{users}">用户管理</a></dd>
                 <dt>商品信息</dt>
                 <dd><em>
-                    <a th:href="@{addProductClass}">新增</a>
+                    <a th:href="@{addProudctClass}">新增</a>
                 </em><a th:href="@{productClass}">分类管理</a></dd>
-                <dd><em><a th:href="@{productAdd}">新增</a></em>
+                <dd><em><a th:href="@{addProduct}">新增</a></em>
                     <a th:href="@{product}">商品管理</a></dd>
                 <dt>订单管理</dt>
                 <dd><a th:href="@{order}">订单管理</a></dd>
                 <dt>留言管理</dt>
                 <dd><a href="">留言管理</a></dd>
-                <dt>新闻管理</dt>
-                <dd><em><a href="">新增</a></em><a href="">新闻管理</a></dd>
             </dl>
         </div>
     </div>
@@ -88,7 +86,7 @@
                         <span  th:if="${order.getO_status()}eq 5">已收货</span>
                         </a>
                     </td>
-                    <td class="w1 c"><a th:href="@{updateOrder}">修改</a> <a
+                    <td class="w1 c"><a th:href="@{updateOrder(address=${order.getAddress()})}">修改</a> <a
                             href="javascript:Delete(1);">删除</a></td>
                 </tr>
                 </span>
