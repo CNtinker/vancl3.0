@@ -6,6 +6,8 @@ import com.van.service.AddrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AddrServiceImpl implements AddrService {
 
@@ -17,5 +19,16 @@ public class AddrServiceImpl implements AddrService {
     @Override
     public int updateAddr(String region, String detailed_addressInteger, String consignee, String mobile, Integer address) {
         return addrMapper.updateAddr(region,detailed_addressInteger,consignee,mobile,address);
+    }
+
+    @Override
+    public int addAddr(Addr addr) {
+        return addrMapper.addAddr(addr);
+    }
+
+
+    @Override
+    public List<Addr> findAddrById(Integer uid) {
+        return addrMapper.findAddrById(uid);
     }
 }

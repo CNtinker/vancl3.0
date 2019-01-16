@@ -67,16 +67,18 @@
                                 <div class="newaddrdiv addr-selected user-def-addr">
                                     <table>
                                         <tbody>
-                                        <tr class="">
+                                        <tr class="" th:each="ad:${add}">
                                             <td class="choose">
                                                 <input class="fix-ckb-radio" type="radio" name="AddressId"
                                                        value="48989328" checked="">
                                             </td>
+
                                             <td class="addr-detail">
                                                 <div class="addr-lang-option-edit">
-                                                    <span>asfd</span><span>45686453
-                                167****3630</span><span>浙江&nbsp;宁波市 &nbsp;镇海区</span><span
-                                                        style="height: 20px; overflow: hidden;">asdfasdf(354684)</span>
+                                                    <span th:text="${ad.getConsignee()}">asfd</span>
+                                                    <span th:text="${ad.getMobile()}">****3630</span>
+                                                    <span th:text="${ad.getRegion()}">浙江&nbsp;宁波市 &nbsp;镇海区</span>
+                                                    <span style="height: 20px; overflow: hidden;" th:text="${ad.getDetailed_address()}">asdfasdf(354684)</span>
                                                 </div>
                                             </td>
 
@@ -139,8 +141,17 @@
                                         var sheng = $("#sheng>option:selected").html();//省
                                         var shi = $("#shi>option:selected").html();//市
                                         var qu = $("#qu>option:selected").html();//区
-                                        $("#addr-detail").val(sheng+shi+qu);
+                                        $("#xiangq").val(sheng+shi+qu);
                                     }
+
+                                /* function tj() {
+                                     var mobile=$("#mobile-phone").val();
+                                     var xq=$("#xiangq").var();
+                                     var consignee=$("#address").val();
+                                     alert("手机"+mobileren);
+                                     alert("收货人："+consignee)
+                                 }
+*/
 
 
 
@@ -360,7 +371,7 @@
                                             <span>*</span> 收&nbsp; 货&nbsp; 人：
                                         </div>
                                         <div>
-                                            <input type="text" id="addressee" name="region" maxlength="20"
+                                            <input type="text" id="addressee" name="consignee" maxlength="20"
                                                    autofocus="true" placeholder="请准确填写真实姓名" class="place-holder"
                                                    value="">
                                             <p class="error" style="display: block;">请准确填写真实姓名</p>
@@ -374,7 +385,7 @@
                                             <span>*</span> 地 区：
                                         </div>
                                         <div>
-                                            <select name="model.Province" id="sheng" onchange="shengChange()">
+                                            <select name="sheng" id="sheng" onchange="shengChange()">
                                                 <option selected value="0">-请选择-</option>
                                                 <option th:each="s:${as}" th:value="${s.getAr_id()}" th:text="${s.getAr_name()}"></option>
                                             </select>
@@ -382,14 +393,14 @@
                                                 请选择省份</p>-->
                                         </div>
                                         <div>
-                                            <select name="model.City" id="shi" onchange="shiChange()">
+                                            <select name="shi" id="shi" onchange="shiChange()">
                                                 <option selected value="0">--市--</option>
                                             </select>
                                             <p class="error">
                                                 请选择市</p>
                                         </div>
                                         <div>
-                                            <select name="model.Area" id="qu" onchange="show()">
+                                            <select name="qu" id="qu" onchange="show()">
                                                 <option selected value="0">--县/区--</option>
                                             </select>
                                             <p class="error">
@@ -405,20 +416,23 @@
                                             <div id="city-in-detail"></div>
                                             <div id="area-in-detail"></div>
                                             <input type="text" id="addr-detail" class="addr-detail place-holder"
-                                                   name="model.Address" maxlength="80" placeholder="请填写详细路名及门牌号"
+                                                   name="detailed_address" maxlength="80" placeholder="请填写详细路名及门牌号"
                                                    value="">
                                             <a href="http://help.vancl.com/category/transfer"
                                                target="_blank">配送范围与配送时间 </a>
                                             <p class="error">
                                             </p>
                                         </div>
+                                        <input type="text" id="xiangq" class="addr-detail place-holder"
+                                                   name="dq" maxlength="80" placeholder="请填写详细路名及门牌号"
+                                                   value="" style="display: none"/>
                                     </li>
                                     <li>
                                         <div>
                                             &nbsp;&nbsp;手 机：
                                         </div>
                                         <div>
-                                            <input type="tel" id="mobile-phone" name="model.MobilePhone"
+                                            <input type="tel" id="mobile-phone" name="mobile"
                                                    class="mobile place-holder" placeholder="手机和座机至少填写一个" value=""
                                                    data-error="请输入正确的手机号码" maxlength="11">
                                             <p class="error">
@@ -426,9 +440,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <input type="hidden" name="model.AddressId" value="0">
-                                        <input type="submit" class="save-new-addr track" name="sp_cart_address_save"
-                                               value="">
+                                       <!-- <input type="hidden" name="model.AddressId" value="0">-->
+                                        <input type="submit" class="save-new-addr track" name="sp_cart_address_save" >
                                     </li>
                                 </ol>
                             </form>

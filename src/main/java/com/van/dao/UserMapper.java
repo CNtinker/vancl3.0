@@ -1,6 +1,7 @@
 package com.van.dao;
 
 import com.van.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,13 +15,10 @@ public interface UserMapper {
  * **/
     List<User> findAllUsers(Map<String,Object> map);
 
-
-
     /*
      * 根据登录名和密码去查询用户
-     *
      * **/
-    User findLoginPwdUser(User user);
+    User findLoginPwdUser(String loginName,String pwd);
 
     /*
      * 添加用户

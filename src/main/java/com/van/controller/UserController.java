@@ -4,6 +4,8 @@ package com.van.controller;
 import com.van.pojo.User;
 import com.van.service.UserService;
 
+import com.van.util.RondomNumUtil;
+import com.van.util.SendSMSValidate;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @Controller
@@ -19,40 +22,57 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
-
     @RequestMapping("/index")
     public  String index(){
         return "regs";
     }
 
-     /*
+
+    //短信验证
+    @ResponseBody
+    @RequestMapping("/getCode")
+    public String getCode(@RequestParam String phone,HttpSession session){
+        System.out.println("进入短信登陆验证。。。。。"+phone);
+        String param = RondomNumUtil.createRandomVcode();
+        session.setAttribute("param",param);
+        Boolean flag = SendSMSValidate.sendSms(phone,param);
+        if(flag){
+            return "true";
+        }
+        return "false";
+    }
+
+
+    /*
      * 注册方法
      * **/
 
-    /*@RequestMapping("/regs")
-    public String reg(@RequestParam User user,String yzm,String repwd) {
-        int num;
-        String param = RandUtil.getRandomNum();
-        if (yzm == param && user.getPwd() == repwd) {
-            user.setReg_date(new Date(new java.util.Date().getTime()));
+  @RequestMapping("/regs")
+    public String reg(@RequestParam String yzm, User user,HttpSession session) {
+        String param=(String) session.getAttribute("param");
+        if ((yzm).equals(param)) {
             user.setUser_type(2);
             user.setState(1);
-            num = userService.addUser(user);
+           int num = userService.addUser(user);
             return "redirect:/login";
         }
-        return "regs";
-    }*/
-
-
+        return "redirect:/index";
+    }
     @RequestMapping("/login")
-    public String login(User user,HttpServletRequest request){
-        User us=userService.findLoginPwdUser(user);
-        if(us!=null){
-            request.getSession().setAttribute("user",us);
-            return "redirect:/index2";
+    public  String login(){
+        return "login";
+    }
+
+    @RequestMapping("/addUser")
+    public String addUser(@RequestParam String loginName,String pwd, HttpServletRequest request){
+        System.out.println(loginName);
+        System.out.println(pwd);
+         User user=userService.findLoginPwdUser(loginName,pwd);
+        if(user==null){
+            return "redirect:/login";
         }
-       return "login";
+        request.getSession().setAttribute("user",user);
+        return "redirect:/sheng";
     }
 
     @RequestMapping("/ajax")
@@ -66,21 +86,13 @@ public class UserController {
     }
 
 
-   /* @RequestMapping(value ="/dx",method =RequestMethod.POST)
-/*    @RequestMapping(value ="/dx",method =RequestMethod.POST)
-    @ResponseBody
-    public String dx(@RequestParam String mobile){
-        String param=RandUtil.getRandomNum();
-        boolean result;
-        result=SendSMSValidate.sendSms(mobile,param);
-        System.out.println(mobile);
-        System.out.println(param);
-        if(result){
-            return "true";
-        }
-        return "flase";
-    }
-    */
+
+
+
+
+
+
+
 
     @RequestMapping("/hello")
     @ResponseBody

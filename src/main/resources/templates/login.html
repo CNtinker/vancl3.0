@@ -23,17 +23,17 @@
     </div>
     <div class="login2">
         <h3>凡客 vancl 登录</h3>
-        <div class="zc">没有账户免费<a href="#">注册</a></div>
-        <form method="post" action="login" id="putong">
+        <div class="zc">没有账户免费<a th:href="@{index}">注册</a></div>
+        <form method="post" action="addUser" id="putong">
             <div class="biao1" id="biao1">
-            <p class="ptlogin">普通登陆</p>
-            <p class="kslogin">快速登陆</p>
-            <div class="name"><input class="login" type="text" name="login_name" onblur="chekName()"  placeholder="请输入用户名" style="width:290px;height:30px"></div>
-            <div class="tishi" style="font-weight: bolder"></div>
-            <div class="pwd"><input class="pwds" type="password" name="pwd" placeholder="请输入密码" style="width:290px;height:30px"></div>
-            <div class="tishi2" id="th" style="font-weight: bolder"></div>
-            <div class="zhaohui"><a href="">找回密码</a></div>
-            <div class="send"> <input type="submit" value="登陆" style="width:290px;height:40px;background:#B42025;color:white"></div>
+                <p class="ptlogin">普通登陆</p>
+                <p class="kslogin">快速登陆</p>
+                <div class="name"><input class="login" type="text" name="loginName" onblur="chekName()"  placeholder="请输入用户名" style="width:290px;height:30px"></div>
+                <div class="tishi" style="font-weight: bolder"></div>
+                <div class="pwd"><input class="pwds" type="password" name="pwd" placeholder="请输入密码" style="width:290px;height:30px"></div>
+                <div class="tishi2" id="th" style="font-weight: bolder"></div>
+                <div class="zhaohui"><a href="">找回密码</a></div>
+                <div class="send"> <input type="submit" value="登陆" style="width:290px;height:40px;background:#B42025;color:white"></div>
             </div>
             <div class="biao2" id="biao2" style="display: none">
                 <p class="ptlogin">普通登陆</p>
@@ -44,7 +44,7 @@
                 <div class="yanzhengma"><input type="password"  placeholder="请输入验证码" style="width:140px;height:30px"></div>
                 <div class="suiji"><img class="codePic" src="validateCode"></div>
                 <div class="huan">
-                   <a id="chek">看不清换一张</a>
+                    <a id="chek">看不清换一张</a>
                 </div>
                 <div class="phoneyzm"><input type="text" placeholder="请输入手机验证码" style="width:290px;height:30px"></div>
                 <div class="send2"> <input type="submit" value="登陆" style="width:295px;height:35px;background:#B42025;color:white"></div>

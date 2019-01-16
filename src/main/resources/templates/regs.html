@@ -21,11 +21,11 @@
     </div>
     <div class="zhuce2">
         <p>注册新用户</p>
-        <p>我已经注册,现在就<a href="">登录</a> </p>
+        <p>我已经注册,现在就<a th:href="@{login}">登录</a> </p>
         <form method="post" action="regs" id="zhucebiao">
             <div class="yanzhengma">
                 <input class="p1" id="sj" type="text" name="login_name" placeholder="请输入手机号" required pattern="^1[3578]\d{9}$" style="width:200px;height:30px">
-                <div class="suiji"><a>获取短信验证</a></div>
+                <div class="suiji">获取短信验证</div>
             </div>
             <div><input class="yanz" type="text" name="yzm" placeholder="填写手机验证码" style="width:342px;height:30px"></div>
             <div><input class="pwd" type="password" name="pwd" placeholder="请输入密码" required pattern="[a-zA-Z0-9]{6,12}" style="width:342px;height:30px"></div>
@@ -91,12 +91,12 @@
         })
 
         $(".suiji").click(function () {
-            var mobile=$(".p1").val();
-            alert(mobile);
+            var phone=$(".p1").val();
+            alert(phone);
             $.ajax({
                 type: "POST",
-                url: "dx",
-                data:{"mobile":mobile}
+                url: "getCode",
+                data:{"phone":phone}
             })
             var i=120;
             var ds=setInterval(function () {

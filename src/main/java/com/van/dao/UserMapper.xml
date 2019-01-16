@@ -4,12 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.van.dao.UserMapper">
     <!--添加用户-->
-    <insert id="addUser" keyColumn="uid" keyProperty="uid">
-          insert into van_user(login_name,pwd,tell_phone)values (#{login_name},#{pwd},#{tell_phone})
+    <insert id="addUser" keyColumn="uid" keyProperty="uid" parameterType="user">
+          insert into van_user(login_name,pwd,reg_date,user_type,state)values
+          (#{login_name},#{pwd},NOW(),#{user_type},#{state})
     </insert>
     <!--根据用户名和密码查询用户-->
     <select id="findLoginPwdUser" resultType="user">
-        select * from van_user where login_name=#{login_name} and pwd=#{pwd}
+        select * from van_user where login_name=#{arg0} and pwd=#{arg1}
     </select>
 
     <!--根据id修改用户 -->

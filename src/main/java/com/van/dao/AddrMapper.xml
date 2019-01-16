@@ -3,13 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.van.dao.AddrMapper">
-
+     <!-- 根据id修改地址-->
     <update id="updateAddr">
         update van_addr set region=#{arg0},detailed_address=#{arg1},
               consignee=#{arg2},mobile=#{arg3} where address=#{arg4}
     </update>
+   <!-- 添加地址-->
+   <insert id="addAddr" keyColumn="address"  keyProperty="address">
+       insert into van_addr(uid,region,detailed_address,consignee,mobile)values
+       (#{uid},#{region},#{detailed_address},#{consignee},#{mobile})
+   </insert>
 
-
+    <!--根据用户id查询地址-->
+    <select id="findAddrById" resultType="Addr">
+        select *from van_addr where uid=#{uid}
+    </select>
 
 
 </mapper>

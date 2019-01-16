@@ -1,6 +1,7 @@
 package com.van.service;
 
 import com.van.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public interface UserService {
      * 根据登录名和密码去查询用户
      *
      * **/
-    User findLoginPwdUser(User user);
+    User findLoginPwdUser(String loginName,String pwd);
 
     /*
      * 添加用户
