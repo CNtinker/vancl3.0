@@ -1,4 +1,3 @@
-/*
 package com.van.controller;
 
 import com.van.pojo.User;
@@ -27,12 +26,10 @@ public class UserController {
         return "regs";
     }
 
-    */
-/*
-     * 注册方法
-     * **//*
+      /*注册方法*/
 
-    @RequestMapping("/regs")
+
+    /*@RequestMapping("/regs")
     public String reg(@RequestParam User user,String yzm,String repwd) {
         int num;
         String param = RandUtil.getRandomNum();
@@ -44,7 +41,7 @@ public class UserController {
             return "redirect:/login";
         }
         return "regs";
-    }
+    }*/
 
 
     @RequestMapping("/login")
@@ -68,7 +65,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value ="/dx",method =RequestMethod.POST)
+/*    @RequestMapping(value ="/dx",method =RequestMethod.POST)
     @ResponseBody
     public String dx(@RequestParam String mobile){
         String param= RandUtil.getRandomNum();
@@ -80,7 +77,7 @@ public class UserController {
             return "true";
         }
         return "flase";
-    }
+    }*/
 
     @RequestMapping("/hello")
     @ResponseBody
@@ -93,4 +90,3 @@ public class UserController {
     }
 
 }
-*/
