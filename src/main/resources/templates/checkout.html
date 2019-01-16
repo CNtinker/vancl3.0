@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0035)https://shopping.vancl.com/checkout -->
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -103,6 +102,55 @@
                                     </table>
                                 </div>
                                 <script type="text/javascript">
+                                    function shengChange(){
+                                        $("#shi").html("<option value=''>-请选择-</option>");
+                                        var ar_parent_id=$("#sheng :selected").val();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "shi",
+                                            data: {"ar_parent_id": ar_parent_id},
+                                            dataType: "json",
+                                            success: function (data) {
+                                                for(var i=0;i<data.length;i++){
+                                                    var op="<option value='"+data[i].ar_id+"'>"+data[i].ar_name+"</option>";
+                                                    $("#shi").append(op);
+                                                }
+                                            }
+                                        })
+                                    }
+
+                                    function  shiChange(){
+                                        $("#qu").html("<option value=''>-请选择-</option>");
+                                        var cr_parent_id=$("#shi :selected").val();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "qu",
+                                            data: {"cr_parent_id": cr_parent_id},
+                                            dataType: "json",
+                                            success: function (result) {
+                                                for(var i=0;i<result.length;i++){
+                                                    var op="<option value='"+result[i].ar_id+"'>"+result[i].ar_name+"</option>";
+                                                    $("#qu").append(op);
+                                                }
+                                            }
+                                        })
+                                    }
+                                    function show(){
+                                        var sheng = $("#sheng>option:selected").html();//省
+                                        var shi = $("#shi>option:selected").html();//市
+                                        var qu = $("#qu>option:selected").html();//区
+                                        $("#addr-detail").val(sheng+shi+qu);
+                                    }
+
+
+
+
+
+
+
+
+
+
 
                                     $(document).ready(function () {
                                         $("#addr .addr-title").css("line-height", $("#addr section").height() + "px");
@@ -304,8 +352,7 @@
 
                         </form>
                         <div class="addr-form" style="display: none;">
-                            <form id="set-addr-form" action="/addAddr"
-                                  method="post" class="" style="padding-top:20px">
+                            <form id="set-addr-form" action="/addAddr" method="post"  style="padding-top:20px">
                                 <ol style="padding-left:0px">
 
                                     <li>
@@ -313,7 +360,7 @@
                                             <span>*</span> 收&nbsp; 货&nbsp; 人：
                                         </div>
                                         <div>
-                                            <input type="text" id="addressee" name="FullName" maxlength="20"
+                                            <input type="text" id="addressee" name="region" maxlength="20"
                                                    autofocus="true" placeholder="请准确填写真实姓名" class="place-holder"
                                                    value="">
                                             <p class="error" style="display: block;">请准确填写真实姓名</p>
@@ -327,55 +374,23 @@
                                             <span>*</span> 地 区：
                                         </div>
                                         <div>
-                                            <select name="model.Province" id="province-id">
-                                                <option value="">--省份/直辖市--</option>
-                                                <option value="%e5%8c%97%e4%ba%ac">北京</option>
-                                                <option value="%e5%a4%a9%e6%b4%a5">天津</option>
-                                                <option value="%e6%b2%b3%e5%8c%97">河北</option>
-                                                <option value="%e5%b1%b1%e8%a5%bf">山西</option>
-                                                <option value="%e5%86%85%e8%92%99%e5%8f%a4">内蒙古</option>
-                                                <option value="%e8%be%bd%e5%ae%81">辽宁</option>
-                                                <option value="%e5%90%89%e6%9e%97">吉林</option>
-                                                <option value="%e9%bb%91%e9%be%99%e6%b1%9f">黑龙江</option>
-                                                <option value="%e4%b8%8a%e6%b5%b7">上海</option>
-                                                <option value="%e6%b1%9f%e8%8b%8f">江苏</option>
-                                                <option value="%e6%b5%99%e6%b1%9f">浙江</option>
-                                                <option value="%e5%ae%89%e5%be%bd">安徽</option>
-                                                <option value="%e7%a6%8f%e5%bb%ba">福建</option>
-                                                <option value="%e6%b1%9f%e8%a5%bf">江西</option>
-                                                <option value="%e5%b1%b1%e4%b8%9c">山东</option>
-                                                <option value="%e6%b2%b3%e5%8d%97">河南</option>
-                                                <option value="%e6%b9%96%e5%8c%97">湖北</option>
-                                                <option value="%e6%b9%96%e5%8d%97">湖南</option>
-                                                <option value="%e5%b9%bf%e4%b8%9c">广东</option>
-                                                <option value="%e5%b9%bf%e8%a5%bf">广西</option>
-                                                <option value="%e6%b5%b7%e5%8d%97">海南</option>
-                                                <option value="%e9%87%8d%e5%ba%86">重庆</option>
-                                                <option value="%e5%9b%9b%e5%b7%9d">四川</option>
-                                                <option value="%e8%b4%b5%e5%b7%9e">贵州</option>
-                                                <option value="%e4%ba%91%e5%8d%97">云南</option>
-                                                <option value="%e8%a5%bf%e8%97%8f">西藏</option>
-                                                <option value="%e9%99%95%e8%a5%bf">陕西</option>
-                                                <option value="%e7%94%98%e8%82%83">甘肃</option>
-                                                <option value="%e9%9d%92%e6%b5%b7">青海</option>
-                                                <option value="%e5%ae%81%e5%a4%8f">宁夏</option>
-                                                <option value="%e6%96%b0%e7%96%86">新疆</option>
-
-
+                                            <select name="model.Province" id="sheng" onchange="shengChange()">
+                                                <option selected value="0">-请选择-</option>
+                                                <option th:each="s:${as}" th:value="${s.getAr_id()}" th:text="${s.getAr_name()}"></option>
                                             </select>
-                                            <p class="error" style="display: block;">
-                                                请选择省份</p>
+                                           <!--<p class="error" style="display: block;">
+                                                请选择省份</p>-->
                                         </div>
                                         <div>
-                                            <select name="model.City" id="city-id">
-                                                <option value="">--市--</option>
+                                            <select name="model.City" id="shi" onchange="shiChange()">
+                                                <option selected value="0">--市--</option>
                                             </select>
                                             <p class="error">
                                                 请选择市</p>
                                         </div>
                                         <div>
-                                            <select name="model.Area" id="area-id">
-                                                <option value="">--县/区--</option>
+                                            <select name="model.Area" id="qu" onchange="show()">
+                                                <option selected value="0">--县/区--</option>
                                             </select>
                                             <p class="error">
                                                 请选择县/区</p>
@@ -400,35 +415,12 @@
                                     </li>
                                     <li>
                                         <div>
-                                            <span>*</span> 邮政编码：
-                                        </div>
-                                        <div>
-                                            <input type="number" placeholder="请填写正确的邮政编码" id="postal-code"
-                                                   name="model.PostalCode" class="place-holder" value="" maxlength="6">
-                                            <span id="default-postal-code"></span><a id="use-postal-code">使用此邮编</a>
-                                            <p class="error">
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
                                             &nbsp;&nbsp;手 机：
                                         </div>
                                         <div>
                                             <input type="tel" id="mobile-phone" name="model.MobilePhone"
                                                    class="mobile place-holder" placeholder="手机和座机至少填写一个" value=""
                                                    data-error="请输入正确的手机号码" maxlength="11">
-                                            <p class="error">
-                                            </p>
-                                        </div>
-                                        <div>
-                                            座 机：
-                                        </div>
-                                        <div>
-                                            <input type="tel" id="phone" class="phone place-holder" name="model.Phone"
-                                                   placeholder="手机和座机至少填写一个" value="" data-error="请输入正确的电话号码"
-                                                   maxlength="20">
-                                            <span id="default-area-code"></span><a id="use-area-code">使用此区号</a>
                                             <p class="error">
                                             </p>
                                         </div>

@@ -157,7 +157,7 @@ public class ShopController {
 
         if((Boolean) session.getAttribute("logstatus")||1==1){
 
-            return "checkout";
+            return "redirect:/sheng";
         }else{
             /*跳转到登录页面*/
             return "redirect:/login";

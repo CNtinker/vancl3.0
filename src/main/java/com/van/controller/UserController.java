@@ -1,15 +1,13 @@
-/*
+
 package com.van.controller;
 
 import com.van.pojo.User;
 import com.van.service.UserService;
 
-import com.van.util.RandUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,12 +26,11 @@ public class UserController {
         return "regs";
     }
 
-    */
-/*
+     /*
      * 注册方法
-     * **//*
+     * **/
 
-    @RequestMapping("/regs")
+    /*@RequestMapping("/regs")
     public String reg(@RequestParam User user,String yzm,String repwd) {
         int num;
         String param = RandUtil.getRandomNum();
@@ -45,7 +42,7 @@ public class UserController {
             return "redirect:/login";
         }
         return "regs";
-    }
+    }*/
 
 
     @RequestMapping("/login")
@@ -82,7 +79,8 @@ public class UserController {
             return "true";
         }
         return "flase";
-    }*/
+    }
+    */
 
     @RequestMapping("/hello")
     @ResponseBody
@@ -95,4 +93,4 @@ public class UserController {
     }
 
 }
-*/
+

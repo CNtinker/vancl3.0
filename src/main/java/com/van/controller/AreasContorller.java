@@ -22,7 +22,7 @@ public class AreasContorller {
     public String sheng(Model mod){
        List<Areas> are=areasService.findAllProvence();
        mod.addAttribute("as",are);
-        return "hou/address";
+        return "checkout";
     }
 
     @RequestMapping("/shi")
