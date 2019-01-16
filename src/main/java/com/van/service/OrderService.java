@@ -20,4 +20,7 @@ public interface OrderService {
     //创建订单方法
     boolean creatOrder(Order order);
 
+    //根据id删除订单
+    int delOrder(Integer o_uid);
+
 }

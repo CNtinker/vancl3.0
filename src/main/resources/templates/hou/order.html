@@ -20,7 +20,7 @@
             <li><a th:href="@{shou}">首页</a></li>
             <li class="current"><a th:href="@{users}">用户</a></li>
             <li><a th:href="product">商品</a></li>
-            <li><a >订单</a></li>
+            <li><a th:href="@{order}">订单</a></li>
             <li><a href="#">留言</a></li>
         </ul>
     </div>
@@ -87,7 +87,7 @@
                         </a>
                     </td>
                     <td class="w1 c"><a th:href="@{updateOrder(address=${order.getAddress()})}">修改</a> <a
-                            href="javascript:Delete(1);">删除</a></td>
+                           th:href="@{deleteOrder(o_uid=${order.getO_uid()})}">删除</a></td>
                 </tr>
                 </span>
             </table>

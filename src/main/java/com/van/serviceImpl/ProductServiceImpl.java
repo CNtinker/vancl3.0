@@ -2,6 +2,7 @@ package com.van.serviceImpl;
 
 import com.van.dao.ProductMapper;
 import com.van.pojo.P_pk_children;
+import com.van.pojo.Product;
 import com.van.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

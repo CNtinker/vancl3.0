@@ -26,4 +26,7 @@ public interface OrderMapper {
 
     //根据订单实体类创建订单
     int creatOrder(Order order);
+
+    //根据id删除订单
+    int delOrder(Integer o_uid);
 }

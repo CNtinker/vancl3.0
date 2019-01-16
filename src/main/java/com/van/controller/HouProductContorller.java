@@ -98,7 +98,7 @@ public class HouProductContorller {
    @RequestMapping("/modifProduct")
    public String modifyProduct(@RequestParam Integer p_id,Model mod){
        List<Category> list=is.findAllCategory();
-       Product pdts=productService.findProductById(p_id);
+       Product pdts= productService.findProductById(p_id);
        mod.addAttribute("pdts",pdts);
        mod.addAttribute("category",list);
        return "hou/product-modify";

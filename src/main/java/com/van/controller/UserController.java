@@ -3,6 +3,7 @@ package com.van.controller;
 import com.van.pojo.User;
 import com.van.service.UserService;
 
+import com.van.util.RandUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,10 +66,10 @@ public class UserController {
     }
 
 
-    @RequestMapping(value ="/dx",method =RequestMethod.POST)
+   /* @RequestMapping(value ="/dx",method =RequestMethod.POST)
     @ResponseBody
     public String dx(@RequestParam String mobile){
-        String param= RandUtil.getRandomNum();
+        String param=RandUtil.getRandomNum();
         boolean result;
         result=SendSMSValidate.sendSms(mobile,param);
         System.out.println(mobile);
@@ -77,7 +78,7 @@ public class UserController {
             return "true";
         }
         return "flase";
-    }
+    }*/
 
     @RequestMapping("/hello")
     @ResponseBody

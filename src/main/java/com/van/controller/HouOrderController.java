@@ -63,6 +63,7 @@ public class HouOrderController {
         return "hou/order-modify";
     }
 
+    //订单修改方法
     @RequestMapping("/modify")
     public String modify(@RequestParam String region,String detailed_address,String consignee,String mobile, Integer address){
        int num=addrService.updateAddr(region,detailed_address,consignee,mobile,address);
@@ -72,4 +73,10 @@ public class HouOrderController {
         return "redirect:/updateOrder";
     }
 
+    //订单删除方法
+    @RequestMapping("/deleteOrder")
+    public String deleteOrder(Integer o_uid){
+       Integer num=orderService.delOrder(o_uid);
+        return "redirect:/order";
+    }
 }

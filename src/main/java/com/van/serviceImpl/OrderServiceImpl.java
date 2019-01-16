@@ -22,6 +22,11 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.updateOrder(uid);
     }
 
+    @Override
+    public int delOrder(Integer o_uid) {
+        return orderMapper.delOrder(o_uid);
+    }
+
     //查询所有的订单
     @Override
     public List<Order> findAllOrder(Map<String, Object> map) {

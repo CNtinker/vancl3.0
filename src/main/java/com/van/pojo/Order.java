@@ -21,6 +21,9 @@ public class Order {
     private Integer pay_state;  //支付状态
     private Date   pay_time;    //支付时间
 
+    private User user;
+    private Addr addr;
+
     //一条订单有多条订单详情
     private List<Order_Detail> orderLitems;
 
