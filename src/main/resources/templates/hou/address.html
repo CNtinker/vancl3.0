@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="qian/css/qrdd.css" type="text/css" />
+    <script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<div class="head">
+
+                <form  method="post" name="form1" action="">
+                    省：
+                    <select name="sheng" id="sheng" onchange="shengChange()">
+                        <option selected value="0">-请选择-</option>
+                        <option  th:each="s:${as}" th:value="${s.getAr_id()}" th:text="${s.getAr_name()}"></option>
+                    </select>
+                    市：
+                    <select name="shi" id="shi" onchange="shiChange()">
+                        <option selected value="">-请选择-</option>
+                    </select>
+                    区：
+                    <select name="qu" id="qu" onchange="show()">
+                        <option selected value="">-请选择-</option>
+
+                    </select>
+                    <br/>
+                    街道地区：<input type="text" id="address" name="jdao"/><br/>
+                    <span class="sp1">填写街道地址最少五个字，最多一百个</span><br/>
+                    <p> 收货人姓名：<input type="text" class="shr" name="shr"/></p>
+                    <p>手机号码：<input type="text" class="sjhm" name="sjhm"/></p>
+                    <input type="submit" class="sub" vaule="确认地址"/><span class="sp2">取消</span>
+                </form>
+   </div>
+<script type="text/javascript" rel="stylesheet">
+
+
+    function shengChange(){
+        $("#shi").html("<option value=''>-请选择-</option>");
+        var ar_parent_id=$("#sheng :selected").val();
+        $.ajax({
+            type: "POST",
+            url: "shi",
+            data: {"ar_parent_id": ar_parent_id},
+            dataType: "json",
+            success: function (data) {
+                    for(var i=0;i<data.length;i++){
+                        var op="<option value='"+data[i].ar_id+"'>"+data[i].ar_name+"</option>";
+                        $("#shi").append(op);
+                    }
+            }
+        })
+    }
+
+    function  shiChange(){
+        $("#qu").html("<option value=''>-请选择-</option>");
+        var cr_parent_id=$("#shi").val();
+        alert(cr_parent_id);
+        $.ajax({
+            type: "POST",
+            url: "qu",
+            data: {"cr_parent_id": cr_parent_id},
+            dataType: "json",
+            success: function (result) {
+                for(var i=0;i<result.length;i++){
+                    var op="<option value='"+result[i].ar_id+"'>"+result[i].ar_name+"</option>";
+                    $("#qu").append(op);
+                }
+            }
+        })
+    }
+    function show(){
+        var sheng = $("#sheng>option:selected").html();//省
+        var shi = $("#shi>option:selected").html();//市
+        var qu = $("#qu>option:selected").html();//区
+        $("#address").val(sheng+shi+qu);
+        for(var i=0;i<data.length;i++){
+            var op="<option value='"+data[i].ar_id+"'>"+data[i].ar_name+"</option>";
+            $("#qu").append(op);
+        }
+    }
+
+</script>
+
+</html>
