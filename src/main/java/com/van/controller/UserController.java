@@ -70,6 +70,7 @@ public class UserController {
 
 
    /* @RequestMapping(value ="/dx",method =RequestMethod.POST)
+/*    @RequestMapping(value ="/dx",method =RequestMethod.POST)
     @ResponseBody
     public String dx(@RequestParam String mobile){
         String param=RandUtil.getRandomNum();
