@@ -7,10 +7,12 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @Controller
 public class UserController {
@@ -21,16 +23,27 @@ public class UserController {
 
     @RequestMapping("/index")
     public  String index(){
-        return "order";
+        return "regs";
     }
 
+    /*
+     * 注册方法
+     * **/
     @RequestMapping("/regs")
-    public String reg(User user){
-        if(userService.addUser(user)>0){
+    public String reg(@RequestParam User user,String yzm,String repwd) {
+        int num;
+        String param = RandUtil.getRandomNum();
+        if (yzm == param && user.getPwd() == repwd) {
+            user.setReg_date(new Date(new java.util.Date().getTime()));
+            user.setUser_type(2);
+            user.setState(1);
+            num = userService.addUser(user);
             return "redirect:/login";
         }
         return "regs";
     }
+
+
     @RequestMapping("/login")
     public String login(User user,HttpServletRequest request){
         User us=userService.findLoginPwdUser(user);
@@ -51,6 +64,20 @@ public class UserController {
         return "false";
     }
 
+
+    @RequestMapping(value ="/dx",method =RequestMethod.POST)
+    @ResponseBody
+    public String dx(@RequestParam String mobile){
+        String param= RandUtil.getRandomNum();
+        boolean result;
+        result=SendSMSValidate.sendSms(mobile,param);
+        System.out.println(mobile);
+        System.out.println(param);
+        if(result){
+            return "true";
+        }
+        return "flase";
+    }
 
     @RequestMapping("/hello")
     @ResponseBody

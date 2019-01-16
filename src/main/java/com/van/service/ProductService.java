@@ -13,7 +13,22 @@ public interface ProductService {
 
     String findColorByColorId(Integer color_id);
 
+
     String findSizeByColorId(Integer Size_id);
+
+    //添加商品
+    int addProduct(Product pd);
+
+    //根据商品id查询商品信息
+    Product findProductById(Integer p_id);
+
+    //根据商品id修改商品信息
+    int updateProductById(Product pd,Integer p_id);
+
+    //根据商品id删除商品
+    int deleteProductById(Integer p_id);
+
+
 
     Integer findColorIdByColor(String Color);
 

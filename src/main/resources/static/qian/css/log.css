@@ -1,0 +1,260 @@
+body{
+    width: 90%;
+    height: 800px;
+    left: 100px;
+    padding-left: 70px;
+}
+.logo span{
+    float: right;
+    margin-top: 20px;
+    font-size: 13px;
+    margin-right: 10px;
+}
+.logo a{
+    color: black;
+}
+.logo a:hover{
+    color: red;
+}
+section{
+    height: 400px;
+}
+.login1{
+    width: 400px;
+    margin-left:50px;
+    margin-top:45px;
+
+}
+.login2{
+    width:350px;
+    margin:-295px 600px;
+
+}
+form{
+    margin-top:55px;
+    border-bottom: 1px dashed #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-left: 1px solid #D1D1D1;
+
+}
+.login2 h3{
+    width: 150px;
+    color: lightslategray;
+    line-height: 30px;
+    margin-top:10px;
+
+}
+.biao1 p:nth-of-type(1){
+    border: 1px solid #D1D1D1;
+    width: 172px;
+    line-height:30px;
+    display: inline-block;
+    margin: 0px;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #B42025;
+}
+.biao1 p:nth-of-type(2){
+    border: 1px solid #D1D1D1;
+    width: 172px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0px  -5px;
+    font-size:14px;
+    opacity: 0.7;
+    font-weight: lighter;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+.zc{
+    width: 115px;
+    margin:-40px 248px;
+    font-size:12px;
+    color: #999999;
+
+}
+.zc a{
+    color: #B81C22;
+    text-decoration: none;
+}
+.name{
+    margin-left: 25px;
+    margin-top:20px;
+}
+.pwd{
+    margin-top:10px;
+    margin-left: 25px;
+}
+.zhaohui{
+    margin-left:265px;
+    margin-top: 20px;
+}
+.zhaohui a{
+    color: #B81C22;
+    font-weight:bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+.send{
+    font-weight: bolder;
+    margin-left: 25px;
+}
+.send input{
+    font-weight: bolder;
+}
+
+.biao2 p:nth-of-type(1){
+    border: 1px solid #D1D1D1;
+    width: 172px;
+    line-height:30px;
+    display: inline-block;
+    margin:0px;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #B42025;
+}
+.biao2 p:nth-of-type(2){
+    border: 1px solid #D1D1D1;
+    width: 172px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0px  -5px;
+    font-size:14px;
+    opacity: 0.7;
+    font-weight: lighter;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+.duanxing{
+    border: 1px solid #D1D1D1;
+    margin-left:250px;
+    margin-top: -41px;
+    width:80px;
+    text-align: center;
+    line-height:31px;
+    background-color: #F5F5F5;
+}
+.duanxing a{
+    font-size: 10px;
+    color: #B81C22;
+    text-decoration: none;
+}
+
+.phone{
+    width: 300px;
+    margin:5px 20px;
+}
+.yanzhengma{
+    height: 50px;
+    margin-top: 16px;
+    margin-left:20px;
+    width: 180px;
+}
+.suiji{
+    width:90px;
+    height:33px;
+    margin-left:165px;
+    margin-top:-50px;
+}
+.suiji img{
+    width:90px;
+    height:35px;
+}
+.huan{
+    width:60px;
+    height:30px;
+    margin-left:270px;
+    margin-top: -45px;
+
+}
+.huan a{
+    font-size:9px;
+    color: black;
+    text-decoration: none;
+}
+.phoneyzm{
+    width: 300px;
+    margin-left:20px;
+    margin-top: 30px;
+}
+.send2{
+    font-weight: bolder;
+    margin-left: 20px;
+    margin-top: 15px;
+    width: 290px;
+}
+.send2 input{
+    font-weight: bolder;
+}
+.fasong{
+    margin-left: 25px;
+    margin-top: 30px;
+}
+.disanfang{
+    border-top: 1px solid white;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+
+
+}
+.disanfang p{
+    color: lightgray;
+    width: 200px;
+    font-size: 12px;
+    margin-top:15px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+.u1{
+    width:220px;
+    height: 25px;
+    margin-top: -5px;
+}
+.u1 li{
+    vertical-align: middle;
+    list-style: none;
+    display: inline-block;
+}
+.u1 li:nth-of-type(1){
+   margin-left: -20px;
+}
+.foot{
+    display: inline-block;
+    margin-top:20px;
+    margin-left: 100px;
+
+}
+.foot img{
+    padding-left: 200px;
+}
+div input{
+    text-indent:10px;
+}
+.tishi{
+    /*border: 1px solid white;*/
+    width: 292px;
+    margin-left: 25px;
+    color: red;
+    font-size:12px;
+    text-indent:15px;
+}
+.tishi2{
+    width: 293px;
+    margin-left: 26px;
+    color: red;
+    font-size:12px;
+    text-indent:15px;
+}
+.tishi3{
+    width: 293px;
+    margin-left: 26px;
+    color: red;
+    font-size:12px;
+    text-indent:12px;
+    font-weight: bolder;
+}

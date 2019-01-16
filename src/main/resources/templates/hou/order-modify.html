@@ -19,10 +19,10 @@
     <div class="navbar">
         <ul class="clearfix">
             <li><a th:href="@{shou}">首页</a></li>
-            <li><a th:href="@{users}">用户</a></li>
-            <li class="current"><a th:href="@{product}">商品</a></li>
-            <li><a th:href="@{order}">订单</a></li>
-            <li><a href="news.html">留言</a></li>
+            <li class="current"><a th:href="@{users}">用户</a></li>
+            <li><a th:href="product">商品</a></li>
+            <li><a >订单</a></li>
+            <li><a href="#">留言</a></li>
         </ul>
     </div>
 </div>
@@ -43,58 +43,52 @@
                 <dd><em>
                     <a th:href="@{addProudctClass}">新增</a>
                 </em><a th:href="@{productClass}">分类管理</a></dd>
-                <dd><em><a th:href="@{productAdd}">新增</a></em>
+                <dd><em><a th:href="@{addProduct}">新增</a></em>
                     <a th:href="@{product}">商品管理</a></dd>
                 <dt>订单管理</dt>
                 <dd><a th:href="@{order}">订单管理</a></dd>
                 <dt>留言管理</dt>
                 <dd><a href="">留言管理</a></dd>
-                <dt>新闻管理</dt>
-                <dd><em><a href="">新增</a></em><a href="">新闻管理</a></dd>
             </dl>
         </div>
     </div>
     <div class="main">
         <h2>修改订单</h2>
         <div class="manage">
-            <form action="manage-result.html">
-                <table class="form">
+            <form action="modify" method="get">
+                <table class="form" th:each="ord:${session.order}">
                     <tr>
-                        <td class="field">订单ID：</td>
-                        <td><input type="text" class="text" name="orderId"
+                        <td class="field" >订单ID：</td>
+                        <td><input type="text" class="text" name="o_uid" th:value="${ord.o_uid}"
                                     readonly="readonly" /></td>
                     </tr>
                     <tr>
                         <td class="field">订购人姓名：</td>
-                        <td><input type="text" class="text" name="name" readonly="readonly" /></td>
+                        <td><input type="text" class="text" name="uid" th:value="${ord.user.login_name}"   readonly="readonly" /></td>
                     </tr>
                     <tr>
                         <td class="field">地区：</td>
-                        <td><input type="text" class="text" name="name"  /></td>
+                        <td><input type="text" class="text" name="region"  th:value="${ord.addr.getRegion()}"/></td>
                     </tr>
                     <tr>
                         <td class="field">街道：</td>
-                        <td><input type="text" class="text" name="name"  /></td>
+                        <td><input type="text" class="text" name="detailed_address" th:value="${ord.addr.getDetailed_address()}" /></td>
                     </tr>
                     <tr>
                         <td class="field">收货人：</td>
-                        <td><input type="text" class="text" name="name"  /></td>
+                        <td><input type="text" class="text" name="consignee" th:value="${ord.addr.getConsignee()}" /></td>
                     </tr>
                     <tr>
                         <td class="field">手机号码：</td>
-                        <td><input type="text" class="text" name="name"  /></td>
+                        <td><input type="text" class="text" name="mobile" th:value="${ord.addr.getMobile()}" /></td>
                     </tr>
-                    <tr>
-                        <td class="field">备注：</td>
-                        <td>
-                           <textarea cols="50" rows="10" name="description">
-                           </textarea>
-                        </td>
+                    <tr style="display: none">
+                        <td class="field">地址id：</td>
+                        <td><input type="text" class="text" name="address" th:value="${ord.getAddress()}" /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><label class="ui-blue"><input type="submit"
-                                                          name="submit" value="更新" /></label></td>
+                        <td><label class="ui-blue"><input type="submit" value="更新" /></label></td>
                     </tr>
                 </table>
             </form>

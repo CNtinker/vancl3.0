@@ -30,6 +30,30 @@ public class ProductServiceImpl implements ProductService{
         return productMapper.findSizeByColorId(Size_id);
     }
 
+
+    //根据商品id查询商品信息
+    @Override
+    public Product findProductById(Integer p_id) {
+        return productMapper.findProductById(p_id);
+    }
+
+    //根据商品id修改商品信息
+    @Override
+    public int updateProductById(Product pd, Integer p_id) {
+        return productMapper.updateProductById(pd,p_id);
+    }
+   //添加商品
+    @Override
+    public int addProduct(Product pd) {
+        return productMapper.addProduct(pd);
+    }
+
+    //根据商品id删除商品
+    @Override
+    public int deleteProductById(Integer p_id) {
+        return productMapper.deleteProductById(p_id);
+    }
+
     @Override
     public Integer findColorIdByColor(String Color){ return productMapper.findColorIdByColor(Color);}
 

@@ -2,15 +2,19 @@ package com.van.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+
 import com.van.pojo.Order;
+import com.van.service.AddrService;
 import com.van.service.OrderService;
-import com.van.serviceImpl.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -19,10 +23,12 @@ public class HouOrderController {
 
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private AddrService addrService;
 
      //查询所有的订单
     @RequestMapping("/order")
-    public String Order(@RequestParam Map<String,Object> map,Model mod){
+    public String Order(@RequestParam Map<String,Object> map, Model mod, HttpSession session){
         String pageIndex=(String)map.get("pageIndex");
         if(pageIndex==null){
             pageIndex= "1";
@@ -31,6 +37,7 @@ public class HouOrderController {
         Page<Object> pg=PageHelper.startPage(Integer.parseInt(pageIndex),5);
         //调用查询所有的订单方法
         List<Order> orders=orderService.findAllOrder(map);
+        session.setAttribute("order",orders);
         mod.addAttribute("orders",orders);
         mod.addAttribute("pg",pg);
         mod.addAttribute("map",map);
@@ -45,16 +52,24 @@ public class HouOrderController {
 
     //下单状态修改
     @RequestMapping("/updateStatus")
-    public String updateStatus(@RequestParam Integer o_uid,Integer o_status){
+    public String updateStatus(@RequestParam Integer o_uid, Integer o_status){
       int num=orderService.updateOrderState(o_status,o_uid);
       return "redirect:/order";
     }
-
+    //订单修改页面
     @RequestMapping("/updateOrder")
-    public String updateOrder(){
-
+    public String updateOrder(Integer address,Model mod){
+        mod.addAttribute("address",address);
         return "hou/order-modify";
     }
 
+    @RequestMapping("/modify")
+    public String modify(@RequestParam String region,String detailed_address,String consignee,String mobile, Integer address){
+       int num=addrService.updateAddr(region,detailed_address,consignee,mobile,address);
+       if(num>0){
+           return "redirect:/order";
+       }
+        return "redirect:/updateOrder";
+    }
 
 }
