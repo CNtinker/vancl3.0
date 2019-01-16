@@ -1,3 +1,4 @@
+/*
 package com.van.controller;
 
 import com.van.pojo.User;
@@ -27,9 +28,11 @@ public class UserController {
         return "regs";
     }
 
-    /*
+    */
+/*
      * 注册方法
-     * **/
+     * **//*
+
     @RequestMapping("/regs")
     public String reg(@RequestParam User user,String yzm,String repwd) {
         int num;
@@ -91,3 +94,4 @@ public class UserController {
     }
 
 }
+*/
