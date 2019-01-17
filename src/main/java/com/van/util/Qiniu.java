@@ -4,14 +4,11 @@ import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
 import com.qiniu.http.Response;
-import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.Configuration;
+import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 
-/**
- * Created by tym on 2018/11/15 0015.
- */
 public class Qiniu {
     //根据七牛云的个人中心来填写
     private static final String accessKey = "BDL5La4HoS1rX7jJrW9Y6RudLkVhQ5JCLnoATLI5";

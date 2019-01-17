@@ -12,7 +12,7 @@
 
 
     <!--根据分类id查询所属父类id -->
-    <select id="findPid" parameterType="int">
+    <select id="findPid"  resultType="int">
         SELECT cc_parent_id FROM van_commodity_category WHERE cc_id=#{cc_id}
     </select>
 

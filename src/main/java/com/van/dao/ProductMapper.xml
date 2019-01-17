@@ -52,11 +52,11 @@
 
 
     <!--添加商品-->
-    <insert id="addProduct" keyColumn="p_id" keyProperty="p_id">
-       insert into van_product(p_name,p_img,p_description,p_price,p_discount_price,sales_volume
-       ,p_stock,categoryLevel1,categoryLevel2,release,fileName)values (
+    <insert id="addProduct" keyColumn="p_id" keyProperty="p_id" parameterType="User">
+       insert into van_product(p_name,p_img,p_description,p_price,p_discount_price,
+       p_stock,categoryLevel1,categoryLevel2,fileName,p_new,isDelete)values (
        #{p_name},#{p_img},#{p_description},#{p_price},#{p_discount_price},
-       #{sales_volume},#{p_stock},#{categoryLevel1},#{categoryLevel2},#{release},#{fileName})
+       #{p_stock},#{categoryLevel1},#{categoryLevel2},#{fileName},#{p_new},#{isDelete})
    </insert>
 
 

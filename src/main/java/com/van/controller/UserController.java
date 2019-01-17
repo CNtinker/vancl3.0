@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 
 @Controller
 public class UserController {
@@ -63,10 +62,12 @@ public class UserController {
         return "login";
     }
 
+
+
     @RequestMapping("/addUser")
     public String addUser(@RequestParam String loginName,String pwd, HttpServletRequest request){
          User user=userService.findLoginPwdUser(loginName,pwd);
-         if(user!=null){
+         if(user!=null&&user.getState()==1){
              request.getSession().setAttribute("user",user);
              if(user.getUser_type()==1){
                  return "redirect:/shou";
@@ -88,13 +89,6 @@ public class UserController {
         }
         return "false";
     }
-
-
-
-
-
-
-
 
 
 

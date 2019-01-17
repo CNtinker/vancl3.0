@@ -15,11 +15,13 @@ import com.van.service.IndexService;
 import com.van.service.ProductService;
 
 
+import com.van.util.Qiniu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 
@@ -63,8 +65,8 @@ public class HouProductContorller {
         return "hou/product-add";
     }
 
-    /*//添加商品的方法
-    @RequestMapping("addProduct")
+    //添加商品的方法
+    @RequestMapping("/tjProduct")
     public String addProduct(MultipartFile files,Product pd) throws IOException {
         System.out.println("标题："+pd.getP_name());
         System.out.println("分类："+pd.getCategoryLevel2());
@@ -72,6 +74,8 @@ public class HouProductContorller {
         System.out.println("优惠："+pd.getP_discount_price());
         System.out.println("库存："+pd.getP_stock());
         System.out.println("描述："+pd.getP_description());
+        System.out.println("图片："+files);
+        String fileName=pd.getP_name();
         byte[] imgBytes = files.getBytes();
         //获取上传到七牛云上的图片路径
         String imgUrl = Qiniu.upLoadImage(imgBytes);
@@ -80,15 +84,15 @@ public class HouProductContorller {
         pd.setCategoryLevel1(pid);
         pd.setP_img(imgUrl);
         pd.setP_new(1);
+        pd.setFileName(fileName);
         pd.setIsDelete(1);
-        pd.setRelease(new Date(new java.util.Date().getTime()));
         //调用添加商品方法
         int num=productService.addProduct(pd);
         if(num>0){
-            return "/product";
+            return "redirect:/product";
         }
-        return "/productAdd";
-    }*/
+        return "redirect:/productAdd";
+    }
 
 
 

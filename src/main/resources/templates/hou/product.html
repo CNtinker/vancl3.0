@@ -68,7 +68,7 @@
                 </tr>
                 <tr th:each="pd:${pds}">
                     <td class="first w4 c" ><span th:text="${pd.getP_id()}"></span></td>
-                    <td class="thumb"><img th:src="${pd.getP_img()}" /><a  th:text="${pd.getP_name()}" target="_blank"></a></td>
+                    <td class="thumb"><img th:src="${pd.getP_img()}" style="width:80px;height:50px" /><a  th:text="${pd.getP_name()}" target="_blank"></a></td>
                     <td th:text="${#dates.format(pd.getRelease(),'yyyy-MM-dd')}" style="text-align: center">2088-11-02</td>
                     <td class="w1 c"><a th:href="@{modifProduct(p_id=${pd.getP_id()})}">修改</a> <a href="javascript:Delete(1);">删除</a></td>
                 </tr>
