@@ -65,14 +65,18 @@ public class UserController {
 
     @RequestMapping("/addUser")
     public String addUser(@RequestParam String loginName,String pwd, HttpServletRequest request){
-        System.out.println(loginName);
-        System.out.println(pwd);
          User user=userService.findLoginPwdUser(loginName,pwd);
-        if(user==null){
-            return "redirect:/login";
-        }
-        request.getSession().setAttribute("user",user);
-        return "redirect:/sheng";
+         if(user!=null){
+             request.getSession().setAttribute("user",user);
+             if(user.getUser_type()==1){
+                 return "redirect:/shou";
+             }else {
+                 return "redirect:/index2";
+             }
+         }else {
+             return "redirect:/login";
+         }
+
     }
 
     @RequestMapping("/ajax")

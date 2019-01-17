@@ -24,8 +24,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findLoginPwdUser(String loginName, String pwd) {
-        User us=userMapper.findLoginPwdUser(loginName,pwd);
-        System.out.println("我是对象"+us);
         return userMapper.findLoginPwdUser(loginName,pwd);
     }
 
