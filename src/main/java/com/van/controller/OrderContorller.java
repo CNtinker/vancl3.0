@@ -113,7 +113,16 @@ public class OrderContorller {
     /*公共部分前往修改订单*/
      @RequestMapping("/toOrder")
      public String toOrder(){
-         1.查出
+         /*1.通过U_id查出用户旗下的所有订单*/
+
+         /*2.通过订单表的o_uid查询到对应的订单*/
+
+        /* 3.通过订单详情表的p_id查询出对应的商品*/
+
+        /*4~5通过订单详情表的size_id与color_id查询对应表的名称*/
+
+        /*6通过订单表的地址id查询出对应的地址名称（详细名称）*/
+
 
         return "order";
      }
