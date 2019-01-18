@@ -109,4 +109,11 @@ public class OrderContorller {
         userService.updateUserById(user);
         return "redirect:/goToMyData";
     }
+
+     @RequestMapping("/toOrder")
+     public String toOrder(){
+        return "order";
+     }
+
+
 }
