@@ -2,6 +2,7 @@ package com.van.controller;
 
 import com.van.pojo.Addr;
 import com.van.pojo.Order;
+import com.van.pojo.Order_Detail;
 import com.van.pojo.User;
 
 import com.van.service.AddrService;
@@ -124,9 +125,11 @@ public class OrderContorller {
      public String toOrder(HttpSession session){
          User user=(User) session.getAttribute("user");
          /*1.通过U_id查出用户旗下的所有订单*/
-         orderService.findOrderById(user.getUid());
-         /*2.通过订单表的o_uid查询到对应的订单详情*/
-          orderDetailService.findOrderDetail();
+         List<Order> orders=orderService.findOrderById(user.getUid());
+         for (Order order:orders) {
+             /*2.通过订单表的o_uid查询到对应的订单详情*/
+            List<Order_Detail> order_details= orderDetailService.findOrderDetail(order.getO_uid());
+         }
         /* 3.通过订单详情表的p_id查询出对应的商品*/
 
         /*4~5通过订单详情表的size_id与color_id查询对应表的名称*/
