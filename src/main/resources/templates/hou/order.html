@@ -56,9 +56,9 @@
         <div class="manage">
             <div class="search">
                 <form method="get">
-                    订单号：<input type="text" class="text" name="o_uid" />
+                    订单号：<input type="text" class="text" name="o_uid" th:value="${map.get('o_uid')}"/>
                     订货人：<input
-                        type="text" class="text" name="login_name" /> <label
+                        type="text" class="text" name="login_name" th:value="${map.get('login_name')}"/> <label
                         class="ui-blue"><input type="submit" name="submit"
                                                value="查询" /></label>
                 </form>
@@ -86,7 +86,7 @@
                         <span  th:if="${order.getO_status()}eq 5">已收货</span>
                         </a>
                     </td>
-                    <td class="w1 c"><a th:href="@{updateOrder(address=${order.getAddress()})}">修改</a>
+                    <td class="w1 c"><a th:href="@{updateOrder(o_uid=${order.getO_uid()})}">修改</a>
                         <!--<a th:href="@{deleteOrder(o_uid=${order.getO_uid()})}">删除</a>--></td>
                 </tr>
                 </span>

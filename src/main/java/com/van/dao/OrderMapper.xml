@@ -41,7 +41,7 @@
 
     <sql id="showMap">
         <where>
-            <if test="o_uid!=null and o_uid!=0">
+            <if test="o_uid!=null and o_uid!=''">
                 and o_uid=#{o_uid}
             </if>
             <if test="login_name!=null and login_name!=''">
@@ -72,6 +72,7 @@
         INSERT into van_order(o_uid,uid,address,cost,create_time,o_status,pay_type,pay_state)
             VALUES (#{o_uid},#{uid},#{address},#{cost},NOW(),#{o_status},#{pay_type},#{pay_state})
     </insert>
+
 
   <!--  根据id删除订单-->
     <delete id="delOrder" parameterType="Integer">

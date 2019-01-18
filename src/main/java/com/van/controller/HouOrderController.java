@@ -37,7 +37,6 @@ public class HouOrderController {
         Page<Object> pg=PageHelper.startPage(Integer.parseInt(pageIndex),5);
         //调用查询所有的订单方法
         List<Order> orders=orderService.findAllOrder(map);
-        session.setAttribute("order",orders);
         mod.addAttribute("orders",orders);
         mod.addAttribute("pg",pg);
         mod.addAttribute("map",map);
@@ -45,21 +44,23 @@ public class HouOrderController {
     }
     //跳转到下单状态页面去
     @RequestMapping("/updateOrderStatus")
-    public String updateOrderStatus(@RequestParam Integer o_uid,Model mod){
+    public String updateOrderStatus(@RequestParam String o_uid,Model mod){
         mod.addAttribute("o_uid",o_uid);
         return "hou/orderStatus";
     }
 
     //下单状态修改
     @RequestMapping("/updateStatus")
-    public String updateStatus(@RequestParam Integer o_uid, Integer o_status){
+    public String updateStatus(@RequestParam String o_uid, Integer o_status){
       int num=orderService.updateOrderState(o_status,o_uid);
       return "redirect:/order";
     }
     //订单修改页面
     @RequestMapping("/updateOrder")
-    public String updateOrder(Integer address,Model mod){
-        mod.addAttribute("address",address);
+    public String updateOrder(@RequestParam Map<String,Object> map,Model mod){
+        System.out.println("我是显示订单");
+        List<Order> order=orderService.findAllOrder(map);
+        mod.addAttribute("order",order);
         return "hou/order-modify";
     }
 
@@ -75,7 +76,7 @@ public class HouOrderController {
 
     //订单删除方法
     @RequestMapping("/deleteOrder")
-    public String deleteOrder(Integer o_uid){
+    public String deleteOrder(String o_uid){
        Integer num=orderService.delOrder(o_uid);
         return "redirect:/order";
     }

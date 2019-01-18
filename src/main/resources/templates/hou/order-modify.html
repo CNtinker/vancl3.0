@@ -56,7 +56,7 @@
         <h2>修改订单</h2>
         <div class="manage">
             <form action="modify" method="get">
-                <table class="form" th:each="ord:${session.order}">
+                <table class="form" th:each="ord:${order}">
                     <tr>
                         <td class="field" >订单ID：</td>
                         <td><input type="text" class="text" name="o_uid" th:value="${ord.o_uid}"
