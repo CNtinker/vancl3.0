@@ -1,7 +1,6 @@
 package com.van.controller;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -68,13 +67,6 @@ public class HouProductContorller {
     //添加商品的方法
     @RequestMapping("/tjProduct")
     public String addProduct(MultipartFile files,Product pd) throws IOException {
-        System.out.println("标题："+pd.getP_name());
-        System.out.println("分类："+pd.getCategoryLevel2());
-        System.out.println("价格："+pd.getP_price());
-        System.out.println("优惠："+pd.getP_discount_price());
-        System.out.println("库存："+pd.getP_stock());
-        System.out.println("描述："+pd.getP_description());
-        System.out.println("图片："+files);
         String fileName=pd.getP_name();
         byte[] imgBytes = files.getBytes();
         //获取上传到七牛云上的图片路径
@@ -106,6 +98,30 @@ public class HouProductContorller {
        return "hou/product-modify";
    }
 
+    @RequestMapping("/upProduct")
+    public String updateProduct(MultipartFile files,Product pd) throws IOException {
+        Integer p_id=pd.getP_id();
+        //根据分类id查询父类id
+        int pid=cs.findPid(pd.getCategoryLevel2());
+        byte[] imgBytes = files.getBytes();
+        //获取上传到七牛云上的图片路径
+        String imgUrl = Qiniu.upLoadImage(imgBytes);
+        pd.setCategoryLevel1(pid);
+        pd.setP_img(imgUrl);
+        Integer num=productService.updateProductById(pd);
+        if(num>0){
+            return "redirect:/product";
+        }
+        return "redirect:/modifProduct";
+    }
+
+
+
+   @RequestMapping("/delProduct")
+   public String delProduct(@RequestParam Integer p_id){
+       Integer num=productService.deleteProductById(p_id);
+       return "redirect:/product";
+   }
 
 
 }

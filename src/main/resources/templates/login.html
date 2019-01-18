@@ -24,11 +24,11 @@
     <div class="login2">
         <h3>凡客 vancl 登录</h3>
         <div class="zc">没有账户免费<a th:href="@{index}">注册</a></div>
-        <form method="post" action="addUser" id="putong">
+        <form method="post" action="addUser" id="putong" >
             <div class="biao1" id="biao1">
                 <p class="ptlogin">普通登陆</p>
                 <p class="kslogin">快速登陆</p>
-                <div class="name"><input class="login" type="text" name="loginName" onblur="chekName()"  placeholder="请输入用户名" style="width:290px;height:30px"></div>
+                <div class="name"><input class="login" id="jy" type="text" name="loginName" placeholder="请输入用户名" style="width:290px;height:30px"></div>
                 <div class="tishi" style="font-weight: bolder"></div>
                 <div class="pwd"><input class="pwds" type="password" name="pwd" placeholder="请输入密码" style="width:290px;height:30px"></div>
                 <div class="tishi2" id="th" style="font-weight: bolder"></div>
@@ -42,12 +42,12 @@
                 <div class="phone"><input type="text" name="login_name"  placeholder="请输入手机号" style="width:210px;height:30px"></div>
                 <div class="duanxing"> <a href="">获取短信验证码</a></div>
                 <div class="yanzhengma"><input type="password"  placeholder="请输入验证码" style="width:140px;height:30px"></div>
-                <div class="suiji"><img class="codePic" src="validateCode"></div>
+                <div class="suiji"><img class="codePic" src="valideateCode"></div>
                 <div class="huan">
                     <a id="chek">看不清换一张</a>
                 </div>
                 <div class="phoneyzm"><input type="text" placeholder="请输入手机验证码" style="width:290px;height:30px"></div>
-                <div class="send2"> <input type="submit" value="登陆" style="width:295px;height:35px;background:#B42025;color:white"></div>
+                <div><input  type="Button" value="登陆"  onclick="isTrue()" style="width:295px;height:35px;background:#B42025;color:white"></div>
             </div>
         </form>
         <div class="disanfang">
@@ -77,6 +77,30 @@
     </div>
 </footer>
 <script type="text/javascript" rel="stylesheet">
+
+   /* function chekName(){
+        $.ajax({
+            type: "POST",
+            url: "jy",
+            dataType: "text",
+            success: function (result) {
+                if (result =="true") {
+                    $(".tishi").html("用户已禁用,请联系管理员");
+                } else {
+                    $(".tishi").html("");
+                }
+            }
+        })
+    }*/
+
+
+
+
+
+
+
+
+
     $(function(){
          $(".login").blur(function () {
              var login_name = $(".login").val();
@@ -98,6 +122,23 @@
                  })
              }
          });
+        $("#jy").blur(function () {
+            var login_name = $(".login").val();
+            $.ajax({
+                type: "POST",
+                url: "jy",
+                data: {"login_name": login_name},
+                dataType: "text",
+                success: function (data) {
+                    if (data=="true") {
+                       alert("用户已禁用,请联系管理员");
+                    }
+                }
+            })
+        });
+
+
+
          $(".pwds").blur(function () {
              var pwd=$(".pwds").val();
              if(pwd==""||pwd==null){
@@ -152,7 +193,11 @@
                 }
 
             })
-        })
+        });
+
+
+
+
 
         $(".ptlogin").click(function () {
             $(".biao1").show();

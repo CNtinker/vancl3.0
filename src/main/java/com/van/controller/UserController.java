@@ -80,6 +80,17 @@ public class UserController {
 
     }
 
+    @ResponseBody
+    @RequestMapping("/jy")
+    public String jy(@RequestParam String login_name,HttpSession session){
+        User us= userService.findLoginUser(login_name);
+        if(us.getState()==2){
+            return "true";
+        }
+        return "false";
+    }
+
+
     @RequestMapping("/ajax")
     @ResponseBody
     public String ajax(@RequestParam String login_name){
@@ -90,8 +101,6 @@ public class UserController {
         return "false";
     }
 
-
-
     @RequestMapping("/hello")
     @ResponseBody
     public String hello(@Param("login_name") String login_name){
@@ -101,6 +110,5 @@ public class UserController {
        }
        return "false";
     }
-
 }
 

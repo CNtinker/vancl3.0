@@ -14,7 +14,7 @@
     </select>
 
     <!--根据id修改用户 -->
-    <update id="updateUserById" keyColumn="uid" keyProperty="uid" parameterType="int">
+    <update id="updateUserById" keyColumn="uid" keyProperty="uid" parameterType="user">
         update van_user set login_name=#{login_name},pwd=#{pwd},real_Name=#{real_name},
          sex=#{sex},date_birth=#{date_birth},email=#{email}, tell_phone=#{tell_phone},
          land_phone=#{land_phone},head_picture=#{head_picture},state=#{state}

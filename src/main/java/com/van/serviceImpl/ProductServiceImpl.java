@@ -40,8 +40,8 @@ public class ProductServiceImpl implements ProductService{
 
     //根据商品id修改商品信息
     @Override
-    public int updateProductById(Product pd, Integer p_id) {
-        return productMapper.updateProductById(pd,p_id);
+    public int updateProductById(Product pd) {
+        return productMapper.updateProductById(pd);
     }
    //添加商品
     @Override

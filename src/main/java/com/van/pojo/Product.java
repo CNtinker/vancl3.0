@@ -16,14 +16,14 @@ public class Product {
     private String p_name;
     private String p_img;
     private String p_description;
-    private double p_price;
-    private double p_discount_price;
+    private Float p_price;
+    private Float p_discount_price;
     private Integer sales_volume;
     private Integer p_stock;
     private Integer categoryLevel1;
     private Integer categoryLevel2;
     private Integer p_new;
-    private Date Release;
+    private Date release;
     private String fileName;
     private Integer isDelete;
 

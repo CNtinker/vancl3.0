@@ -23,7 +23,7 @@
 </div>
 <div id="childNav">
     <div class="welcome wrap">
-        管理员pillys您好，今天是2012-12-21，欢迎回到管理后台。
+        管理员<span th:text="${session.user.login_name}"></span>您好，今天是2019-1-19，欢迎回到管理后台。
     </div>
 </div>
 <div id="position" class="wrap">
@@ -54,9 +54,10 @@
         <div class="manage">
             <form action="/tjProduct" method="post" enctype="multipart/form-data">
                 <table class="form">
+
                     <tr>
                         <td class="field">商品名称：</td>
-                        <td><input type="text" class="text" name="p_name" value="铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机" /></td>
+                        <td><input type="text" class="text" name="p_name" /></td>
                     </tr>
                     <tr>
 

@@ -10,7 +10,7 @@
 <body>
 <div id="header" class="wrap">
     <div id="logo"><img src="hou/images/logo_new.jpg" style="height:50px;width:80px;"/></div>
-    <div class="help">欢迎admin</div>
+    <div class="help">欢迎<span th:text="${session.user.login_name}"></span></div>
     <div class="navbar">
         <ul class="clearfix">
             <li><a th:href="@{shou}">首页</a></li>
@@ -23,7 +23,7 @@
 </div>
 <div id="childNav">
     <div class="welcome wrap">
-        管理员pillys您好，今天是2012-12-21，欢迎回到管理后台。
+        管理员<span th:text="${session.user.login_name}"></span>您好，今天是2019-1-19，欢迎回到管理后台。
     </div>
 </div>
 <div id="position" class="wrap">

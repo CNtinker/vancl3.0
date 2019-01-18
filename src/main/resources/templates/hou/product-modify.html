@@ -23,7 +23,7 @@
 </div>
 <div id="childNav">
     <div class="welcome wrap">
-        管理员pillys您好，今天是2012-12-21，欢迎回到管理后台。
+        管理员<span th:text="${session.user.login_name}"></span>您好，今天是2019-1-19，欢迎回到管理后台。
     </div>
 </div>
 <div id="position" class="wrap">
@@ -52,17 +52,21 @@
     <div class="main">
         <h2>修改商品</h2>
         <div class="manage">
-            <form action="">
+            <form action="/upProduct" method="post" enctype="multipart/form-data">
                 <table class="form">
                     <span th:each="pdts:${pdts}">
                       <tr>
+                        <td class="field">商品编号：</td>
+                        <td><input type="text" class="text" name="p_id" th:value="${pdts.getP_id()}" /></td>
+                      </tr>
+                      <tr>
                         <td class="field">商品名称：</td>
-                        <td><input type="text" class="text" name="productName" th:value="${pdts.getP_name()}" /></td>
-                    </tr>
+                        <td><input type="text" class="text" name="p_name" th:value="${pdts.getP_name()}" /></td>
+                      </tr>
                     <tr>
                     </tr> <td class="field">所属分类：</td>
                     <td>
-                        <select name="cc_id">
+                        <select name="categoryLevel2">
                                    <span th:each="cate:${category}">
                                     <option  disabled="disabled" th:value="${cate.getCc_id()}"><span th:text="${cate.getCc_name()}"></span></option>
                                         <option th:each="ca:${cate.getChile()}" th:value="${ca.getCc_id()}">├ <span th:text="${ca.getCc_name()}"></span></option>
@@ -71,12 +75,12 @@
                     </td>
                     </tr>
                     <tr>
-                        <td class="field">商品图片：</td>
-                        <td><input type="file" class="text" name="photo" th:value="${pdts.getPicturesmain()}"/></td>
+                       <td class="field">商品图片：</td>
+                        <td><input type="file" class="text" name="files" /></td>
                     </tr>
                     <tr>
                         <td class="field">商品价格：</td>
-                        <td><input type="text" class="text tiny" name="productPrice" th:value="${pdts.getP_price()}" /> 元</td>
+                        <td><input type="text" class="text tiny" name="p_price" th:value="${pdts.getP_price()}" /> 元</td>
                     </tr>
                     <tr>
                         <td class="field">优惠价格：</td>
@@ -85,7 +89,7 @@
                     <tr>
                         <td class="field">是否新品：</td>
                       <td class="w1 c">
-                        <select class="zt" name="new" >
+                        <select class="zt" name="p_new" >
                             <option  selected="selected" value="0">请选择</option>
                             <option value="1">是</option>
                             <option value="2">否</option>
@@ -95,12 +99,12 @@
                     </tr>
                     <tr>
                         <td class="field">库存：</td>
-                        <td><input type="text" class="text tiny" name="productName"  th:value="${pdts.getP_stock()}"/></td>
+                        <td><input type="text" class="text tiny" name="p_stock"  th:value="${pdts.getP_stock()}"/></td>
                     </tr>
                     <tr>
                         <td class="field">描述：</td>
                         <td>
-                           <textarea cols="50" rows="10" name="description" th:text="${pdts.getP_description()}">
+                           <textarea cols="50" rows="10" name="p_description" th:text="${pdts.getP_description()}">
                            </textarea>
                         </td>
                     </tr>

@@ -24,7 +24,7 @@ public interface ProductService {
     Product findProductById(Integer p_id);
 
     //根据商品id修改商品信息
-    int updateProductById(Product pd,Integer p_id);
+    int updateProductById(Product pd);
 
     //根据商品id删除商品
     int deleteProductById(Integer p_id);

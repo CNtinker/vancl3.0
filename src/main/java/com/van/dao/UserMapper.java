@@ -28,7 +28,7 @@ public interface UserMapper {
     /*
      * 根据用户id修改用户
      * */
-    int updateUserById(Integer uid);
+    int updateUserById(User user);
 
     /*
      *根据id删除用户

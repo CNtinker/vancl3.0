@@ -32,7 +32,7 @@ public class AreasContorller {
       User user=(User) session.getAttribute("user");
        //查询地址
       List<Addr> addr=addrService.findAddrById(user.getUid());
-       //查询省的方法
+
        List<Areas> are=areasService.findAllProvence();
        mod.addAttribute("add",addr);
        mod.addAttribute("as",are);
@@ -59,12 +59,24 @@ public class AreasContorller {
                  String detailed_address,String mobile,Model mod,HttpSession session){
 
         User user=(User)session.getAttribute("user");
-        Addr addr=new Addr();
-        addr.setUid(user.getUid());
-        addr.setConsignee(consignee);
-        addr.setRegion(dq);
-        addr.setDetailed_address(detailed_address);
-        addr.setMobile(mobile);
+        List<Addr> addrs=addrService.findAddrById(user.getUid());
+        System.out.println("我是地址长度："+addrs.size());
+            Addr addr=new Addr();
+        if(addrs.size()==0){
+            addr.setUid(user.getUid());
+            addr.setConsignee(consignee);
+            addr.setRegion(dq);
+            addr.setDetailed_address(detailed_address);
+            addr.setMobile(mobile);
+            addr.setIsDefault(1);
+        }else{
+            addr.setUid(user.getUid());
+            addr.setConsignee(consignee);
+            addr.setRegion(dq);
+            addr.setDetailed_address(detailed_address);
+            addr.setMobile(mobile);
+            addr.setIsDefault(2);
+        }
         int num=addrService.addAddr(addr);
         return "redirect:/tian";
     }

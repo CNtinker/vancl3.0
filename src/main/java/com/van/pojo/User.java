@@ -13,7 +13,7 @@ public class User {
     private String login_name;
     private String pwd;
     private String real_name;
-    private String sex;
+    private Integer sex;
     private Date date_birth;
     private String email;
     private String tell_phone;

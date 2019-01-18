@@ -52,7 +52,7 @@
 
 
     <!--添加商品-->
-    <insert id="addProduct" keyColumn="p_id" keyProperty="p_id" parameterType="User">
+    <insert id="addProduct" keyColumn="p_id" keyProperty="p_id" parameterType="product">
        insert into van_product(p_name,p_img,p_description,p_price,p_discount_price,
        p_stock,categoryLevel1,categoryLevel2,fileName,p_new,isDelete)values (
        #{p_name},#{p_img},#{p_description},#{p_price},#{p_discount_price},
@@ -69,10 +69,10 @@
 
 
     <!--根据商品id修改商品信息-->
-    <update id="updateProductById" >
-        update van_product SET p_name=#{arg0},p_img=#{arg1},p_description=#{arg2}
-        p_price=#{arg3},p_discount_price=#{arg4},p_stock=#{arg5},categoryLevel1=#{arg6}
-        categoryLevel2=#{arg7},p_new=#{arg8} where p_id=#{p_id}
+    <update id="updateProductById" parameterType="Product">
+         update van_product SET p_name=#{p_name},p_img=#{p_img},p_description=#{p_description}
+         ,p_price=#{p_price},p_discount_price=#{p_discount_price},p_stock=#{p_stock},categoryLevel1=#{categoryLevel1}
+         ,categoryLevel2=#{categoryLevel2},p_new=#{p_new} where p_id=#{p_id}
     </update>
 
 

@@ -10,8 +10,8 @@
     </update>
    <!-- 添加地址-->
    <insert id="addAddr" keyColumn="address"  keyProperty="address">
-       insert into van_addr(uid,region,detailed_address,consignee,mobile)values
-       (#{uid},#{region},#{detailed_address},#{consignee},#{mobile})
+       insert into van_addr(uid,region,detailed_address,consignee,mobile,isDefault)values
+       (#{uid},#{region},#{detailed_address},#{consignee},#{mobile},#{isDefault})
    </insert>
 
     <!--根据用户id查询地址-->
