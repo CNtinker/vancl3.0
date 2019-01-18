@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateUserById(Integer uid) {
-        return userMapper.updateUserById(uid);
+    public int updateUserById(User user) {
+        return userMapper.updateUserById(user);
     }
 
     @Override
@@ -56,4 +56,6 @@ public class UserServiceImpl implements UserService {
     public int updateUserState(Integer state, Integer uid) {
         return userMapper.updateUserState(state,uid);
     }
+
+
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <body>
+<!--<script type="text/javascript" src=""></script>-->
+
 <div class="top_top" th:fragment="top_top">
     <!--以下为头部公共部分-->
     <div id="Head" class="vanclHead">
@@ -26,7 +28,7 @@
                                 name="hp-hp-head-signin-v:n" class="top track">登录</a>&nbsp;|&nbsp;<a
                                 href="javascript:location.href=&#39;https://login.vancl.com/login/reg.aspx?&#39;+encodeURIComponent(location.href)"
                                 name="hp-hp-head-register-v:n" class="track">注册</a></span></div>
-                        <div class="recommendArea"><a href="http://my.vancl.com/Order/" rel="nofollow" class="track"
+                        <div class="recommendArea"><a href="/goToOrderIndex" rel="nofollow" class="track"
                                                       name="hp-hp-head-order-v:n"> 我的订单</a></div>
                     </div>
                     <span class="blank0"></span></div>
@@ -42,7 +44,7 @@
                     </div>
                     <div class="active" id="shoppingCarNone">
                         <p>
-                            <a id="shoppingcar_link" rel="nofollow" href="http://shopping.vancl.com/mycart" name="hp-hp-head-cart-v:n:t" class="shopborder track cartab">
+                            <a id="shoppingcar_link" rel="nofollow" href="/shoppings" name="hp-hp-head-cart-v:n:t" class="shopborder track cartab">
                                 购物车(<span car_product_total="shoppingCar_product_totalcount">0</span>)
                             </a><s></s>
                         </p>

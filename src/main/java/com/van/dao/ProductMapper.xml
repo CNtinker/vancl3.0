@@ -95,4 +95,16 @@
         where size_name=#{size_name}
     </select>
 
+
+
+
+    <select id="findAllByFuzzyP_name" resultType="product">
+        select *
+        from van_product
+        where p_name like concat("%",#{p_name},"%")
+    </select>
+
+    <update id="updateP_stockByP_id" parameterType="int">
+        update van_product SET p_stock=#{arg1} WHERE p_id=#{arg0}
+    </update>
 </mapper>

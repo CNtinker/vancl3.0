@@ -45,7 +45,13 @@ $(function(){
 
     /*搜索功能*/
     $('#btnHeaderSearch').click(function () {
-        $('#skey')
+        var search= $('#skey').attr("value")
+        alert(search);
+        if(search!=null||search!=""){
+            location.href="/HeaderSearch?search="+search;
+        }else{
+            alert("请输入查询内容~");
+        }
     });
 });
 

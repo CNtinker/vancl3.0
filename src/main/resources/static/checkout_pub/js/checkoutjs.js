@@ -10,4 +10,8 @@ $(function () {
         $(".shade").css("display","block")
         $(".addr-form").css("display","block")
     })
+
+    $("#submit-order-btn").click(function () {
+        window.location.href="/ShopController/ShopjiesuanProduct"
+    })
 });

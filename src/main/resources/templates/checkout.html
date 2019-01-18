@@ -25,6 +25,7 @@
     <script src="/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/checkout_pub/js/checkoutjs.js"></script>
 
+
 </head>
 <body class="checkout">
 <div class="shade" style="display: none; height: 1539px;"></div>
@@ -670,6 +671,9 @@
                                     商品名称
                                 </th>
                                 <th>
+                                    颜色
+                                </th>
+                                <th>
                                     尺码
                                 </th>
                                 <th style="display: none">
@@ -682,9 +686,6 @@
                                     数量
                                 </th>
                                 <th>
-                                    优惠
-                                </th>
-                                <th>
                                     小计
                                 </th>
                             </tr>
@@ -693,39 +694,39 @@
                             <tr th:each="list:${session.listcar}">
                                 <td class="name">
                                     <a target="_blank"
-                                       href="http://item.vancl.com/6379506.html?ref=s-s-k_rs__d2fd6290d7114cf082f2492ca467bc78_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n" th:>凡客衬衫
+                                       href="http://item.vancl.com/6379506.html?ref=s-s-k_rs__d2fd6290d7114cf082f2492ca467bc78_db60529e5b18f66e-1_1-6382340_Sort01_qb_000-v|hp-hp-head-nav_1-1-v:n" th:text="${list.getProduct().getP_name()}">凡客衬衫
                                         吉国武 免烫 温莎领 4.0 紫色方格</a>
                                 </td>
-                                <td class="size">S
+                                <td class="preferential" th:text="${list.color}">
+                                    <!--<div class="discount-cx">
+                                        -
+                                    </div>-->
+                                </td>
+                                <td class="size" th:text="${list.size}">S
                                 </td>
                                 <td class="point" style="display: none">894
                                     分
                                 </td>
-                                <td class="price">
+                                <td class="price" th:text="'￥'+${list.getProduct().getP_discount_price()}">
                                     ￥298.00
                                 </td>
-                                <td class="qty">3
+                                <td class="qty" th:text="${list.getNumber()}">3
                                 </td>
-                                <td class="preferential">
-                                    <div class="discount-cx">
-                                        -
-                                    </div>
-                                </td>
-                                <td class="sub-total">
+                                <td class="sub-total" th:text="'￥'+${list.getXiaoji()}">
                                     ￥894.00
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                         <div class="order-amount">
-                            商品金额小计:<span>￥894.00</span> &nbsp;&nbsp;+&nbsp;&nbsp;运费:<span>￥0.00</span>
-                            &nbsp;&nbsp;=&nbsp;&nbsp;应付:<em>￥894.00</em>
+                            商品金额小计:<span th:text="'￥'+${session.sumMoney}">￥894.00</span> &nbsp;&nbsp;+&nbsp;&nbsp;运费:<span>￥0.00</span>
+                            &nbsp;&nbsp;=&nbsp;&nbsp;应付:<em th:text="'￥'+${session.sumMoney}">￥894.00</em>
                         </div>
                     </div>
                     <ul class="all-amount">
                         <li><em>已支付：<label id="price-total" data-price-total="0.00">￥0.00</label>，
                             您还需支付：
-                            <label id="price-total" data-price-total="894.00">￥894.00元</label>
+                            <label id="price-total"  th:text="'￥'+${session.sumMoney}">￥894.00元</label>
                         </em></li>
                         <span style="display:none;">894.00&nbsp;&nbsp;&nbsp;894.00</span>
                     </ul>
@@ -737,7 +738,7 @@
         margin: 0 10px 0 0; float: right; text-align: center; font-size: 14px;">
                             祝您下单愉快，普通商品签收之日起7天内，可享受7天无理由退货
                         </div>
-                        <span style="clear: both;"></span><span class="warn oprate"></span>
+                        <!--<span style="clear: both;"></span><span class="warn oprate"></span>-->
                     </div>
                     <!--特惠品移除提示-->
                 </form>

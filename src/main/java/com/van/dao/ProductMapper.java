@@ -30,10 +30,10 @@ public interface ProductMapper {
     Integer findColorIdByColor(String color_name);
     /*根据尺寸名查询尺寸id*/
     Integer findSizeIdBySize(String size_name);
-
-
-
-
+    /*根据商品名称模糊查询*/
+    List<Product> findAllByFuzzyP_name(String search);
+    //根据商品id修改商品数量
+    Integer updateP_stockByP_id(Integer P_id,Integer P_stock);
 
     //添加商品
     int addProduct(Product pd);

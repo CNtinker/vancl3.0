@@ -27,7 +27,8 @@ public interface CategoryService {
 
     //根据cc_id删除分类
     int delCate(Integer cc_id);
-
+    /*根据商品名称模糊查询*/
+    List<Product> findAllByFuzzyP_name(String search);
 
 }
 

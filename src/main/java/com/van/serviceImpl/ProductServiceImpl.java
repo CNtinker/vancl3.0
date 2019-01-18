@@ -60,4 +60,9 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Integer findSizeIdBySize(String Size){return productMapper.findSizeIdBySize(Size);}
+
+    @Override
+    public Integer updateStockByP_id(Integer P_id,Integer P_stock) {
+        return productMapper.updateP_stockByP_id(P_id,P_stock);
+    }
 }

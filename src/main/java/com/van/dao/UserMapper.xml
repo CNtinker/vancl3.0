@@ -15,11 +15,42 @@
 
     <!--根据id修改用户 -->
     <update id="updateUserById" keyColumn="uid" keyProperty="uid" parameterType="user">
-        update van_user set login_name=#{login_name},pwd=#{pwd},real_Name=#{real_name},
-         sex=#{sex},date_birth=#{date_birth},email=#{email}, tell_phone=#{tell_phone},
-         land_phone=#{land_phone},head_picture=#{head_picture},state=#{state}
+        update van_user
+        <include refid="updata"/>
         where uid=#{uid}
     </update>
+    <sql id="updata">
+        <set>
+            <if test="login_name!=null and login_name!=''">
+                login_name=#{login_name}
+            </if>
+            <if test="pwd!=null and pwd!=''">
+                pwd=#{pwd}
+            </if>
+            <if test="real_Name!=null and real_Name!=''">
+                real_Name=#{real_Name}
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex=#{sex}
+            </if>
+            <if test="date_birth!=null and date_birth!=''">
+                date_birth=#{date_birth}
+            </if>
+            <if test="email!=null and email!=''">
+                email=#{email}
+            </if>
+            <if test="tell_phone!=null and tell_phone!=''">
+                tell_phone=#{tell_phone}
+            </if>
+            <if test="land_phone!=null and land_phone!=''">
+                land_phone=#{land_phone}
+            </if>
+            <if test="state!=null and state!=''">
+                state=#{state}
+            </if>
+        </set>
+    </sql>
+
     <!--根据id删除用户 -->
     <delete id="deleteUserById" parameterType="int">
         delete from van_user where uid=#{uid}

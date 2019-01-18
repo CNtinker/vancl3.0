@@ -35,4 +35,5 @@ public interface ProductService {
 
     Integer findSizeIdBySize(String Size);
 
+    Integer updateStockByP_id(Integer P_id,Integer P_stock);
 }

@@ -2,14 +2,13 @@ package com.van.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.van.pojo.Order;
-import com.van.pojo.Order_Detail;
-import com.van.pojo.Shopcar;
-import com.van.pojo.User;
+import com.van.pojo.*;
+import com.van.service.AddrService;
 import com.van.service.OrderService;
 import com.van.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +31,8 @@ public class ShopController {
     ProductService productService;
     @Autowired
     OrderService orderService;
+    @Autowired
+    AddrService addrService;
 
     @RequestMapping("/ShopReduceProductNum")
     @ResponseBody
@@ -155,7 +156,7 @@ public class ShopController {
         /*判断用户是否登录*/
         logstatus(session);
 
-        if((Boolean) session.getAttribute("logstatus")||1==1){
+        if((Boolean) session.getAttribute("logstatus")){
 
             return "redirect:/sheng";
         }else{
@@ -167,10 +168,14 @@ public class ShopController {
 
 
     @RequestMapping("/ShopjiesuanProduct")
-    public String ShopjiesuanProduct( HttpSession session){
+    public String ShopjiesuanProduct(HttpSession session, Model model){
         String jieguo=jiesuan(session);
+        Double sumMoney=(Double) session.getAttribute("sumMoney");
+        session.setAttribute("sumMoney",0);
         System.out.println(jieguo);
-        return  "redirect:/index2";
+        model.addAttribute("dingdanhao",jieguo);
+        model.addAttribute("sumMoney",sumMoney);
+        return  "success";
     }
 
 //判断用户是否登录的小方法
@@ -204,13 +209,18 @@ public class ShopController {
         o.setO_uid(salNo);
 
 
-        /*user.setUid(1);
-        o.setUid(user.getUid());*/
+        /*user.setUid(1);*/
+        o.setUid(user.getUid());
 
 
         /*根据用户地址或传进来的地址
         去查地址表id*/
-        /*o.setUserAddress(user.getAddress());*/
+       List<Addr> addrs= addrService.findAddrById(o.getUid());
+        for (Addr addr:addrs) {
+            if(addr.getIsDefault()==1){
+                o.setAddress(addr.getAddress());
+            }
+        }
 
         //设置下单时间
 
@@ -246,16 +256,19 @@ public class ShopController {
         if(falg){
             //结算成功，清空购物车
             session.setAttribute("listcar", null);
-            session.setAttribute("sumMoney", 0);
+            /*summoney暂时不删需要显示
+            session.setAttribute("sumMoney", 0);*/
+
             session.setAttribute("Carnum", 0);
             //修改库存数据
-            //for (Order_Detail eod : list) {
+            for (Order_Detail eod : list) {
             //调用商品的业务逻辑层的方法
             //參数1：被修改的商品对象，  参数2：修改的库存数量
-            //xxx(eod.getEp(),eod.getEod_quantity());
-            //}
+            productService.updateStockByP_id(eod.getP_id(),productService.findProductById(eod.getP_id()).getP_stock()-eod.getOd_number());
+
+            }
             //成功转发到主页。。(临时)
-            return "结算成功";
+            return salNo;
         }else{
             //失败转发到shop
             return "结算失败";

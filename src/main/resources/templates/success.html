@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)http://buy.vancl.com/order/success?website=shopping&end=9999%2f12%2f31+23%3a59%3a59 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xmlns:th="http://www.thymeleaf.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+        <meta http-equiv="Content-Language" content="zh-CN">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>订单已提交成功 - VANCL 凡客诚品</title>
+        <link rel="shortcut icon" type="image/x-icon" href="http://buy.vancl.com/favicon.ico">
+              <link rel="stylesheet" type="text/css" charset="utf-8" href="/success_pub/css/dialog.css">
+        <link rel="stylesheet" type="text/css" charset="utf-8" href="/success_pub/css/global.css">
+        <script src="/success_pub/js/push.js.js"></script><script type="text/javascript" charset="utf-8" src="/success_pub/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/success_pub/js/jquery.ui.dialog-1.1.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/success_pub/js/vancl-1.1.js"></script>
+        <script type="text/javascript" src="/success_pub/js/jquery.bgiframe.min.js"></script>
+        
+        <!--[if IE 6]>
+        <script type="text/javascript">document.execCommand("BackgroundImageCache", false, true);</script>
+        
+        <![endif]-->
+        
+        <script type="text/javascript">
+            var staticResourcePath = { "img": "http://i.vanclimg.com/", 
+            "sslimg": "https://ssl.vanclimg.com/" };  
+
+        </script>
+    
+    
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="/success_pub/css/css.css">
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="/success_pub/css/success.css">
+    <style>
+        #paySelect-list li
+        {
+            width: 200px;
+            margin-right: 25px;
+        }
+    </style>
+
+</head>
+    <body>
+            
+            <script type="text/javascript">
+            //顶部广告位图片
+            $(function () {
+                $("img[original]").lazyload();
+            });
+            </script>
+        <div id="wrapper">
+            
+               
+            
+            <div id="content">
+                
+
+<input type="hidden" id="orderPaymentTypeId" name="orderPaymentTypeId" value="16">
+<input type="hidden" id="orderBankValue" name="orderBankValue" value="MPALIPAY">
+    <input type="hidden" id="omPrice" name="omPrice" value="872.00">
+<div class="Online_payment">
+    <h2 class="msgboxhead">
+        <span>提示</span>
+        <p class="msgboxhead_close">
+            <a class="whiteff" href="javascript:;">
+                <img src="/success_pub/images/dpbox_06.gif">关闭</a></p>
+    </h2>
+    <div class="payment_PopupInfon">
+        <span class="blank30"></span>
+        <div class="zfsb_tipsinfo">
+            <span class="pay_success">
+                <img alt="支付成功" src="/success_pub/images/pay_success.jpg"></span>
+            <ul>
+                <li>您可以：<a class="reda10 track" target="_blank" href="http://my.vancl.com/order/">查看订单详情</a></li>
+                <li><a target="_blank" class="reda10 track" href="http://www.vancl.com/">继续购物</a></li>
+            </ul>
+        </div>
+        <span class="blank10"></span>
+        <div class="zfsb_tipsinfo">
+            <span class="pay_success">
+                <img alt="支付失败" src="/success_pub/images/pay_failed.jpg"></span></div>
+        <div class="payment_reason">
+            <select id="maktype" name="maktype" class="payment_select01">
+                <option selected="selected" value="0" id="">请选择失败原因</option>
+                <option value="21657">我要放弃本次支付。</option>
+                <option value="21660">点击立即支付按钮后，没有打开银行支付页面。</option>
+                <option value="21663">浏览器不支持此银行支付。</option>
+                <option value="21666">金额不足，忘记密码，超支付限额等。</option>
+                <option value="21669">未开通网上支付或网银插件问题。</option>
+                <option value="21672">其他</option>
+            </select>
+            <div id="showTips" style="display: none">
+            </div>
+            <textarea name="textarea" style="display: none" class="payment_inputtext" id="textareaError" rows="5" cols="45">请您输入具体原因</textarea>
+            <input id="paymentReasonSubmit" style="display: none" class="paymentbtnn" value="确定" type="submit" name="button">
+            <div id="ulfailed" style="color: #666666">
+                <span class="blank10"></span>
+                <ul class="cc">
+                    <li>您可以：<a class="reda10 track" href="javascript:;" id="someonepaid">找人代付</a>
+                        <div class="daifu_tipsinfo" id="daifu_tipsinfo" style="display: none">
+                            <p class="daifu_tipsico">
+                                <img alt="" src="/success_pub/images/daifu_ico.png"></p>
+                            当您网购遇到支付困难时，可以生成链接，将链接发送给您的朋友，由他们帮您完成在线支付。</div>
+                    </li>
+                    <li><a class="reda10 track" href="javascript:;" id="repay" target="_blank">重新支付</a></li>
+                    <li><a class="reda10 track" href="http://my.vancl.com/Order/" target="_blank">修改订单</a></li>
+                </ul>
+                <span class="blank10"></span>
+            </div>
+        </div>
+        <span class="blank10"></span>
+    </div>
+    <!--p class="paymenttipsn">邀请您参加在线支付<a class="reda10" href="http://mkt.vancl.com/survey/1473" target="_blank">问卷调查</a></p-->
+    <span class="blank10"></span>
+    <div style="display: none">
+        <form id="makfrom" action="http://mkt.vancl.com/Survey/1506" method="post" target="mymktpost">
+        <input type="hidden" name="textbox21675" id="textbox21675" value="50202500057634">
+        <input type="radio" value="0" name="3330" id="3330">
+        <input type="hidden" value="0" name="textbox21672" id="textbox21672">
+        </form>
+        <iframe name="mymktpost" id="mymktpost" width="1px" height="1px" src="/success_pub/saved_resource.html"></iframe>
+    </div>
+</div>
+<div class="PayPopup_bar">
+    <div class="PayPopup_title">
+        <p class="click_clouse">
+            <a class="whitef"><span class="clouse_ico"></span>关闭</a></p>
+        <em>找人代付</em></div>
+    <p class="PayPopup_info01">
+        请将以下链接发给他人,完成支付.链接在3小时内有效。</p>
+    <p id="PayPopup_info02">
+        <input name="textfield" type="text" class="daifuLinks_input" id="textfield" value="https://pay.vancl.com/pay_confirm.aspx?o=OB6g7tRjVx4YsqTRDBtJOQ%3d%3d" readonly="true">
+        <input type="button" name="button" id="copyurl" value="复制链接" class="inputBtn">
+    </p>
+</div>
+<div class="order" data-product-codes="6375415">
+    <!--提示框-->
+    <!--提示框end-->
+    <div>
+        <div style="display: inline; float: left; width: 84%;">
+            <div style="padding: 20px 0 30px; height: 10px">
+                <div class="caption" style="font-size: 16px; color: black; padding-left: 0px;">
+订单已提交成功，您还需支付<span style="color: #a10000; font-size: 30px; font-weight: bold; text-align: center; width: 100%; display: inline;margin:8px" th:text="'￥'+${sumMoney}">￥872.00元</span>  请您尽快完成付款！                </div>
+                
+                <table style="display: none">
+                    <thead>
+                        <tr>
+                            <th>
+                                订单号
+                            </th>
+                            <th>
+                                需支付金额
+                            </th>
+                            <th>
+                                支付方式
+                            </th>
+                            <th>
+                                发货库房
+                            </th>
+                            <th class="delivery-time">
+                                预计配送时间
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>50202500057634
+                                </td>
+                                <td>
+                                    <span class="emphasize" th:text="${sumMoney}">￥872.00</span>
+                                </td>
+                                <td>
+ 在线支付                                </td>
+                                <td>上海三库
+                                </td>
+                                <td>
+                                    发货后<span><a target="_blank" href="http://help.vancl.com/category/transfer">1天</a></span>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+                <div style="display: block; padding-top: 10px; margin-top: 20px;">
+                    订单号
+                        <a href="http://my.vancl.com/Order/OrderDetail/50202500057634" target="_blank" style="color: #a10000;margin:5px" th:text="${dingdanhao}">50202500057634</a>，                    <a href="http://m.vancl.com/m/d" target="_blank" style="color: #a10000;">下载客户端</a>，随时查看订单状态。</div>
+            </div>
+        </div>
+        <div style="display: inline; float: right; padding-left: 5px;">
+            <img src="/success_pub/images/weixin.png"></div>
+        <span style="clear: both; display: block; padding: 0; margin: 0; height: 0"></span>
+    </div>
+        <div class="pay-detail">
+                <h5 class="paySelect1026Title" style="display: none">
+                    <span class="Red1026ftB">请选择支付方式完成付款</span> 
+                    <span class="blank0"></span>
+                </h5>
+                <span class="box_15"></span>
+                <div class="paySelectMenubarBox">
+                    <ul class="paySelectMenubar">
+                        <li class="hover" id="menu_one1">常用支付方式</li>
+                            <li class="" id="menu_one2">全部支付方式</li>
+                            <li style="display:none;"><a class="reda100" style="color: #333;display:none;" id="daifuLink" href="javascript:;">找人代付&gt;&gt;</a></li>
+                    </ul>
+                    <div class="paySelect1026Tip">
+                        <em></em><span>请在<strong class="Red1026B">3小时</strong>内完成付款，否则订单将会被自动取消</span></div>
+                </div>
+                <div class="blank0">
+                </div>
+                <div id="paySelect-list">
+                    <form id="payment-writeback-form" action="http://buy.vancl.com/order/PaymentWriteBack/" method="post">
+                    <input type="hidden" id="formcode" name="formcode" value="50202500057634">
+                    <input type="hidden" id="orderUrlSource" name="orderUrlSource" value="Shopping">
+                        <div id="content_one1" style="display: block;">
+                            <!--最近使用的银行-->
+                                <span class="box_15"></span>
+                                <ul>
+                                    <li style="display: none">
+                                        <input type="radio" name="identifier">
+                                    </li>
+                                    <!-- 微信扫码支付 -->
+                                    <li class="wxpay">
+                                        <label>
+                                            <input type="radio" name="wx_identifier" value="47$微信扫码支付$wxsmpay" onclick="wxpay(this)" class="WxSelected">
+                                            <img class="bank-img" src="/success_pub/images/weixinshaomiao.png" alt="微信扫码支付" title="微信扫码支付" onclick="wxpayimg(this)">
+                                        </label>
+                                        <p class="payTypeBankTabPred">
+                                            <a style="color: #A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                        </p>
+                                    </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$支付宝手机$MPALIPAY" onclick="showMPAlipayForCompat(this)">
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/alipayscancode.png" alt="支付宝手机" title="支付宝手机">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                </ul>
+                            <span class="clear"></span>
+                        </div>
+                        <div id="content_one2" style="display: none;">
+                                <span>银行或支付机构：</span>
+                                <span class="box_15"></span>
+                                <ul>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="22$中国工商银行$22" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/gsico.png" alt="中国工商银行" title="中国工商银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="25$招商银行$25" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/zsico.png" alt="招商银行" title="招商银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中国银行$BOCB2C" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/zgico.png" alt="中国银行" title="中国银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中国建设银行$CCB" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/jsico.png" alt="中国建设银行" title="中国建设银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中国农业银行$ABC" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/yzico.png" alt="中国农业银行" title="中国农业银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$广发银行$GDB" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/gfico.png" alt="广发银行" title="广发银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$兴业银行$CIB" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/xyico.png" alt="兴业银行" title="兴业银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$北京银行$BJBANK" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/bjico.png" alt="北京银行" title="北京银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$北京农村商业银行$BJRCB" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/ncico.png" alt="北京农村商业银行" title="北京农村商业银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中国邮政储蓄银行$PSBC-DEBIT" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/nyico.png" alt="中国邮政储蓄银行" title="中国邮政储蓄银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$交通银行$COMM" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/jtico.png" alt="交通银行" title="交通银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$浦发银行$SPDB" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/pfico.png" alt="浦发银行" title="浦发银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li style="display: none;">
+                                            <label>
+                                                    <input type="radio" name="identifier" disabled="disabled" value="16$深圳发展银行$SDB" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/szico_1.jpg" alt="深圳发展银行" title="深圳发展银行" onmouseover="$(&#39;#sp_SDB_1&#39;).show();" onmouseout="$(&#39;#sp_SDB_1&#39;).hide();">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                                    <span id="sp_SDB_1" style="display: none">请选择平安银行支付</span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中国光大银行$CEB-DEBIT" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/gdico.png" alt="中国光大银行" title="中国光大银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中国民生银行$CMBC" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/msico.png" alt="中国民生银行" title="中国民生银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$中信银行$CITIC" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/zxico.png" alt="中信银行" title="中信银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$深圳平安银行$SPABANK" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/paico.png" alt="深圳平安银行" title="深圳平安银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                                    <span id="sp_SPABANK_1">支持深圳发展银行卡支付</span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$杭州银行$HZCBB2C" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/hzico.png" alt="杭州银行" title="杭州银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                    <input type="radio" name="identifier" value="16$宁波银行$NBBANK" onclick="showMPAlipayForCompat(this)"> 
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/nbico.png" alt="宁波银行" title="宁波银行">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                </ul>
+                                <span class="clear"></span>
+                                <span>支付平台：</span>
+                                <span class="box_15"></span>
+                                <ul>
+                                    <!-- 微信扫码支付 -->
+                                    <li class="wxpay">
+                                        <label>
+                                            <input type="radio" name="wx_identifier" value="47$微信扫码支付$wxsmpay" onclick="wxpay(this)" class="WxSelected">
+                                            <img class="bank-img" src="/success_pub/images/weixinshaomiao.png" alt="微信扫码支付" title="微信扫码支付" onclick="wxpayimg(this);">
+                                        </label>
+                                        <p class="payTypeBankTabPred">
+                                            <a style="color: #A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                        </p>
+                                    </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio" name="identifier" value="16$支付宝手机$MPALIPAY" onclick="showMPAlipayForCompat(this)">
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/alipayscancode.png" alt="支付宝手机" title="支付宝手机">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio" name="identifier" value="16$支付宝$16" onclick="showMPAlipayForCompat(this)">
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/zfbico.png" alt="支付宝" title="支付宝">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                        <li style="display: none;">
+                                            <label>
+                                                <input type="radio" name="identifier" value="16$支付宝扫描支付$MPALIPAY" onclick="showMPAlipayForCompat(this)">
+                                                <img class="bank-img" onclick="showMPAlipayForImg(this)" src="/success_pub/images/alipayscancode(1).png" alt="支付宝扫描支付" title="支付宝扫描支付">
+                                            </label>
+                                            <p class="payTypeBankTabPred">
+                                                 <a style="color:#A10000;" href="http://buy.vancl.com/order/success?website=shopping&amp;end=9999%2f12%2f31+23%3a59%3a59" target="_blank"></a>
+                                            </p>
+                                        </li>
+                                </ul>
+                                <span class="clear"></span>
+                        </div>
+                    </form>
+                    <div id="barcode_pay" style="background-color: rgb(250, 250, 250); text-align: center;">
+                        <iframe id="barcode_iframe" src="/success_pub/index.html" height="270px" width="600px" frameborder="no" scrolling="no" boder="0px" style="margin-bottom: 50px; *margin-bottom: 50px">
+                        </iframe>
+                    </div>
+                    <span class="blank20"></span>
+                    <p>
+                        <span class="daifu1026Fontlink" style="display: none"><a class="reda100" id="daifuLink" href="javascript:;">找人代付&gt;&gt;</a></span>
+                    </p>
+                    <div class="daifu1026Buy" style="float: none">
+                        <div class="buyCheck1026Rtips05" id="span-success-online-payment-tip" style="display: none;">
+                            <p class="buyCheck1026Rtips05ico">
+                                请先选择支付方式</p>
+                        </div>
+                        <h3 class="buyCheck1026Rh3" style="display: none">
+                            您共需要为订单支付：</h3>
+                        <strong class="daifu1026Money" style="display: none">￥872.00</strong><a href="javascript:;" name="sp_cart_complete_pay_now" style="display: none;"><img alt="去付款" src="/success_pub/images/payBtn.jpg"></a></div>
+                    <span class="blank0"></span>
+                    <p>
+                    </p>
+                    <span class="blank15"></span>
+                    <input type="hidden" id="orderId" name="orderId" value="50202500057634">
+                </div>
+        </div>
+</div>
+<span class="box_15"></span>
+<p class="payEdit_gobuy">
+    
+        <a target="_blank" href="http://my.vancl.com/order/">修改订单</a><a target="_blank" href="http://my.vancl.com/order/">查看订单</a><a target="_blank" href="/index2">继续购物</a>
+</p>
+    
+    
+    
+    
+    
+<img src="./success_files/ocn.ashx" alt="" style="display:none;">
+<input type="hidden" value="formcode=50202500057634&amp;price=872.00&amp;num=4" id="formCodesList">
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("input[value='16$支付宝扫描支付$MPALIPAY']").parent().parent().hide();
+        $("ul li img").each(function () {
+            var _alt = $(this).attr("alt");
+            switch (_alt) {
+                case "深圳发展银行":
+                    $(this).parent().parent().hide();
+                    break;
+                case "深圳平安银行":
+                    $(this).attr("src", "http://i1.vanclimg.com/cms/20150929/paico.png");
+                    break;
+                case "支付宝手机":
+                    $(this).attr("src", "http://i4.vanclimg.com/cms/20150929/alipayscancode.png");
+                    break;
+            }
+        });
+
+        //初次加载微信扫码支付
+        $("input:radio").attr("checked", false);
+        $(".wxpay input").click();
+        setTimeout(function () {
+            $(".wxpay").eq(0).find(":radio").attr("checked", true)
+        }, '1000');
+    });
+    function wxpayimg(wxobject) {
+        var inputObj = wxobject.parentElement.getElementsByTagName("input");
+        inputObj.checked = true;
+    }
+    function wxpay(wxobject) {
+        if ($(wxobject).hasClass("WxSelected")) {
+            return;
+        }
+        $("input[name='identifier']").attr("checked", false);
+        if (wxobject.value.indexOf("wxsmpay") > -1 && !wxobject.disabled) {
+            $("a[name='sp_cart_complete_pay_now']").hide();
+            var orderId = $("#orderId").val();
+            var url = "";
+            //wxpay.vancl.com/Transfer/index?orderid=780200041993
+            url = "http://wxpay.vancl.com/Transfer/index?orderid=" + orderId;
+            var version = Math.round(Math.random() * 100000111);
+            $("#barcode_iframe").attr("src", url + "&v=" + version.toString());
+            $('#barcode_pay').show();
+            $(wxobject).addClass("WxSelected");
+        }
+        else {
+            $("a[name='sp_cart_complete_pay_now']").show();
+            $('#barcode_pay').hide();
+            $("#barcode_iframe").attr("src", "");
+        }
+    }
+    function showMPAlipayForImg(object) {
+        var inputObj = object.parentElement.getElementsByTagName("input");
+        inputObj.checked = true;
+    }
+    function showMPAlipayForCompat(object) {
+        $("input[name='wx_identifier']").attr("checked", false);
+        $("input[name='wx_identifier']").removeClass("WxSelected");
+        if (object.value.indexOf("MPALIPAY") > -1 && !object.disabled) {
+            $("a[name='sp_cart_complete_pay_now']").hide();
+            var orderId = $("#orderId").val();
+            var identifier = object.value.split('$');
+            var paymentTypeId = identifier[0];
+            var paymentBank = identifier[2];
+            var url = "";
+            var payUrlAdd = "https://pay.vancl.com";
+            if ($("#orderUrlSource").val() == "Om")//om
+            {
+                url = payUrlAdd + "/shopping_pay.aspx?orderid=" + orderId + "&paymenttypeid=" + paymentTypeId + "&paymentbank=" + paymentBank + "&paymoney=" + $("#omPrice").val() + "&t=modify";
+            }
+            else {
+                url = payUrlAdd + "/shopping_pay.aspx?orderid=" + orderId + "&paymenttypeid=" + paymentTypeId + "&paymentbank=" + paymentBank + "&t=shop";
+            }
+            $("#barcode_iframe").attr("src", url + "&nested=1");
+            $('#barcode_pay').show();
+        } else {
+            $("a[name='sp_cart_complete_pay_now']").show();
+            $('#barcode_pay').hide();
+            $("#barcode_iframe").attr("src", "");
+        }
+
+    }
+</script>
+
+            </div>
+            
+<div class="blank0" style="height:32px;"></div><div class="BayWindow" style="position: fixed; right: 10px; bottom: 20px; z-index:10"><ul><li class="downApp"><a href="http://m.vancl.com/html/app.html#ref=hp-hp-head-mobile-v:n" target="_blank"></a></li><li class="online"><a href="http://imweb.vancl.com/" target="_blank"></a></li><li class="BlackTop"><a href="javascript:;" onclick="javascript:document.getElementById(&#39;headerTopArea&#39;).scrollIntoView()"></a></li></ul></div><script type="text/javascript"> $(document).ready(function () { var hostname = window.location.host; if (hostname != "demowww.vancl.com" && hostname != "www.vancl.com" && hostname != "www.fanke.com") { $(".subnavCon em").css({ display: "block" }); $(".subnavCon").hover(function () { $(this).find("em").addClass("emtop"); $(this).parent().find(".categoryList").show(); }, function () { $(this).find("em").removeClass("emtop"); $(this).parent().find(".categoryList").hide(); }); $(".categoryList").hover(function () { $(this).show(); }, function () { $(this).hide(); $(this).parent().find(".subnavCon em").removeClass("emtop"); }); } }); setTimeout(function () { var bp = document.createElement('script'); bp.src = '//push.zhanzhang.baidu.com/push.js'; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); }, 1000); $(function () { $(".subNav").hide(); $(".navlist ul li").hover(function () { $(this).find(".subNav").stop(true, true); $(this).find(".subNav").slideDown(); }, function () { $(this).find(".subNav").stop(true, true); $(this).find(".subNav").slideUp(); }); })</script>            
+        </div>
+        
+    <script type="text/javascript" src="/success_pub/js/js.ashx"></script>
+    <script type="text/javascript" src="/success_pub/js/js(1).js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="/success_pub/js/buy.js"></script>
+    
+    <script type="text/javascript" src="/success_pub/js/success.js"></script>
+    
+
+        <script type="text/javascript" src="/success_pub/js/trace.js"></script>
+        <script type="text/javascript" src="/success_pub/js/ct.js"></script>
+    
+
+</body></html>

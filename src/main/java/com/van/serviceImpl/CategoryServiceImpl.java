@@ -49,5 +49,8 @@ public class CategoryServiceImpl implements CategoryService {
         return cm.delCate(cc_id);
     }
 
-
+    @Override
+    public List<Product> findAllByFuzzyP_name(String search) {
+        return productMapper.findAllByFuzzyP_name(search);
+    }
 }
