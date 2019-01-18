@@ -24,4 +24,9 @@ public interface OrderService {
     int delOrder(Integer o_uid);
     //根据用户id查询订单
     List<Order> findOrderById(Integer U_id);
+    int delOrder(String o_uid);
+
+    //根据订单号查询订单信息
+    Order findOrderById(String o_uid);
+
 }

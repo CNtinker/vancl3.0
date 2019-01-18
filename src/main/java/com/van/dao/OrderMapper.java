@@ -16,10 +16,13 @@ public interface OrderMapper {
     List<Order> findAllOrder(Map<String, Object> map);
 
    //根据订单id修改订单状态
-   int updateOrderState(@Param("o_status") Integer o_status, @Param("o_uid") Integer o_uid);
+   int updateOrderState(@Param("o_status") Integer o_status, @Param("o_uid") String o_uid);
 
    //根据用户id修改订单信息
     int updateOrder(Integer uid);
+
+    //根据订单号查询订单信息
+    Order findOrderById(String o_uid);
 
     /*根据订单详情实体类创建订单详情*/
     int creatOrderDetail(Order_Detail order_detail);
@@ -31,4 +34,7 @@ public interface OrderMapper {
     int delOrder(Integer o_uid);
     //根据用户id查询订单
     List<Order> findOrderById(Integer U_id);
+    int delOrder(String o_uid);
+
+
 }

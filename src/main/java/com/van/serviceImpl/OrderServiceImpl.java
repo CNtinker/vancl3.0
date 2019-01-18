@@ -23,8 +23,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int delOrder(Integer o_uid) {
+    public int delOrder(String o_uid) {
         return orderMapper.delOrder(o_uid);
+    }
+
+    @Override
+    public Order findOrderById(String o_uid) {
+        return orderMapper.findOrderById(o_uid);
     }
 
     //查询所有的订单
@@ -34,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int updateOrderState(Integer o_status,Integer o_uid) {
+    public int updateOrderState(Integer o_status,String o_uid) {
         return orderMapper.updateOrderState(o_status,o_uid);
     }
 
