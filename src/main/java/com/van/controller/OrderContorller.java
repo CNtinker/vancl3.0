@@ -4,6 +4,7 @@ import com.van.pojo.Addr;
 import com.van.pojo.User;
 
 import com.van.service.AddrService;
+import com.van.service.OrderDetailService;
 import com.van.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class OrderContorller {
     AddrService addrService;
     @Autowired
     UserService userService;
+    @Autowired
+    OrderDetailService orderDetailService;
+
     /*前往个人订单页面*/
     @RequestMapping("/goToOrderIndex")
     public String goToOrderIndex(){
@@ -115,8 +119,8 @@ public class OrderContorller {
      public String toOrder(){
          /*1.通过U_id查出用户旗下的所有订单*/
 
-         /*2.通过订单表的o_uid查询到对应的订单*/
-
+         /*2.通过订单表的o_uid查询到对应的订单详情*/
+          orderDetailService.findOrderDetail();
         /* 3.通过订单详情表的p_id查询出对应的商品*/
 
         /*4~5通过订单详情表的size_id与color_id查询对应表的名称*/

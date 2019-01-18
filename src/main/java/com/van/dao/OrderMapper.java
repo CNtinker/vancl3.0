@@ -32,4 +32,6 @@ public interface OrderMapper {
 
     //根据id删除订单
     int delOrder(String o_uid);
+
+
 }
