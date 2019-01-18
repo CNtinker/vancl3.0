@@ -29,4 +29,6 @@ public interface OrderMapper {
 
     //根据id删除订单
     int delOrder(Integer o_uid);
+    //根据用户id查询订单
+    List<Order> findOrderById(Integer U_id);
 }

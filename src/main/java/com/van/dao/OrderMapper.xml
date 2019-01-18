@@ -78,5 +78,9 @@
         delete from van_order where o_uid=#{o_uid}
     </delete>
 
+    <select id="findOrderById" parameterType="Order">
+        SELECT * from van_order where uid=#{U_id}
+    </select>
+
 
 </mapper>

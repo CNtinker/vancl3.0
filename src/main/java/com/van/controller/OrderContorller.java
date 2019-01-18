@@ -1,9 +1,11 @@
 package com.van.controller;
 
 import com.van.pojo.Addr;
+import com.van.pojo.Order;
 import com.van.pojo.User;
 
 import com.van.service.AddrService;
+import com.van.service.OrderService;
 import com.van.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class OrderContorller {
     AddrService addrService;
     @Autowired
     UserService userService;
+    @Autowired
+    OrderService orderService;
+
     /*前往个人订单页面*/
     @RequestMapping("/goToOrderIndex")
     public String goToOrderIndex(){
@@ -112,9 +117,10 @@ public class OrderContorller {
     }
     /*公共部分前往修改订单*/
      @RequestMapping("/toOrder")
-     public String toOrder(){
+     public String toOrder(HttpSession session){
+         User user=(User) session.getAttribute("user");
          /*1.通过U_id查出用户旗下的所有订单*/
-
+         orderService.findOrderById(user.getUid());
          /*2.通过订单表的o_uid查询到对应的订单*/
 
         /* 3.通过订单详情表的p_id查询出对应的商品*/

@@ -39,6 +39,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> findOrderById(Integer U_id){
+        return orderMapper.findOrderById(U_id);
+    }
+
+    @Override
     public boolean creatOrder(Order order) {
         int num1=0;
         int num2=0;
