@@ -67,10 +67,13 @@
                     <th>操作</th>
                 </tr>
                 <tr th:each="pd:${pds}">
-                    <td class="first w4 c" ><span class="pid" th:text="${pd.getP_id()}"></span></td>
+                    <td class="first w4 c" ><span name="pid" th:text="${pd.getP_id()}"></span></td>
                     <td class="thumb"><img th:src="${pd.getP_img()}" style="width:80px;height:50px" /><a  th:text="${pd.getP_name()}" target="_blank"></a></td>
                     <td th:text="${#dates.format(pd.getRelease(),'yyyy-MM-dd')}" style="text-align: center">2088-11-02</td>
-                    <td class="w1 c"><a th:href="@{modifProduct(p_id=${pd.getP_id()})}">修改</a> <a  th:href="@{delProduct(p_id=${pd.getP_id()})}" onclick="del();return false;">删除</a></td>
+                    <td class="w1 c"><a th:href="@{modifProduct(p_id=${pd.getP_id()})}">修改</a>
+                        <span class="del" th:value="${pd.getP_id()}">删除</span>
+                        <!--<a  th:href="@{delProduct(p_id=${pd.getP_id()})}" onclick="del();return false;">删除</a>-->
+                    </td>
 
                 </tr>
             </table>
@@ -91,17 +94,15 @@
 </div>
 </body>
 <script type="text/javascript" rel="stylesheet">
-   /* $(function () {
+   $(function () {
         $(".del").click(function () {
-          confirm("确定要删除吗？")
-
-
+          if(confirm("确定要删除吗？")){
+            var id= $(this).attr("value");
+              location.href="/delProduct?p_id=" +id;
+          }
         })
-    })*/
-  function del() {
-     if(confirm("确定要删除吗？")) {
 
-     }
-  }
+    })
+
 </script>
 </html>

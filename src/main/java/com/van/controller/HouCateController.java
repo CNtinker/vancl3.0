@@ -62,7 +62,7 @@ public class HouCateController {
 
    //删除商品二级分类
     @RequestMapping("/delProductClass")
-    public String delProductClass(Integer cc_id){
+    public String delProductClass(@RequestParam Integer cc_id){
        int num=cs.delCate(cc_id);
            return "redirect:/productClass";
 

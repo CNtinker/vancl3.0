@@ -66,7 +66,8 @@
                         <td th:text="${ca.getCc_name()}"></td>
                         <td class="w1 c">
                              <span th:if="${ca.getChile().size()==0}">
-                                <a class="del" th:href="@{delProductClass(cc_id=${ca.getCc_id()})}">删除</a>
+                               <a class="del" th:value="${ca.getCc_id()}">删除</a>
+                                <!--<a class="del" th:href="@{delProductClass(cc_id=${ca.getCc_id()})}">删除</a>-->
                             </span>
                         </td>
                     </tr>
@@ -75,7 +76,8 @@
                             <td class="first w4 c">二级分类</td>
                             <td class="childClass" th:text="${cas.getCc_name()}"></td>
                             <td class="w1 c">
-                                <a class="dl" th:href="@{delProductClass(cc_id=${cas.getCc_id()})}">删除</a>
+                                <!--<a class="dl" th:href="@{delProductClass(cc_id=${cas.getCc_id()})}">删除</a>-->
+                                <a class="dl" th:value="${cas.getCc_id()}">删除</a>
                            </td>
                         </tr>
                         </span>
@@ -90,14 +92,17 @@
     京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号</div>
 </body>
 <script type="text/javascript" rel="stylesheet">
-    $(function () {
-        $(".dl").click(function () {
-            confirm("确定要删除吗？");
-        })
-
-        $(".del").click(function () {
-            confirm("确定要删除吗？");
-        })
-    })
+   $(".dl").click(function () {
+        if(confirm("确定要删除吗？")){
+            var id= $(this).attr("value");
+            location.href="/delProductClass?cc_id=" +id;
+        }
+    });
+   $(".del").click(function () {
+       if(confirm("确定要删除吗？")){
+           var id= $(this).attr("value");
+           location.href="/delProductClass?cc_id=" +id;
+       }
+   });
 </script>
 </html>

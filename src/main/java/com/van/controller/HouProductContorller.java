@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -116,10 +117,11 @@ public class HouProductContorller {
     }
 
 
-
+   //删除商品
    @RequestMapping("/delProduct")
-   public String delProduct(@RequestParam Integer p_id){
-       Integer num=productService.deleteProductById(p_id);
+   public String delProduct(@RequestParam("p_id") Integer pid){
+       System.out.println("我是id："+pid);
+       Integer num=productService.deleteProductById(pid);
        return "redirect:/product";
    }
 
