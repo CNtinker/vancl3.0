@@ -86,8 +86,6 @@
                 <ul class="edit-nav">
                     <li><a class="selected" href="http://my.vancl.com/User/UserInfo" name="my_personinfo_Basic">
                         基本资料</a></li>
-                    <li><a href="http://my.vancl.com/User/UserDetail" class="track" name="my_personinfo_Details">详细资料</a></li>
-                    <li><a href="http://my.vancl.com/User/FigurePreference" class="track" name="my_personinfo_Bodypref">身材/偏好</a></li>
                 </ul>
                 <script type="text/javascript" language="javascript">
                     function previewImgLoad() {
@@ -128,7 +126,7 @@
                             <span style="color: red;">*</span>真实姓名：
                         </td>
                         <td>
-                            <input type="text" class="contact" name="TrueName" id="TrueName" value="" onblur="CheckOnBlur(this.id)">
+                            <input type="text" class="contact" name="TrueName" id="TrueName" value="" th:value="${session.user.getReal_name()}" onblur="CheckOnBlur(this.id)">
                             <div id="WrongTrueName" class="shuru0316" style="display: none;">
                                 <p>
                                     请填写您的姓名</p>
@@ -171,7 +169,7 @@
                             收信邮箱：
                         </td>
                         <td>
-                            <input class="contact" type="text" name="Email" id="Email" value="" onblur="CheckOnBlur(this.id)">
+                            <input class="contact" type="text" name="Email" id="Email" value="" th:value="${session.user.email}" onblur="CheckOnBlur(this.id)">
                             <span style="color: #A10000; float: left; margin-left: 5px; margin-top: 5px; cursor: pointer;" onclick="CheckYZEmail();">去验证&gt;&gt;</span>
                             <div id="WrongEmail" class="shuru0316" style="display: none;">
                                 <p>
@@ -238,7 +236,7 @@
                             </div>
                             <input class="contact w315" type="text" name="Address" id="Address" value="" onblur="CheckOnBlur(this.id)">
                             <div id="WrongAddress" class="shuru0316" style="display: none;">
-                                <p>
+                                <p >
                                     请填写您的详细地址</p>
                             </div>
                         </td>
@@ -249,7 +247,7 @@
                             <span style="color: red;">*</span>手&nbsp;&nbsp;&nbsp;&nbsp;机：
                         </td>
                         <td>
-                            <input class="contact" type="text" name="Mobile" id="Mobile" value="17680313630" onblur="CheckOnBlur(this.id)">
+                            <input class="contact" type="text" name="Mobile" id="Mobile" value="" th:value="${session.user.tell_phone}" onblur="CheckOnBlur(this.id)">
                             <a style="color: #A10000; float: left; margin-left: 5px; margin-top: 5px; cursor: pointer;" onclick="CheckYZMobile();">去验证&gt;&gt;</a>
                             <div id="WrongMobile" class="shuru0316" style="display: none;">
                                 <p>
@@ -262,7 +260,7 @@
                             座&nbsp;&nbsp;&nbsp;&nbsp;机：
                         </td>
                         <td>
-                            <input class="contact" type="text" name="Phone" id="Phone" value="" onblur="CheckOnBlur(this.id)">
+                            <input class="contact" type="text" name="Phone" id="Phone" value="" th:value="${session.user.land_phone}" onblur="CheckOnBlur(this.id)">
                             <div id="WrongPhone" class="shuru0316" style="display: none;">
                                 <p>
                                     座机号码不能多于16位，不能少于7位</p>

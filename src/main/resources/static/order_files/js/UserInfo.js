@@ -22,7 +22,11 @@ $(function () {
             alert(Mobile)
         }
 
+    });
+    $(".track").click(function () {
 
 
-    })
+        var herf1=$(this).attr("url")
+         $("#J_iframe").attr("src",herf1)
+    });
 });

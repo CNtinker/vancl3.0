@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,19 +23,19 @@ import java.util.List;
 public class OrderContorller {
     @Autowired
     AddrService addrService;
-
+    @Autowired
     UserService userService;
-
+    /*前往个人订单页面*/
     @RequestMapping("/goToOrderIndex")
     public String goToOrderIndex(){
         return "userinfo";
     }
-
+    /*公共部分前往修改个人资料*/
     @RequestMapping("/goToMyData")
     public String goToMyData(){
         return "OrderIndex_pub/UserInFo_pub.html";
     }
-
+    /*修改个人资料的方法*/
     @RequestMapping("/updataMyData")
     public String updataMyData(String TrueName,String sex,String bYear,String bMonth,String bDay,String Email,String Province,String City,String Area,String Address,String Mobile,String Phone,HttpSession session){
         User user= (User)session.getAttribute("user");
@@ -57,7 +58,7 @@ public class OrderContorller {
             }
 
             String datastring=bYear+"-"+bMonth+"-"+bDay;
-
+            /*Timestamp.valueOf()*/
             System.out.println(datastring);
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
             try{
@@ -109,9 +110,11 @@ public class OrderContorller {
         userService.updateUserById(user);
         return "redirect:/goToMyData";
     }
-
+    /*公共部分前往修改订单*/
      @RequestMapping("/toOrder")
      public String toOrder(){
+         1.查出
+
         return "order";
      }
 
