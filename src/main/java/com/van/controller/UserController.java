@@ -23,7 +23,7 @@ public class UserController {
 
     @RequestMapping("/index")
     public  String index(){
-        return "regs";
+        return "order";
     }
 
 
