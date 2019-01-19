@@ -15,6 +15,48 @@
 
 
     <script type="text/javascript" language="javascript">
+        function shengChange(){
+            $("#City").html("<option value=''>--省份/直辖市--</option>");
+            var ar_parent_id=$("#Province :selected").val();
+            $.ajax({
+                type: "POST",
+                url: "shi",
+                data: {"ar_parent_id": ar_parent_id},
+                dataType: "json",
+                success: function (data) {
+                    for(var i=0;i<data.length;i++){
+                        var op="<option value='"+data[i].ar_id+"'>"+data[i].ar_name+"</option>";
+                        $("#City").append(op);
+                    }
+                }
+            })
+        }
+
+        function  shiChange(){
+            $("#Area").html("<option value=''>--市--</option>");
+            var cr_parent_id=$("#City :selected").val();
+            $.ajax({
+                type: "POST",
+                url: "qu",
+                data: {"cr_parent_id": cr_parent_id},
+                dataType: "json",
+                success: function (result) {
+                    for(var i=0;i<result.length;i++){
+                        var op="<option value='"+result[i].ar_id+"'>"+result[i].ar_name+"</option>";
+                        $("#Area").append(op);
+                    }
+                }
+            })
+        }
+
+
+
+
+
+
+
+
+
         var COOKIE_NAME_WEIXIN = "COOKIE_NAME_WEIXIN";
         $(function () {
             //'标记已看到菜单移位通知'的cookie名
@@ -182,48 +224,15 @@
                             <span style="color: red;">*</span>地&nbsp;&nbsp;&nbsp;&nbsp;区：
                         </td>
                         <td>
-                            <select onchange="ShowCity(this.options[selectedIndex].value);" name="Province" id="Province" data-province="">
-                                <option value="">--省份/直辖市--</option>
-                                <option value="北京">北京</option>
-                                <option value="天津">天津</option>
-                                <option value="河北">河北</option>
-                                <option value="山西">山西</option>
-                                <option value="内蒙古">内蒙古</option>
-                                <option value="辽宁">辽宁</option>
-                                <option value="吉林">吉林</option>
-                                <option value="黑龙江">黑龙江</option>
-                                <option value="上海">上海</option>
-                                <option value="江苏">江苏</option>
-                                <option value="浙江">浙江</option>
-                                <option value="安徽">安徽</option>
-                                <option value="福建">福建</option>
-                                <option value="江西">江西</option>
-                                <option value="山东">山东</option>
-                                <option value="河南">河南</option>
-                                <option value="湖北">湖北</option>
-                                <option value="湖南">湖南</option>
-                                <option value="广东">广东</option>
-                                <option value="广西">广西</option>
-                                <option value="海南">海南</option>
-                                <option value="重庆">重庆</option>
-                                <option value="四川">四川</option>
-                                <option value="贵州">贵州</option>
-                                <option value="云南">云南</option>
-                                <option value="西藏">西藏</option>
-                                <option value="陕西">陕西</option>
-                                <option value="甘肃">甘肃</option>
-                                <option value="青海">青海</option>
-                                <option value="宁夏">宁夏</option>
-                                <option value="新疆">新疆</option>
-                                <option value="台湾省">台湾省</option>
-                                <option value="香港特别行政区">香港特别行政区</option>
-                                <option value="澳门特别行政区">澳门特别行政区</option>
+                            <select onchange="shengChange()" name="Province" id="Province" data-province="">
+                                <option selected value="0">--省份/直辖市--</option>
+                                <option th:each="s:${areas}" th:value="${s.getAr_id()}" th:text="${s.getAr_name()}"></option>
                             </select>
-                            <select onchange="ShowArea(this.options[selectedIndex].value);" name="City" id="City" data-city="">
-                                <option value="">--市--</option>
+                            <select onchange="shiChange()" name="City" id="City" data-city="">
+                                <option selected value="0">--市--</option>
                             </select>
                             <select onchange="GetPostalCodeNew(this.options[this.selectedIndex].value,&#39;City&#39;,&#39;Province&#39;);" name="Area" id="Area" data-area="">
-                                <option value="">--县/区--</option>
+                                <option selected value="">--县/区--</option>
                             </select>
                         </td>
                     </tr>

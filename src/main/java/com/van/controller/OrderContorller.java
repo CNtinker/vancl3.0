@@ -1,16 +1,11 @@
 package com.van.controller;
 
-import com.van.pojo.Addr;
-import com.van.pojo.Order;
-import com.van.pojo.Order_Detail;
-import com.van.pojo.User;
+import com.van.pojo.*;
 
-import com.van.service.AddrService;
-import com.van.service.OrderService;
-import com.van.service.OrderDetailService;
-import com.van.service.UserService;
+import com.van.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -34,6 +29,8 @@ public class OrderContorller {
 
     @Autowired
     OrderDetailService orderDetailService;
+    @Autowired
+    private AreasService areasService;
 
     /*前往个人订单页面*/
     @RequestMapping("/goToOrderIndex")
@@ -42,7 +39,9 @@ public class OrderContorller {
     }
     /*公共部分前往修改个人资料*/
     @RequestMapping("/goToMyData")
-    public String goToMyData(){
+    public String goToMyData(Model mod){
+        List<Areas> areas= areasService.findAllProvence();
+        mod.addAttribute("areas",areas);
         return "OrderIndex_pub/UserInFo_pub.html";
     }
     /*修改个人资料的方法*/
@@ -121,21 +120,21 @@ public class OrderContorller {
         return "redirect:/goToMyData";
     }
     /*公共部分前往修改订单*/
-     @RequestMapping("/toOrder")
+    @RequestMapping("/toOrder")
      public String toOrder(HttpSession session){
-         User user=(User) session.getAttribute("user");
-         /*1.通过U_id查出用户旗下的所有订单*/
+       /*  User user=(User) session.getAttribute("user");
+         //1.通过U_id查出用户旗下的所有订单
          List<Order> orders=orderService.findOrderById(user.getUid());
          for (Order order:orders) {
-             /*2.通过订单表的o_uid查询到对应的订单详情*/
+             //2.通过订单表的o_uid查询到对应的订单详情
             List<Order_Detail> order_details= orderDetailService.findOrderDetail(order.getO_uid());
          }
-        /* 3.通过订单详情表的p_id查询出对应的商品*/
+        // 3.通过订单详情表的p_id查询出对应的商品
 
-        /*4~5通过订单详情表的size_id与color_id查询对应表的名称*/
+        //4~5通过订单详情表的size_id与color_id查询对应表的名称
 
-        /*6通过订单表的地址id查询出对应的地址名称（详细名称）*/
-
+        //6通过订单表的地址id查询出对应的地址名称（详细名称）
+*/
 
         return "order";
      }

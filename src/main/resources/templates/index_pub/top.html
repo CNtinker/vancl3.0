@@ -23,12 +23,12 @@
                         </div>
                     </div>
                     <div class="headerTopLeft">
-                        <div id="welcome" class="top loginArea"> 您好,<span class="top">欢迎光临凡客诚品！&nbsp;</span><span><a
+                        <div id="welcome" class="top loginArea"> 您好<a  th:href="@{goToOrderIndex}"><span th:text="${session.user.getLogin_name()}"></span><a>,<span class="top">欢迎光临凡客诚品！&nbsp;</span><span><a
                                 href="javascript:location.href=&#39;https://login.vancl.com/login/login.aspx?&#39;+encodeURIComponent(location.href)"
                                 name="hp-hp-head-signin-v:n" class="top track">登录</a>&nbsp;|&nbsp;<a
                                 href="javascript:location.href=&#39;https://login.vancl.com/login/reg.aspx?&#39;+encodeURIComponent(location.href)"
                                 name="hp-hp-head-register-v:n" class="track">注册</a></span></div>
-                        <div class="recommendArea"><a href="/goToOrderIndex" rel="nofollow" class="track"
+                        <div class="recommendArea"><a href="/toOrder" rel="nofollow" class="track"
                                                       name="hp-hp-head-order-v:n"> 我的订单</a></div>
                     </div>
                     <span class="blank0"></span></div>
